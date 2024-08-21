@@ -5,6 +5,8 @@ import { View, Text, FlatList } from 'react-native';
 import 'react-native-gesture-handler';
 import HomeScreen from './src/screens/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { SafeAreaView } from 'react-native';
+import LogIn from './src/screens/LogIn';
 
 const StackNavigation = () =>
 {
@@ -33,6 +35,9 @@ function App() {
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen}/>
       </Drawer.Navigator>
+      <SafeAreaView style={{ flex: 1 }}>
+      <LogIn />
+      </SafeAreaView>
     </NavigationContainer>
   );
 }
@@ -40,45 +45,5 @@ function App() {
 export default App;
 
 
-/*import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, FlatList } from 'react-native';
-import 'react-native-gesture-handler';
-import HomeScreen from './src/screens/HomeScreen';
-
-function App(){
-  
-  const Stack = createStackNavigator();_
-
-  return(
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen}/>
-    </Stack.Navigator>
-  );
-
-}*/
-
-/*const Stack = createStackNavigator();
-
-const HomeScreen = () => {
-  return (
-    <View>
-      <Text>GreenMarket</Text>
-    </View>
-  );
-};
-
-function App(){
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
-        <Stack.Screen name ="Home" component={HomeScreen}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-
-*/
 
 
