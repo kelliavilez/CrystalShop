@@ -19,10 +19,11 @@ const StackNavigation = () =>
           headerTintColor: 'black',
           headerStyle: 
           {
-            backgroundColor: 'blue'
+            backgroundColor: 'Green'
           },
         }}>
-        <Stack.Screen name='Home' component={HomeScreen}/>
+        <Stack.Screen name='GreenMarket' component={HomeScreen}/>
+        <Stack.Screen name='LogIn' component={LogIn}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -34,14 +35,16 @@ function App() {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen}/>
+        <Drawer.Screen name='LogIn' component={LogIn}/>
       </Drawer.Navigator>
-      <SafeAreaView style={{ flex: 1 }}>
-      <LogIn />
-      </SafeAreaView>
     </NavigationContainer>
   );
 }
-
+/*
+<SafeAreaView style={{ flex: 1 }}>
+      <LogIn />
+      </SafeAreaView>
+*/ 
 export default App;
 
 
