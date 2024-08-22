@@ -7,6 +7,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaView } from 'react-native';
 import LogIn from './src/screens/LogIn';
+import RegisterUsers from'./src/screens/RegisterUsers';
 
 const StackNavigation = () =>
 {
@@ -24,6 +25,7 @@ const StackNavigation = () =>
         }}>
         <Stack.Screen name='GreenMarket' component={HomeScreen}/>
         <Stack.Screen name='LogIn' component={LogIn}/>
+        <Stack.Screen name='Registro' component={RegisterUsers}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -36,6 +38,7 @@ function App() {
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen}/>
         <Drawer.Screen name='Log In' component={LogIn}/>
+        <Drawer.Screen name='Registro' component={RegisterUsers}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
