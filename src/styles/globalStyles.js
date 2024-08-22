@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         borderRadius: 150,
     },
+    
     titleLog: {
         fontSize: 30,
         fontWeight: '800',
