@@ -6,16 +6,33 @@ function HomeScreen() {
     return (
         <View style={styles.viewStyle}>
             <Text style={styles.headingStyle}>GreenMarket</Text>
-            <Text style={styles.textStyle}></Text>
-            <Text>Mascotas</Text>
+            <Text style={styles.textStyele}></Text>
             <FlatList
-                data={articles}
-                renderItem={({ item }) => <ArticlesCard article={item} />}
-                keyExtractor={(item) => item.id.toString()}
+            data={articles}
+            renderItem={({ item }) => <ArticlesCard article={item} />}
+            keyExtractor={(item) => item.id.toString()}
             />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    viewStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+    },
+    textStyele: {
+        fontSize: 28,
+        color: 'black',
+    },
+    headingStyle: {
+        fontSize: 28,
+        color: 'black',
+        textAlign: 'center',
+    }
+});
 
 const articles = [
     {
@@ -59,24 +76,5 @@ const articles = [
       vet: 'Martha'
     }
   ];
-  
-
-const styles = StyleSheet.create({
-    viewStyle: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
-    textStyele: {
-        fontSize: 28,
-        color: 'black',
-    },
-    headingStyle: {
-        fontSize: 28,
-        color: 'black',
-        textAlign: 'center',
-    }
-});
 
 export default HomeScreen;
