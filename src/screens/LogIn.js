@@ -50,7 +50,12 @@ const LogIn = () => {
             }>
             Ingresar
           </Button>
-          <Text>No tienes cuenta? Registrate</Text>
+          <View>
+          <Text >
+          ¿No tienes cuenta? <Text style={styles.link} onPress={() => console.log('Ir a login')}>Registrate</Text>
+        </Text>
+          
+        </View>
         </View>
       </View>
     </SafeAreaView>
