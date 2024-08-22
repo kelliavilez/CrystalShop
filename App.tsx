@@ -35,7 +35,7 @@ function App() {
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen}/>
-        <Drawer.Screen name='LogIn' component={LogIn}/>
+        <Drawer.Screen name='Log In' component={LogIn}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
