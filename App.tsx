@@ -40,8 +40,6 @@ const StackNavigation = () => {
         <Stack.Screen name='MyBoughts' component={MyBoughts}/>
         <Stack.Screen name='ArticlesCategory' component={ArticlesCategory}/>
         <Stack.Screen name='ArticlesDetails' component={ArticlesDetails}/>
-        <Stack.Screen name='GreenMarket' component={HomeScreen} />
-        <Stack.Screen name='LogIn' component={LogIn} />
         <Stack.Screen name='Registro' component={SignUp} />
         <Stack.Screen name='Pagos' component={Payment} />
       </Stack.Navigator>
@@ -145,19 +143,6 @@ const ArtciclesDetails = () => {
 }
 
 
-  /*const Drawer = createDrawerNavigator();
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name='Home' component={HomeScreen} />
-        <Drawer.Screen name='Log In' component={LogIn} />
-        <Drawer.Screen name='Registro' component={SignUp} />
-        <Drawer.Screen name='Pagos' component={Payment} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
-*/
 export default App;
 
 
