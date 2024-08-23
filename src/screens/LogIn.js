@@ -16,7 +16,7 @@ const LogIn = () => {
             alt='Logo GreenMarket'
           />
           <Text style={styles.titleLog}> Bienvenid@ </Text>
-          <Text style={styles.titleLog}>TreeMarket</Text>
+          <Text style={styles.titleLog}>GreenMarket</Text>
           <Text style={styles.subtitleLog}>Compra ecológica que siempre resalta y abarca </Text>
           <TextInput
             label="Usuario"
