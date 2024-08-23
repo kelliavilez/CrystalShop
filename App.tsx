@@ -34,7 +34,7 @@ function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
-        <Drawer.Screen name='GreenMarket' component={HomeScreen}/>
+        <Drawer.Screen name='Home' component={HomeScreen}/>
         <Drawer.Screen name='LogIn' component={LogIn}/>
       </Drawer.Navigator>
     </NavigationContainer>

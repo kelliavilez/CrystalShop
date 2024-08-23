@@ -5,26 +5,46 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 16,
-        backgroundColor: '#f5f5f5', // Fondo claro para toda la pantalla
+        marginTop: -70,
+        backgroundColor:'#f7fef4'
     },
-        /*container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: 'grey',
-        borderRadius: 10,
-        shadowColor: '#000',
-        textShadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5
-    },*/
-    /*infoContainer: {
+    header: {
+        marginVertical: 38,
+    },
+    imagenLog: {
+        width: 150,
+        height: 150,
+        alignSelf: 'center',
+        marginBottom: 30,
+        borderRadius: 150,
+    },
+    titleLog: {
+        fontSize: 30,
+        fontWeight: '800',
+        color: '#333333',
         marginBottom: 10,
-    },*/
+        textAlign: 'center',
+    },
+    subtitleLog:{
+        fontSize: 13,
+        fontWeight: '150',
+        color: '#333333',
+        marginBottom: 10,
+        textAlign: 'left',
+
+    },
+    textInput: {
+        width: 350,
+        marginBottom: 16,
+        backgroundColor: '#e1f1dd'
+    },
+    buttonLog: {
+        paddingVertical: 5,
+        marginBottom: 80
+    },
     card: {
         shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         backgroundColor: '#7979',
@@ -32,6 +52,12 @@ const styles = StyleSheet.create({
         padding: 20,
         margin: 10,
         elevation: 5,
+        elevation: 5
+    },
+    textLog:{
+        fontSize:17,
+        fontWeight:16,
+        textAlign:'center',
     },
     title: {
         fontSize: 20,
