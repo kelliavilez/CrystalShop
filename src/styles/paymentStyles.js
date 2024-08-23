@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7fef4',
         marginBottom: 10,
     },
+
+    container2: {
+        flexDirection: 'row', 
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+    },
     card: {
         backgroundColor: 'white',
         marginBottom:15,
@@ -21,6 +28,15 @@ const styles = StyleSheet.create({
         marginBottom:5,
         marginTop:10,
 
+    },
+    button: {
+        padding: 3,
+        backgroundColor: '#89c07a',
+        borderRadius: 2,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 10,
     },
     radioItem: {
         flexDirection: 'row',
