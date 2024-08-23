@@ -38,21 +38,42 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         backgroundColor: '#e1f1dd'
     },
+    textInputHeaderHome: {
+        height: 57,
+        width: 320,
+        backgroundColor: '#e1f1dd'
+    },
     buttonLog: {
         paddingVertical: 5,
         marginBottom: 80
     },
+    viewStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        backgroundColor: '#e1f1dd',
+
+    },
+    textStyele: {
+        fontSize: 28,
+        color: 'black',
+    },
+    headingStyle: {
+        fontSize: 28,
+        color: 'black',
+        textAlign: 'center',
+        marginTop: 20,
+        marginBottom: 10,
+        
+    },
     card: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        backgroundColor: '#7979',
-        borderRadius: 10,
-        padding: 20,
-        margin: 10,
-        elevation: 5,
-        elevation: 5
+        padding: 1,
+        margin: 5,
+        elevation: 2,
+        width: 180,
+        height: 220,
+        backgroundColor: '#78a98c'
     },
     textLog:{
         fontSize:17,
@@ -64,9 +85,8 @@ const styles = StyleSheet.create({
     },
     photo: {
         width: 100,
-        height: 100,
-        borderRadius: 50,
-        marginRight: 10
+        height: 50,
+        borderRadius: 10
     },
     name: {
         fontSize: 15,
@@ -74,23 +94,47 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         color: '#100f0f'
     },
-    button: {
-        color: '#000'
-    },
     subtitle: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#000',
         margin: 25,
         padding: 10
-    }
-    /*text: {
+    },
+    optionMenu: {
+        marginTop: 20,
+      },
+    optionButtonMenu: {
+        marginVertical: 5,
+        borderColor: '#89c07a',
+        borderWidth: 1,
+    },
+    MessageHelpSupport: {
+        width: 285
+    },
+    cardCategory: {
+        padding: 15,
+        margin: 5,
+        width: 70,
+        height: 70,
+        backgroundColor: '#78a98c',
+        borderRadius: 50,
+        marginBottom: 130,
+        marginHorizontal: 20
+    },
+    categoryPhoto:{
+        width: 60,
+        height: 60,
+        borderRadius: 50,
+        
+    },
+    text: {
         fontSize: 18,
         fontWeight: 'bold',
         fontFamily: 'System',
         color: '#100f0f',
         marginBottom: 5
-    },*/
+    }
     /*button: {
         backgroundColor: '#ffe333',
         fontSize: 25
