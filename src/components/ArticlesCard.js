@@ -1,27 +1,27 @@
 import React from 'react';
-import { View, Text, Image, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Image} from 'react-native';
 import styles from '../styles/globalStyles';
+import { useNavigation } from '@react-navigation/native';
+import { Card, Button, Text, IconButton } from 'react-native-paper';
 
 const   ArticlesCard = ({ article }) => {
-  const navigation = useNavigation();
+
+  const navigation=useNavigation();
 
   return (
-    <View style={styles.card}>
+    <View>
+    <Card style={styles.card}>
+    <Card.Content>
       <Image source={{ uri: article.photo }} style={styles.photo} />
-      <Text style={styles.name}>Nombre Mascota: {article.name}</Text>
-      <Text>Raza: {article.race}</Text>
-      <Text>Tipo: {article.type}</Text>
-      <Text>Edad: {article.age}</Text>
-      <Text>Propietario: {article.person}</Text>
-      <Text>Veterinario: {article.vet}</Text>
-
-      <Button
-        title="Comprar"
-        style={styles.button}
-        onPress={() => navigation.navigate('')}
-      />
+      <Text variant="titleSmall" >Card title</Text>
+      <Text variant="bodySmall" >{article.description}</Text>   
+      <Button buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('ArticlesDetails')}>
+      Ver mas
+      </Button>
+    </Card.Content>
+    </Card>
     </View>
+    
   );
 };
 
