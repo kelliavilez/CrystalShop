@@ -1,16 +1,28 @@
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import { black } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import ArticlesCard from "../components/ArticlesCard";
+import ArticlesDetails from '../components/ArticlesDetails';
+import { Card, Button, Text, IconButton } from 'react-native-paper';
 
-function HomeScreen() {
+function HomeScreen(navigation) {
+    const numColumns = 2;
+    const handleNavigateToDetails = (article) => {
+      navigation.navigate('ArticlesDetails', { article });
+    };
     return (
         <View style={styles.viewStyle}>
-            <Text style={styles.headingStyle}>GreenMarket</Text>
+            <Text style={styles.headingStyle} variant="titleLarge">Productos</Text>
             <Text style={styles.textStyele}></Text>
             <FlatList
             data={articles}
-            renderItem={({ item }) => <ArticlesCard article={item} />}
+            renderItem={({ item }) => 
+            <ArticlesCard 
+            article={item} 
+            onPress={() => handleNavigateToDetails(item)} 
+           />}
             keyExtractor={(item) => item.id.toString()}
+            numColumns={2}
+            key={numColumns}
             />
         </View>
     );
@@ -22,6 +34,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
+        backgroundColor: '#e1f1dd',
+
     },
     textStyele: {
         fontSize: 28,
@@ -31,49 +45,42 @@ const styles = StyleSheet.create({
         fontSize: 28,
         color: 'black',
         textAlign: 'center',
+        marginTop: 20,
+        marginBottom: -25,
+        
     }
 });
 
 const articles = [
     {
       id: 1,
-      photo: 'https://www.shutterstock.com/image-photo/portrait-black-red-doberman-pinscher-600nw-2353421935.jpg',
-      name: 'Firulais',
-      race: 'Doberman',
-      type: 'Canine',
-      age: 2,
-      person: 'Camila',
-      vet: 'Luis Carlos'
+      photo: 'https://cdn.redcanina.es/wp-content/uploads/2019/02/12102930/golden-cachorro-e1549967733842-1024x650.jpg',
+      destription: 'hola',
+     
     },
     {
       id: 2,
       photo: 'https://cdn.redcanina.es/wp-content/uploads/2019/02/12102930/golden-cachorro-e1549967733842-1024x650.jpg',
-      name: 'Pacho',
-      race: 'Golden',
-      type: 'Canine',
-      age: 2,
-      person: 'Andres',
-      vet: 'Luis Carlos'
+      destription: 'hola',
     },
     {
       id: 3,
       photo: 'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/gato_persa.jpg',
-      name: 'Zafiro',
-      race: 'Persa',
-      type: 'Fenina',
-      age: 3,
-      person: 'Kelly Johana',
-      vet: 'Martha'
+      Destription: '',
     },
     {
       id: 4,
       photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
-      name: 'Polo',
-      race: 'Pastor aleman',
-      type: 'Perro',
-      age: 3,
-      person: 'Juliana',
-      vet: 'Martha'
+      Destription: '',
+    },
+    {
+      id: 5,
+      photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
+      Destription: '',
+    },
+    {
+      id: 6,
+      photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
     }
   ];
 
