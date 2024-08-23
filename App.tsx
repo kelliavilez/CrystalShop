@@ -13,22 +13,23 @@ import ArticlesDetails from './src/components/ArticlesDetails';
 import HelpSupport from './src/screens/HelpSupport';
 import Oferts from './src/screens/Oferts';
 import OfertsCard from './src/components/OfertsCard';
-import { Drawer } from 'react-native-paper';
 import MyBoughts from './src/screens/MyBoughts';
 import ArticlesCategory from './src/screens/ArticlesCategory';
 import ArticlesCard from './src/components/ArticlesCard';
+import SignUp from './src/screens/SignUp';
+import Payment from './src/screens/Payment';
 
 const Stack = createStackNavigator();
 
-const StackNavigation = () =>
-{
-  return(
+const StackNavigation = () => {
+  const Stack = createStackNavigator();
+  return (
     <NavigationContainer>
-      <Stack.Navigator 
+      <Stack.Navigator
         screenOptions=
         {{
           headerTintColor: 'black',
-          headerStyle: 
+          headerStyle:
           {
             backgroundColor: 'Green'
           },
@@ -39,6 +40,10 @@ const StackNavigation = () =>
         <Stack.Screen name='MyBoughts' component={MyBoughts}/>
         <Stack.Screen name='ArticlesCategory' component={ArticlesCategory}/>
         <Stack.Screen name='ArticlesDetails' component={ArticlesDetails}/>
+        <Stack.Screen name='GreenMarket' component={HomeScreen} />
+        <Stack.Screen name='LogIn' component={LogIn} />
+        <Stack.Screen name='Registro' component={SignUp} />
+        <Stack.Screen name='Pagos' component={Payment} />
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -140,6 +145,19 @@ const ArtciclesDetails = () => {
 }
 
 
+  /*const Drawer = createDrawerNavigator();
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name='Home' component={HomeScreen} />
+        <Drawer.Screen name='Log In' component={LogIn} />
+        <Drawer.Screen name='Registro' component={SignUp} />
+        <Drawer.Screen name='Pagos' component={Payment} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+*/
 export default App;
 
 

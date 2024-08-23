@@ -5,19 +5,30 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: -70,
-        backgroundColor:'#f7fef4'
-    },
+        paddingHorizontal: 20,
+        backgroundColor: '#f7fef4',
+      },
     header: {
         marginVertical: 38,
+        marginHorizontal:20,
+        marginTop:25,
+        paddingTop:10,
     },
     imagenLog: {
         width: 150,
         height: 150,
         alignSelf: 'center',
-        marginBottom: 30,
+        marginBottom: 40,
         borderRadius: 150,
     },
+    link:{
+        fontSize: 16,
+        fontWeight: '150',
+        color: '#89c07a',
+        marginBottom: 1,
+        textAlign: 'left',
+    },
+
     titleLog: {
         fontSize: 30,
         fontWeight: '800',
@@ -25,7 +36,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'center',
     },
-    subtitleLog:{
+    subtitleLog: {
         fontSize: 13,
         fontWeight: '150',
         color: '#333333',
@@ -47,26 +58,20 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         marginBottom: 80
     },
-    viewStyle: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-        backgroundColor: '#e1f1dd',
-
-    },
-    textStyele: {
-        fontSize: 28,
-        color: 'black',
-    },
-    headingStyle: {
-        fontSize: 28,
-        color: 'black',
+    titleSign: {
         textAlign: 'center',
-        marginTop: 20,
+        fontSize: 25,
+        color: 'black',
         marginBottom: 10,
-        
+        fontWeight: 'bold',
     },
+
+    iconContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center', 
+        marginBottom: 1, 
+      },
+
     card: {
         padding: 1,
         margin: 5,
@@ -75,18 +80,19 @@ const styles = StyleSheet.create({
         height: 220,
         backgroundColor: '#78a98c'
     },
-    textLog:{
-        fontSize:17,
-        fontWeight:16,
-        textAlign:'center',
+    textLog: {
+        fontSize: 17,
+        fontWeight: 16,
+        textAlign: 'center',
     },
     title: {
         fontSize: 20,
     },
     photo: {
         width: 100,
-        height: 50,
-        borderRadius: 10
+        height: 100,
+        borderRadius: 50,
+        marginRight: 50
     },
     name: {
         fontSize: 15,
