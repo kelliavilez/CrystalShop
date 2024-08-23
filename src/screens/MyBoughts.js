@@ -1,21 +1,17 @@
 import React from 'react';
 import { View, Text, Image, Button, FlatList  } from 'react-native';
 import styles from '../styles/globalStyles';
-import ArticlesDetails from '../components/ArticlesDetails'
+import ArticlesDetails from './ArticlesDetails'
 import { useNavigation } from '@react-navigation/native';
 import BoughtsCard from '../components/BoughtsCard';
 
 const MyBoughts = () => {
-    const numColumns = 2;
     return (
       <View style={styles.viewStyle}>
-        <Text style={styles.headingStyle} variant="titleLarge">Mis compras</Text>
         <FlatList
           data={boughts}
           renderItem={({ item }) => <BoughtsCard bought={item} />}
-          keyExtractor={(item) => item.id.toString()}
-          numColumns={2}
-          key={numColumns}
+          keyExtractor={(item) => item.id.toString()}   
         />
       </View>
     );
@@ -24,31 +20,22 @@ const MyBoughts = () => {
   const boughts = [
     {
       id: 1,
-      photo: 'https://www.shutterstock.com/image-photo/portrait-black-red-doberman-pinscher-600nw-2353421935.jpg',
+      photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/38252836/resize/800/800?1691160167',
+      description: 'Hermoso juego de macetas de ceramica con diseños de animales: cebra, zorro, vaca, mapache, gato, entre otros varios',
+      state: 'Entregado'
       
     },
     {
       id: 2,
-      photo: 'https://cdn.redcanina.es/wp-content/uploads/2019/02/12102930/golden-cachorro-e1549967733842-1024x650.jpg',
-    
+      photo: 'https://d1flfk77wl2xk4.cloudfront.net/Assets/40/564/XXL_p0208456440.jpg',
+      description: 'Hermoso blush tono rosado , con alta duracion y pigmento, perfecto para toca ocasion, nuevo diseño con aplicador',
+      state: 'Cancelado'
     },
     {
       id: 3,
-      photo: 'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/temas/gato_persa.jpg',
-    
-    },
-    {
-      id: 4,
-      photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
-      
-    },
-    {
-      id: 5,
-      photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
-    },
-    {
-      id: 6,
-      photo: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg',
+      photo: 'https://lencicol.com/wp-content/uploads/2023/09/AnyConv.com__Juego-de-Sabana-Azul-Oscuro-25cm-Altura-01.webp',
+      description: 'Juego de cama azul oscuro noche, perfecto para dar un toque elegante a tú habitacion y elevar tú espacio',
+      state: 'Pendiente'
     }
   ];
 

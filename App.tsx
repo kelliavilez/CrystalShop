@@ -1,23 +1,26 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, ScrollView } from 'react-native';
 import 'react-native-gesture-handler';
-import HomeScreen from './src/screens/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { SafeAreaView } from 'react-native';
-import LogIn from './src/screens/LogIn';
-import {Button, Card, Title, TextInput, Icon, PaperProvider} from 'react-native-paper';
-import styles from './src/styles/globalStyles';
-import ArticlesDetails from './src/components/ArticlesDetails';
+import {TextInput, PaperProvider} from 'react-native-paper';
+import HomeScreen from './src/screens/HomeScreen';
+import ArticlesDetails from './src/screens/ArticlesDetails';
 import HelpSupport from './src/screens/HelpSupport';
 import Oferts from './src/screens/Oferts';
-import OfertsCard from './src/components/OfertsCard';
 import MyBoughts from './src/screens/MyBoughts';
-import ArticlesCategory from './src/screens/ArticlesCategory';
-import ArticlesCard from './src/components/ArticlesCard';
+import ArticlesCategory from './src/screens/Categories';
 import SignUp from './src/screens/SignUp';
 import Payment from './src/screens/Payment';
+import LogIn from './src/screens/LogIn';
+import Bedroom from './src/screens/Categories/Bedroom';
+import Food from './src/screens/Categories/Food';
+import Gardening from './src/screens/Categories/Gargening';
+import Makeup from './src/screens/Categories/Makeup';
+import Pets from './src/screens/Categories/Pets';
+import { createMaterialBottomTabNavigator } from 'react-native-paper/lib/typescript/react-navigation';
+import Categories from './src/screens/Categories';
+import styles from './src/styles/globalStyles';
 
 const Stack = createStackNavigator();
 
@@ -42,6 +45,13 @@ const StackNavigation = () => {
         <Stack.Screen name='ArticlesDetails' component={ArticlesDetails}/>
         <Stack.Screen name='Registro' component={SignUp} />
         <Stack.Screen name='Pagos' component={Payment} />
+        <Stack.Screen name='Categories' component={Categories} />
+        <Stack.Screen name='ArticleDetails' component={ArticlesDetails}/>
+        <Stack.Screen name='Bedroom' component={Bedroom}/>
+        <Stack.Screen name='Gardening' component={Gardening}/>
+        <Stack.Screen name='Food' component={Food}/>
+        <Stack.Screen name='Makeup' component={Makeup}/>
+        <Stack.Screen name='Pets' component={Pets}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
@@ -55,92 +65,26 @@ function App() {
     <PaperProvider>
       <NavigationContainer>
         <Drawer.Navigator>
-          <Drawer.Screen name='GreenMarket' component={HomeScreen}
-          options={{
-            headerTitle: () => (
-              <View>
-                <TextInput placeholder='Buscar en GreenMarket'
-                style={styles.textInputHeaderHome}/>
-              </View>
-            )
-          }} 
-          />
+          <Drawer.Screen name='GreenMarket' component={HomeScreen}/>
+          <Drawer.Screen name='Registro' component={SignUp}/>
           <Drawer.Screen name='LogIn' component={LogIn}/>
-          <Drawer.Screen name='HelpSupport' component={HelpSupport}
-          options={{
-            headerTitle: () => (
-              <View>
-                <TextInput placeholder='Buscar en GreenMarket'
-                style={styles.textInputHeaderHome}/>
-              </View>
-            )
-          }}/>
-          <Drawer.Screen name='Oferts' component={Oferts}
-          options={{
-            headerTitle: () => (
-              <View>
-                <TextInput placeholder='Buscar en GreenMarket'
-                style={styles.textInputHeaderHome}/>
-              </View>
-            )
-          }}/>
-          <Drawer.Screen name='MyBoughts' component={MyBoughts}
-          options={{
-            headerTitle: () => (
-              <View>
-                <TextInput placeholder='Buscar en GreenMarket'
-                style={styles.textInputHeaderHome}/>
-              </View>
-            )
-          }}/>
-          <Drawer.Screen name='ArticlesCategory' component={ArticlesCategory}
-          options={{
-            headerTitle: () => (
-              <View>
-                <TextInput placeholder='Buscar en GreenMarket'
-                style={styles.textInputHeaderHome}/>
-              </View>
-            )
-          }}/>
+          <Drawer.Screen name='Pagos' component={Payment}/>
+          <Drawer.Screen name='HelpSupport' component={HelpSupport}/>
+          <Drawer.Screen name='Oferts' component={Oferts}/>
+          <Drawer.Screen name='MyBoughts' component={MyBoughts}/>
+          <Drawer.Screen name='ArticlesCategory' component={ArticlesCategory}/>
+          <Drawer.Screen name='ArticleDetails' component={ArticlesDetails}/>
+          <Drawer.Screen name='Bedroom' component={Bedroom}/>
+          <Drawer.Screen name='Gardening' component={Gardening}/>
+          <Drawer.Screen name='Food' component={Food}/>
+          <Drawer.Screen name='Makeup' component={Makeup}/>
+          <Drawer.Screen name='Pets' component={Pets}/>
         </Drawer.Navigator>
       </NavigationContainer>
     </PaperProvider>
   );
 }
 
-
-const ArtciclesDetails = () => {
-  return (
-    <View>
-      <ScrollView>
-        <View style={{flex:1, backgroundColor: 'green'}}>
-          <View style={{backgroundColor: 'green', padding:20}}> 
-            <Title>Detalles Articulos</Title>
-            <Button mode='contained' onPress={()=>console.log('cargando')}>Agregar al carrito de compras</Button>
-          </View>
-          <Card style={{margin:20}}>
-            <Card.Title title="Informacion articulo"/>
-            <Card.Content>
-              <TextInput
-              label='Buscar articulo'
-              placeholder='Busque aquí'
-              style={{marginBottom: 10}}
-              mode='outlined'
-              maxLength={10}
-              />
-              <View style={{flexDirection:'row', justifyContent:'flex-start', marginBottom: 20}}>
-                <Button mode='outlined' onPress={()=>console.log('Agregando')}>Agregar al carrito</Button>
-              </View>
-            </Card.Content>
-            <Card.Actions>
-              <Button mode='contained' onPress={()=>console.log('Agregado al carrito')}>Agregar al carrito</Button>
-            </Card.Actions>
-          </Card>
-        </View>
-      </ScrollView>
-    </View>
-  )
-}
 
 
 export default App;

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import OfertsCard from '../components/OfertsCard';
 
 const styles = StyleSheet.create({
     container: {
@@ -94,6 +95,12 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginRight: 50
     },
+    photoCard: {
+        width: 100,
+        height: 100,
+        borderRadius: 10,
+        marginRight: 10
+    },
     name: {
         fontSize: 15,
         fontWeight: 'bold',
@@ -140,11 +147,43 @@ const styles = StyleSheet.create({
         fontFamily: 'System',
         color: '#100f0f',
         marginBottom: 5
-    }
-    /*button: {
-        backgroundColor: '#ffe333',
-        fontSize: 25
-    }*/
+    },
+    viewStyle: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        backgroundColor: '#e1f1dd',
+        marginBottom: 50,
+    },
+    textStyele: {
+        fontSize: 28,
+        color: 'black',
+    },
+    headingStyle: {
+        fontSize: 28,
+        color: 'black',
+        textAlign: 'center',
+        marginTop: 20,
+        marginBottom: 23,
+        
+    },
+    photosHome: {
+        width: 148,
+        height: 100,
+        borderRadius: 10,
+        
+    },
+    buttonHome: {
+      width: 100,
+      height: 40, 
+      borderRadius: 20, 
+      alignContent: 'center',
+      marginTop:5
+    },
+    buttonTextHome: {
+      fontSize: 10, 
+    },
 });
 
 export default styles;
