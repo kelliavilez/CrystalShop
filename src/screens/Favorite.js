@@ -1,106 +1,53 @@
-import React, { useState } from 'react';
-import { View, Image, ScrollView, Text } from 'react-native';
-import styles from '../styles/favoriteStyles';
-import { Card, Text as PaperText, RadioButton, Button } from 'react-native-paper';
-import { Pressable } from 'react-native';
+import React from 'react';
+import { View, FlatList } from 'react-native';
+import styles from '../styles/globalStyles';
+import FavoriteCard from "../components/FavoriteCard"; // Asegúrate de que la ruta sea correcta
 
 const Favorite = () => {
-    return (
-        <ScrollView>
-            <View style={styles.container}>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://ae01.alicdn.com/kf/He8e13307af2440d2a4e3d3e3d5e9926fg/Cuenco-de-comida-para-gatos-alimentador-autom-tico-dispensador-de-agua-con-almacenamiento-de-alimentos-secos.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Text style={styles.text}>Disponible</Text>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://m.media-amazon.com/images/I/61+7PjVFMsS._AC_SL1500_.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Text style={styles.text}>Disponible</Text>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://static.vecteezy.com/system/resources/previews/006/116/842/non_2x/dog-paw-marks-accessories-for-pets-shop-concept-animal-logo-vector.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Text style={styles.text}>Disponible</Text>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://img.freepik.com/vector-gratis/set-maquillaje-accesorios-dibujo_24640-46682.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Text style={styles.text}>Disponible</Text>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://i.pinimg.com/originals/ac/4d/50/ac4d50d2b9e778a33bfe98210b8708a3.jpg ' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Text style={styles.text}>Disponible</Text>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-            </View>
-        </ScrollView>
-    );
+  return (
+    <View style={styles.viewStyle}>
+      <FlatList
+        data={oferts}
+        renderItem={({ item }) => <FavoriteCard ofert={item} />} // Asegúrate de que el prop "ofert" es esperado en FavoriteCard
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
+  );
 };
+
+const oferts = [
+  {
+    id: 1,
+    discount: 20,
+    photo: 'https://catmajestic.com/wp-content/uploads/2023/04/Rascador-para-gatos-fingerprint-1000x1000.jpg',
+    name: 'Rascador Gatos',
+    description: 'Ideal para mantener las uñas de tu gato afiladas y evitar que rasguñe tus muebles.',
+    status:'Disponible',
+  },
+  {
+    id: 2,
+    discount: 5,
+    photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/29406919/resize/800/800?1668354944',
+    name: 'Macetas de cerámica',
+    description: 'Perfectas para plantar flores o hierbas en interiores o exteriores.',
+    status:'Disponible',
+  },
+  {
+    id: 3,
+    discount: 30,
+    photo: 'https://m.maccosmetics.com.co/media/export/cms/products/640x600/mac_sku_M66Y03_640x600_0.jpg',
+    name: 'Delineador waterproof',
+    description: 'Perfecto para una aplicación precisa y duradera durante todo el día.',
+    status:'Disponible',
+  },
+  {
+    id: 4,
+    discount: 35,
+    photo: 'https://http2.mlstatic.com/D_NQ_NP_713947-MCO45035432163_022021-O.webp',
+    name: 'Almohada ortopédica',
+    description: 'Diseñada para proporcionar soporte adecuado para el cuello y la cabeza.',
+    status:'Disponible',
+  },
+];
 
 export default Favorite;

@@ -1,6 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { green } from 'react-native-reanimated/lib/typescript/Colors';
 
 const styles = StyleSheet.create({
+    status: {
+        fontSize: 10,
+        fontWeight: 'bold',
+        color: 'green',  // Cambia el color del texto
+        marginBottom: 5,
+    },
     container: {
         flex: 1,
         alignItems: 'left',
@@ -15,9 +22,9 @@ const styles = StyleSheet.create({
     container2: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignItems:'flex-end',
+        alignItems: 'flex-end',
         marginTop: 10,
-        marginBottom:15,
+        marginBottom: 15,
     },
     card: {
         backgroundColor: 'white',
@@ -57,7 +64,8 @@ const styles = StyleSheet.create({
         height: 65,
         marginRight: 50,
         borderRadius: 2,
-        
+        borderColor: 'green',
+
     },
     totalContainer: {
         paddingVertical: 20,
@@ -68,6 +76,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
         marginBottom: 10,
     },
+
     totalText: {
         fontSize: 18,
         fontWeight: 'bold',
