@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, Pressable, View } from 'react-native';
 import styles from '../styles/cardItemStyles';
-import { useNavigation } from '@react-navigation/native';
 
 
 const CardItemCart = ({ car }) => {
