@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  viewStyle:{
+    backgroundColor:'#f7fef4',
+
+  },
     container: {
       flex: 1,
       backgroundColor: 'white',
@@ -21,6 +25,37 @@ const styles = StyleSheet.create({
       fontSize: 16,
       fontWeight: '600',
     },
+    screenContainer: {
+      flex: 1,
+      backgroundColor: '#fff',
+      marginTop:80,
+      paddingBottom: 60,
+  },
+  bottomContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 15,
+      backgroundColor: '#f8f8f8',
+      borderTopWidth: 1,
+      borderTopColor: '#ddd',
+      marginTop:390,
+  },
+  totalText: {
+      fontSize: 18,
+      fontWeight: 'bold',
+  },
+  checkoutButton: {
+      backgroundColor: '#28a745',
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  checkoutButtonText: {
+      color: '#fff',
+      fontWeight: 'bold',
+  },
     buttonCheckout: {
       backgroundColor: 'orange',
       paddingHorizontal: 30,
