@@ -28,17 +28,17 @@ originalPrice: {
     fontWeight: 'bold',
     color: '#e60023',
   },
-buttonCard: {
+buttonMore: {
     Width: 50, 
     maxHeight: 50,
-    marginTop: -15,
+    marginTop: -4,
     flexDirection: 'row',
     marginLeft: 110
   },
   buttonSave: {
     Width: 50, 
     maxHeight: 50,
-    marginTop: -15,
+    marginTop: -5,
     flexDirection: 'row',
   },
   buttonContainer: {

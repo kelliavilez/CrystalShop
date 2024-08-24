@@ -24,18 +24,18 @@ const   OfertsCard = ({ ofert }) => {
       <Text style={styles.finalPrice} variant="bodySmall">${finalPrice.toLocaleString()}</Text>
       <Text style={styles.discount} variant="bodySmall">-{ofert.discount}%</Text>
       </View>
+      <Text variant="bodySmall">{ofert.category}</Text>
       <Text variant="titleMedium" >{ofert.name}</Text>
       <Text variant="bodySmall">{ofert.description}</Text>
       </View>
       </View>
       <View style={styles.buttonContainer}>
-      <Button style={styles.buttonCard} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('')}>
-      more
+      <Button style={styles.buttonMore} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('')}>
+      Mas
       </Button>
       <Button style={styles.buttonSave} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('')}>
-      saved
+      Guardado
       </Button>
-      <Text variant="bodyMedium">C</Text>
       </View>
       
     </Card.Content>

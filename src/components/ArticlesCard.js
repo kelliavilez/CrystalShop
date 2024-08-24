@@ -9,7 +9,7 @@ const   ArticlesCard = ({ article }) => {
   const navigation=useNavigation();
 
   const handleSelect = () => {
-    navigation.navigate('ArticlesDetails', { article }); 
+    navigation.navigate('ArticleDetailsCard', { article }); 
   };
 
   const maxPrice = 99999999;
@@ -30,7 +30,7 @@ const   ArticlesCard = ({ article }) => {
       buttonColor='#96b89c'
        mode="contained" 
        onPress={handleSelect}>
-      Select
+      Elegir
       </Button>
     </Card.Content>
     </Card>
@@ -38,5 +38,6 @@ const   ArticlesCard = ({ article }) => {
     
   );
 };
+
 
 export default ArticlesCard;

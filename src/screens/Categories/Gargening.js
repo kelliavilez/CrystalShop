@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Button, FlatList  } from 'react-native';
 import styles from '../../styles/globalStyles';
-import { useNavigation } from '@react-navigation/native';
-import BedroomCard from '../../components/BedroomCard';
 import GardeningCard from '../../components/GardeningCard';
 
 const Gardening = () => {

@@ -15,7 +15,7 @@ const   CategoryPerCard = ({ article }) => {
       <Image source={{ uri: article.photo }} style={styles.photosHome} />
       <Text variant="bodySmall" >{article.description}</Text>   
       <Button style={styles.buttonHome} labelStyle={styles.buttonTextHome} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('ArticlesDetails')}>
-      Select
+      Elegir
       </Button>
     </Card.Content>
     </Card>

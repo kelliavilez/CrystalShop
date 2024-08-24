@@ -30,7 +30,7 @@ const FoodCard = ({ food }) => {
       buttonColor='#96b89c'
        mode="contained" 
        onPress={handleSelect}>
-      Select
+      Elegir
       </Button>
     </Card.Content>
     </Card>

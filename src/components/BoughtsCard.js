@@ -16,6 +16,7 @@ const   BoughtsCard = ({ bought }) => {
       <View style={styles.container}>
       <Image source={{ uri: bought.photo }} style={styles.photo } />
       <View style={styles.textContainer}>
+      <Text variant="bodySmall">{bought.category}</Text>
       <Text variant="bodySmall">{bought.description}</Text>
       </View>
       </View>
@@ -23,7 +24,6 @@ const   BoughtsCard = ({ bought }) => {
       <Button style={styles.buttonState} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('')}>
       {bought.state}
       </Button>
-      <Text variant="bodyMedium">C</Text>
       </View>
       
     </Card.Content>

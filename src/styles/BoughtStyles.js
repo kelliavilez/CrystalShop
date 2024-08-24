@@ -36,7 +36,7 @@ buttonCard: {
     flexDirection: 'row',
     Width: 100, 
     maxHeight: 50,
-    marginTop: -40,
+    marginTop: -20,
     marginLeft:150 
   },
   buttonContainer: {
