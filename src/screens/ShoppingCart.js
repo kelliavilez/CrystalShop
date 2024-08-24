@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList,Text, Pressable} from 'react-native';
 import CardItemCart from '../components/ShoppingCartCard';
-import styles from '../styles/shoppingCarStyles';
+import styles from '../styles/ShoppingCarStyles';
 
 const ShoppingCart = () => {
     return (
@@ -50,3 +50,4 @@ const car = [
 ];
 
 export default ShoppingCart;
+
