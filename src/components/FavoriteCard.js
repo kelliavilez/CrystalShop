@@ -12,24 +12,29 @@ const FavoriteCard = ({ ofert }) => {
                         <View style={styles.rowContainer}>
                             <Image
                                 source={{ uri: ofert.photo }}
-                                style={styles.image}
+                                style={styles.photoCard}
                             />
                             <View style={styles.infoContainer}>
                                 <PaperText style={styles.nameText} variant="titleLarge">{ofert.name}</PaperText>
                                 <PaperText style={styles.descriptionText} variant="bodyMedium">{ofert.description}</PaperText>
-                                <PaperText style={styles.status} variant="bodyMedium">{ofert.status}</PaperText>
+                                <PaperText style={styles.status} variant="bodyMedium">{ofert.statusCategory}</PaperText>
                             </View>
-                            <View style={styles.statusContainer}>
-                                <Text style={styles.status}>Disponible</Text>
-                            </View>
+                            
                         </View>
                         <Button
                             mode="contained"
                             buttonColor='#89c07a'
-                            style={styles.buttonLog}
+                            style={styles.button}
                             onPress={() => alert('Estamos procesando su pago')
                             }>
                             Añadir al carrito
+                        </Button>
+                        <Button
+                            mode="contained"
+                            buttonColor='#89c07a'
+                            style={styles.button}
+                            >
+                            Añadido a favoritos
                         </Button>
                     </Card.Content>
 

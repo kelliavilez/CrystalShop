@@ -18,6 +18,14 @@ const styles = StyleSheet.create({
         height: 100,
         justifyContent: 'center',
     },
+    photoCard: {
+      width: 100,
+      height: '100%',
+      borderRadius: 10,
+      marginRight: 10,
+      marginBottom: 30,
+      marginTop: 10
+    },
 
     container2: {
         flexDirection: 'row',
@@ -27,7 +35,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#78a98c',
         marginBottom: 15,
         marginTop: 20,
     },
@@ -43,7 +51,10 @@ const styles = StyleSheet.create({
     button: {
         padding: 3,
         backgroundColor: '#89c07a',
-        borderRadius: 2,
+        borderRadius: 30,
+        marginBottom:1,
+        height: 50,
+        marginTop: 10
     },
     text: {
         color: 'green',
@@ -87,6 +98,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
+    descriptionText: {
+        fontSize: 13,
+        width: 250
+    }
 
 })
 
