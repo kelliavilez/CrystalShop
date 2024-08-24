@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, Image, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import styles from '../styles/globalStyles';
+import LogIn from './LogIn';
 
-const SignUp = () => {
+const SignUp = (navigation) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState(""); 
   const [email, setEmail] = useState("");
@@ -154,7 +155,7 @@ const SignUp = () => {
 
         <View>
           <Text>
-            ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => console.log('Ir a login')}>Inicia sesión</Text>
+            ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => navigation.navigate(LogIn)}>Inicia sesión</Text>
           </Text>
         </View>
       </View>
