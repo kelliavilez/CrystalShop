@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import { View, Image, ScrollView, Text } from 'react-native';
 import styles from '../styles/paymentStyles';
 import { Card, Text as PaperText, RadioButton, Button, IconButton } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 import { Pressable, } from 'react-native';
 
 const Payment = () => {
     const [checked, setChecked] = React.useState('first');
-    const [expanded, setExpanded] = useState(false);
+
+    const [quantity, setQuantity] = useState(0);
+
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1);
+    };
+
+    const decreaseQuantity = () => {
+        if (quantity > 0) {
+            setQuantity(quantity - 1);
+        }
+    };
 
     return (
         <ScrollView >
@@ -55,7 +66,7 @@ const Payment = () => {
                     <Card.Content>
                         <View style={styles.rowContainer}>
                             <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}  
+                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
                                 style={styles.image}
                             />
                             <View style={styles.infoContainer}>
@@ -63,12 +74,40 @@ const Payment = () => {
                                 <PaperText variant="bodyMedium">Descripción</PaperText>
                                 <PaperText variant="bodyMedium">Precio</PaperText>
                             </View>
-                            <Pressable
-                                onPress={() => setExpanded(!expanded)}
-                                style={styles.buttonContainer}
-                            >
-                                <Icon name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color="#000" />
-                            </Pressable>
+                            <View style={styles.container2}>
+                                <Pressable onPress={decreaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>-</Text>
+                                </Pressable>
+                                <Text style={styles.quantityText}>{quantity}</Text>
+                                <Pressable onPress={increaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>+</Text>
+                                </Pressable>
+                            </View>
+                        </View>
+
+                    </Card.Content>
+                </Card>
+                <Card style={styles.cardContent2}>
+                    <Card.Content>
+                        <View style={styles.rowContainer}>
+                            <Image
+                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
+                                style={styles.image}
+                            />
+                            <View style={styles.infoContainer}>
+                                <PaperText variant="titleLarge">Nombre producto</PaperText>
+                                <PaperText variant="bodyMedium">Descripción</PaperText>
+                                <PaperText variant="bodyMedium">Precio</PaperText>
+                            </View>
+                            <View style={styles.container2}>
+                                <Pressable onPress={decreaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>-</Text>
+                                </Pressable>
+                                <Text style={styles.quantityText}>{quantity}</Text>
+                                <Pressable onPress={increaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>+</Text>
+                                </Pressable>
+                            </View>
                         </View>
                     </Card.Content>
                 </Card>
@@ -76,7 +115,7 @@ const Payment = () => {
                     <Card.Content>
                         <View style={styles.rowContainer}>
                             <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}  
+                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
                                 style={styles.image}
                             />
                             <View style={styles.infoContainer}>
@@ -84,33 +123,15 @@ const Payment = () => {
                                 <PaperText variant="bodyMedium">Descripción</PaperText>
                                 <PaperText variant="bodyMedium">Precio</PaperText>
                             </View>
-                            <Pressable
-                                onPress={() => setExpanded(!expanded)}
-                                style={styles.buttonContainer}
-                            >
-                                <Icon name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color="#000" />
-                            </Pressable>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}  
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
+                            <View style={styles.container2}>
+                                <Pressable onPress={decreaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>-</Text>
+                                </Pressable>
+                                <Text style={styles.quantityText}>{quantity}</Text>
+                                <Pressable onPress={increaseQuantity} style={styles.button}>
+                                    <Text style={styles.buttonText}>+</Text>
+                                </Pressable>
                             </View>
-                            <Pressable
-                                onPress={() => setExpanded(!expanded)}
-                                style={styles.buttonContainer}
-                            >
-                                <Icon name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color="#000" />
-                            </Pressable>
                         </View>
                     </Card.Content>
                 </Card>

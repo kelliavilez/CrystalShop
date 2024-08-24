@@ -19,21 +19,19 @@ import Makeup from './src/screens/Categories/Makeup';
 import Pets from './src/screens/Categories/Pets';
 import Categories from './src/screens/Categories';
 import ArticleDetailsCard from './src/components/ArticleDetailsCard';
+import ShoppingCart from './src/screens/ShoppingCart';
+import Profile from './src/screens/Profile';
+import Favorite from './src/screens/Favorite';
 
 const Stack = createStackNavigator();
 
 const StackNavigation = () => {
-  const Stack = createStackNavigator();
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions=
-        {{
+        screenOptions={{
           headerTintColor: 'black',
-          headerStyle:
-          {
-            backgroundColor: 'Green'
-          },
+          headerStyle: { backgroundColor: 'Green' },
         }}>
         <Stack.Screen name='GreenMarket' component={HomeScreen}/>
         <Stack.Screen name='LogIn' component={LogIn}/>
@@ -49,15 +47,16 @@ const StackNavigation = () => {
         <Stack.Screen name='Makeup' component={Makeup}/>
         <Stack.Screen name='Pets' component={Pets}/>
         <Stack.Screen name='ArticleDetailsCard' component={ArticleDetailsCard}/>
+        <Stack.Screen name='Carrito de compras' component={ShoppingCart} />
+        <Stack.Screen name='Perfil de usuario' component={Profile} />
+        <Stack.Screen name='Mis favoritos' component={Favorite} />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
-
+  );
+};
 
 function App() {
-  const Drawer=createDrawerNavigator();
-  const [active, setActive] = React.useState('');
+  const Drawer = createDrawerNavigator();
   return (
     <PaperProvider>
       <NavigationContainer>
@@ -76,16 +75,13 @@ function App() {
           <Drawer.Screen name='Makeup' component={Makeup}/>
           <Drawer.Screen name='Pets' component={Pets}/>
           <Drawer.Screen name='ArticleDetailsCard' component={ArticleDetailsCard}/>
+          <Drawer.Screen name='Carrito de compras' component={ShoppingCart} />
+          <Drawer.Screen name='Perfil de usuario' component={Profile} />
+          <Drawer.Screen name='Mis favoritos' component={Favorite} />
         </Drawer.Navigator>
       </NavigationContainer>
     </PaperProvider>
   );
 }
 
-
-
 export default App;
-
-
-
-

@@ -1,32 +1,43 @@
 import { StyleSheet } from 'react-native';
+import { green } from 'react-native-reanimated/lib/typescript/Colors';
 
 const styles = StyleSheet.create({
+    status: {
+        fontSize: 10,
+        fontWeight: 'bold',
+        color: 'green',  // Cambia el color del texto
+        marginBottom: 5,
+    },
     container: {
         flex: 1,
         alignItems: 'left',
-        paddingHorizontal: 20,
         backgroundColor: '#f7fef4',
         marginBottom: 10,
     },
+    infoContainer: {
+        height: 100,
+        justifyContent: 'center',
+    },
 
     container2: {
-        flexDirection: 'row', 
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        marginTop: 10,
+        marginBottom: 15,
     },
     card: {
         backgroundColor: 'white',
-        marginBottom:15,
-        marginTop:20,
+        marginBottom: 15,
+        marginTop: 20,
     },
     cardContent: {
         backgroundColor: 'white',
     },
-    cardContent2:{
+    cardContent2: {
         backgroundColor: 'white',
-        marginBottom:5,
-        marginTop:10,
+        marginBottom: 1,
+        marginTop: 1,
 
     },
     button: {
@@ -34,8 +45,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#89c07a',
         borderRadius: 2,
     },
-    buttonText: {
-        color: 'white',
+    text: {
+        color: 'green',
         fontSize: 10,
     },
     radioItem: {
@@ -49,9 +60,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     image: {
-        width: 50,
-        height: 50,
-        marginRight: 10,
+        width: 65,
+        height: 65,
+        marginRight: 50,
+        borderRadius: 2,
+        borderColor: 'green',
+
     },
     totalContainer: {
         paddingVertical: 20,
@@ -62,10 +76,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
         marginBottom: 10,
     },
+
     totalText: {
         fontSize: 18,
         fontWeight: 'bold',
-        alignItems:'stretch'
+        alignItems: 'stretch'
     },
     totalContent: {
         flexDirection: 'row',
