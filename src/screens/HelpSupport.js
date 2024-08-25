@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/globalStyles';
@@ -15,7 +15,7 @@ const HelpSupport = () => {
 
   const handleSend = () => {
     console.log('Texto enviado:', text);
-    hideDialog(); 
+    hideDialog();
   };
 
 

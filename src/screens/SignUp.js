@@ -6,7 +6,7 @@ import LogIn from './LogIn';
 
 const SignUp = (navigation) => {
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [address, setAddress] = useState("");
@@ -20,7 +20,7 @@ const SignUp = (navigation) => {
       setError('El nombre de usuario debe tener máximo 10 caracteres.');
     }
   };
- 
+
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
@@ -30,7 +30,7 @@ const SignUp = (navigation) => {
       setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
     }
   };
-   
+
   const correctEmail = (text) => {
     const emailRule = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     setEmail(text);
@@ -38,9 +38,9 @@ const SignUp = (navigation) => {
       setError('');
     } else {
       setError('Correo electrónico inválido.');
-    } 
+    }
   };
-  
+
   const correctAddress = (text) => {
     if (text.length <= 30) {
       setAddress(text);
@@ -94,7 +94,7 @@ const SignUp = (navigation) => {
           outlineColor='#cee8c7'
           selectionColor='#cee8c7'
           cursorColor='#cee8c7'
-          secureTextEntry={true} 
+          secureTextEntry={true}
           style={styles.textInput}
         />
 

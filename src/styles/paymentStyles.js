@@ -10,23 +10,23 @@ const styles = StyleSheet.create({
     },
 
     container2: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
     },
     card: {
         backgroundColor: 'white',
-        marginBottom:15,
-        marginTop:20,
+        marginBottom: 15,
+        marginTop: 20,
     },
     cardContent: {
         backgroundColor: 'white',
     },
-    cardContent2:{
+    cardContent2: {
         backgroundColor: 'white',
-        marginBottom:5,
-        marginTop:10,
+        marginBottom: 5,
+        marginTop: 10,
 
     },
     button: {
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     totalText: {
         fontSize: 18,
         fontWeight: 'bold',
-        alignItems:'stretch'
+        alignItems: 'stretch'
     },
     totalContent: {
         flexDirection: 'row',

@@ -2,23 +2,23 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-OfertsCard: {
+  OfertsCard: {
     padding: 10,
     margin: 5,
     elevation: 5,
     width: 370,
     height: 220,
     backgroundColor: '#78a98c',
-    flex:1,
+    flex: 1,
     flexDirection: 'column',
-    borderRadius: 10, 
-    shadowColor: '#000', 
+    borderRadius: 10,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-},
+  },
 
-originalPrice: {
+  originalPrice: {
     fontSize: 16,
     textDecorationLine: 'line-through',
     color: '#888',
@@ -28,15 +28,15 @@ originalPrice: {
     fontWeight: 'bold',
     color: '#e60023',
   },
-buttonMore: {
-    Width: 50, 
+  buttonMore: {
+    Width: 50,
     maxHeight: 50,
     marginTop: -4,
     flexDirection: 'row',
     marginLeft: 110
   },
   buttonSave: {
-    Width: 50, 
+    Width: 50,
     maxHeight: 50,
     marginTop: -5,
     flexDirection: 'row',
@@ -63,7 +63,7 @@ buttonMore: {
     marginRight: 10,
     width: 200,
     height: 100,
-    
+
 
   },
   price: {

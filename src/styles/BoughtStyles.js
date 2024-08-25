@@ -2,42 +2,42 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-card: {
+  card: {
     padding: 10,
     margin: 5,
     elevation: 5,
     width: 370,
     height: 220,
     backgroundColor: '#78a98c',
-    flex:1,
+    flex: 1,
     flexDirection: 'column',
-    borderRadius: 10, 
-    shadowColor: '#000', 
+    borderRadius: 10,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-},
+  },
 
 
-buttonCard: {
-    Width: 50, 
+  buttonCard: {
+    Width: 50,
     maxHeight: 50,
     marginTop: -15,
     flexDirection: 'row',
     marginLeft: 110
   },
   buttonSave: {
-    Width: 50, 
+    Width: 50,
     maxHeight: 50,
     marginTop: -15,
     flexDirection: 'row',
   },
   buttonState: {
     flexDirection: 'row',
-    Width: 100, 
+    Width: 100,
     maxHeight: 50,
     marginTop: -20,
-    marginLeft:150 
+    marginLeft: 150
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -61,7 +61,7 @@ buttonCard: {
     marginRight: 10,
     width: 200,
     height: 100,
-    
+
 
   },
   price: {

@@ -6,7 +6,7 @@ import styles from '../styles/globalStyles';
 
 const LogIn = ({ navigation }) => {
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
 
   const userName = (text) => {
     if (text.length <= 10) {
@@ -16,7 +16,7 @@ const LogIn = ({ navigation }) => {
       setError('El nombre de usuario debe tener máximo 10 caracteres.');
     }
   };
- 
+
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);

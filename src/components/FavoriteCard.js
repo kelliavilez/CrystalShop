@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, ScrollView,Text } from 'react-native';
+import { View, Image, ScrollView, Text } from 'react-native';
 import styles from '../styles/favoriteStyles';
 import { Card, Text as PaperText, Button } from 'react-native-paper';
 
@@ -19,7 +19,7 @@ const FavoriteCard = ({ ofert }) => {
                                 <PaperText style={styles.descriptionText} variant="bodyMedium">{ofert.description}</PaperText>
                                 <PaperText style={styles.status} variant="bodyMedium">{ofert.statusCategory}</PaperText>
                             </View>
-                            
+
                         </View>
                         <Button
                             mode="contained"
@@ -33,7 +33,7 @@ const FavoriteCard = ({ ofert }) => {
                             mode="contained"
                             buttonColor='#89c07a'
                             style={styles.button}
-                            >
+                        >
                             Añadido a favoritos
                         </Button>
                     </Card.Content>

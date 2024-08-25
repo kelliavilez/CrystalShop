@@ -33,6 +33,6 @@ const CardItemCart = ({ car }) => {
         </View>
     );
 };
-        
+
 
 export default CardItemCart;
