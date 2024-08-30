@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Alert } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import styles from '../styles/globalStyles';
-import LogIn from './LogIn';
+import { useNavigation } from '@react-navigation/native';
+import dayjs from 'dayjs';
 
-const SignUp = (navigation) => {
+const SignUp = () => {
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [address, setAddress] = useState("");
   const [error, setError] = useState("");
+  const navigation = useNavigation();
 
   const userName = (text) => {
     if (text.length <= 10) {
@@ -20,7 +22,7 @@ const SignUp = (navigation) => {
       setError('El nombre de usuario debe tener máximo 10 caracteres.');
     }
   };
- 
+
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
@@ -30,7 +32,7 @@ const SignUp = (navigation) => {
       setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
     }
   };
-   
+
   const correctEmail = (text) => {
     const emailRule = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     setEmail(text);
@@ -38,9 +40,9 @@ const SignUp = (navigation) => {
       setError('');
     } else {
       setError('Correo electrónico inválido.');
-    } 
+    }
   };
-  
+
   const correctAddress = (text) => {
     if (text.length <= 30) {
       setAddress(text);
@@ -50,12 +52,33 @@ const SignUp = (navigation) => {
     }
   };
 
+  const validateDate = (text) => {
+    setDate(text);
+    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!dateRegex.test(text)) {
+      setError('Fecha de nacimiento inválida');
+      return;
+    }
+    const birthDate = dayjs(text, 'DD/MM/YYYY');
+    const today = dayjs();
+    const minAgeDate = today.subtract(18, 'year');
+    const maxAgeDate = today.subtract(50, 'year');
+  
+    if (birthDate.isAfter(minAgeDate)) {
+      setError('Debes tener al menos 18 años para crear una cuenta');
+      Alert.alert('Error de edad', 'Debes tener al menos 18 años para crear una cuenta');
+    } else if (birthDate.isBefore(maxAgeDate)) {
+      setError('No puedes crear una cuenta si tienes más de 50 años');
+      Alert.alert('Error de edad', 'No puedes crear una cuenta si tienes más de 50 años');
+    } else {
+      setError('');
+    }
+  };
+
   const handleSignUp = () => {
-    console.log('Usuario:', user);
-    console.log('Contraseña:', password);
-    console.log('Correo electrónico:', email);
-    console.log('Fecha de nacimiento:', date);
-    console.log('Dirección:', address);
+    if (error === '') {
+      navigation.navigate('Main'); 
+    }
   };
 
   return (
@@ -94,7 +117,7 @@ const SignUp = (navigation) => {
           outlineColor='#cee8c7'
           selectionColor='#cee8c7'
           cursorColor='#cee8c7'
-          secureTextEntry={true} 
+          secureTextEntry={true}
           style={styles.textInput}
         />
 
@@ -116,7 +139,7 @@ const SignUp = (navigation) => {
         <TextInput
           label="Fecha de nacimiento"
           value={date}
-          onChangeText={setDate}
+          onChangeText={validateDate}
           placeholder='DD/MM/YYYY'
           underlineColor='#89c07a'
           activeUnderlineColor='#89c07a'
@@ -155,7 +178,7 @@ const SignUp = (navigation) => {
 
         <View>
           <Text>
-            ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => navigation.navigate(LogIn)}>Inicia sesión</Text>
+            ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => navigation.navigate('LogIn')}>Inicia sesión</Text>
           </Text>
         </View>
       </View>
