@@ -3,7 +3,8 @@ import ArticlesCard from "../components/ArticlesCard";
 import { Card, Button, Text, IconButton, TextInput } from 'react-native-paper';
 import styles from "../styles/globalStyles";
 
-function HomeScreen(navigation) {
+
+function Home(navigation) {
     const numColumns = 2;
     const handleNavigateToDetails = (article) => {
       navigation.navigate('ArticleDetailsCard', { article });
@@ -11,7 +12,7 @@ function HomeScreen(navigation) {
     return (
         <View style={styles.viewStyle}>
 
-            <TextInput
+           <TextInput
             label="Busqueda"
             placeholder='Busque aquí'
             onChangeText={text => setText()}
@@ -84,4 +85,4 @@ const articles = [
     }
   ];
 
-export default HomeScreen;
+export default Home;

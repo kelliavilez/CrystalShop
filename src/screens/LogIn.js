@@ -10,7 +10,6 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const navigation = useNavigation();
 
-  // Datos de prueba
   const testUser = "testuser";
   const testPassword = "Test@1234";
 

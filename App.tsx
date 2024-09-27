@@ -22,7 +22,7 @@ import Favorite from './src/screens/Favorite';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-const AuthenticationStack = () => (
+const AuthenticationStack = () => ( //where the user can login or signup
   <Stack.Navigator
     screenOptions={{
       headerTintColor: 'black',
