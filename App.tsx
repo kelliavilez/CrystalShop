@@ -1,8 +1,8 @@
 import React from 'react';
+import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Provider as PaperProvider } from 'react-native-paper';
 import LogIn from './src/screens/LogIn';
 import SignUp from './src/screens/SignUp';
 import Home from './src/screens/Home';
@@ -43,17 +43,17 @@ const AuthenticationStack = () => ( //where the user can login or signup
 
 
 const AppDrawer = () => (
-  
+
   <Drawer.Navigator>
     <Drawer.Screen name='Home' component={Home} />
-    <Drawer.Screen name='Pagos' component={Payment} />
-    <Drawer.Screen name='Ayuda y soporte' component={HelpSupport} />
-    <Drawer.Screen name='Ofertas' component={Oferts} />
-    <Drawer.Screen name='Mis compras' component={MyBoughts} />
-    <Drawer.Screen name='Categorias' component={ArticlesCategory} />
-    <Drawer.Screen name='Carrito de compras' component={ShoppingCart} />
     <Drawer.Screen name='Perfil de usuario' component={Profile} />
     <Drawer.Screen name='Mis favoritos' component={Favorite} />
+    <Drawer.Screen name='Mis compras' component={MyBoughts} />
+    <Drawer.Screen name='Ofertas' component={Oferts} />
+    <Drawer.Screen name='Pagos' component={Payment} />
+    <Drawer.Screen name='Ayuda y soporte' component={HelpSupport} />
+    <Drawer.Screen name='Categorias' component={ArticlesCategory} />
+    <Drawer.Screen name='Carrito de compras' component={ShoppingCart} />
   </Drawer.Navigator>
 );
 
@@ -81,6 +81,7 @@ const App = () => (
       </Stack.Navigator>
     </NavigationContainer>
   </PaperProvider>
+
 );
 
 export default App;

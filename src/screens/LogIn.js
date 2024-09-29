@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, Text, SafeAreaView } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
@@ -6,31 +6,46 @@ import styles from '../styles/globalStyles';
 
 const LogIn = () => {
   const [user, setUser] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isUserValid, setIsUserValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
   const navigation = useNavigation();
 
   const testUser = "testuser";
   const testPassword = "Test@1234";
 
+  // Validación del nombre de usuario
   const userName = (text) => {
     if (text.length <= 10) {
       setUser(text);
-      setError('');
+      setIsUserValid(true);
     } else {
-      setError('El nombre de usuario debe tener máximo 10 caracteres.');
+      setIsUserValid(false);
     }
   };
 
+  // Validación de la contraseña
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
     if (passwordRule.test(text)) {
-      setError('');
+      setIsPasswordValid(true);
     } else {
-      setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
+      setIsPasswordValid(false);
     }
   };
+
+  // useEffect para mostrar un mensaje cuando el usuario o contraseña no sean válidos
+  useEffect(() => {
+    if (!isUserValid) {
+      setError('El nombre de usuario debe tener máximo 10 caracteres.');
+    } else if (!isPasswordValid) {
+      setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
+    } else {
+      setError(''); // Limpiar el error si todo está bien
+    }
+  }, [isUserValid, isPasswordValid]); // Se activa cuando la validez de usuario o contraseña cambia
 
   const handleLogin = () => {
     if (user === testUser && password === testPassword) {
@@ -98,4 +113,3 @@ const LogIn = () => {
 };
 
 export default LogIn;
-

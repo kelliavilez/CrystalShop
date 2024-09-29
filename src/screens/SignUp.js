@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, Text, Alert } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
-import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import dayjs from 'dayjs';
+import styles from '../styles/globalStyles';
 
 const SignUp = () => {
   const [user, setUser] = useState("");
@@ -13,6 +13,15 @@ const SignUp = () => {
   const [address, setAddress] = useState("");
   const [error, setError] = useState("");
   const navigation = useNavigation();
+
+  // useEffect to validate the form dynamically
+  useEffect(() => {
+    if (user && password && email && date && address && !error) {
+      setError(""); // No errors, all fields are valid
+    } else if (!user || !password || !email || !date || !address) {
+      setError("Todos los campos son obligatorios.");
+    }
+  }, [user, password, email, date, address, error]);
 
   const userName = (text) => {
     if (text.length <= 10) {
@@ -26,7 +35,7 @@ const SignUp = () => {
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
-    if (passwordRule.test(text)) {
+    if (passwordRule.test (text)) {
       setError('');
     } else {
       setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
@@ -63,7 +72,7 @@ const SignUp = () => {
     const today = dayjs();
     const minAgeDate = today.subtract(18, 'year');
     const maxAgeDate = today.subtract(50, 'year');
-  
+
     if (birthDate.isAfter(minAgeDate)) {
       setError('Debes tener al menos 18 años para crear una cuenta');
       Alert.alert('Error de edad', 'Debes tener al menos 18 años para crear una cuenta');
@@ -76,8 +85,8 @@ const SignUp = () => {
   };
 
   const handleSignUp = () => {
-    if (error === '') {
-      navigation.navigate('Main'); 
+    if (!error) {
+      navigation.navigate('Main');
     }
   };
 
