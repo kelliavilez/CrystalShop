@@ -2,20 +2,22 @@ import React from 'react';
 import { View, Text, Image, Button, FlatList  } from 'react-native';
 import styles from '../styles/globalStyles';
 import OfertsCard from "../components/OfertsCard";
+import SearchBar from '../components/SearchBar';
 
 const Oferts = () => {
     return (
       <View style={styles.viewStyle}>
+        <SearchBar/>
         <FlatList
-          data={oferts}
-          renderItem={({ item }) => <OfertsCard ofert={item} />}
+          data={articles}
+          renderItem={({ item }) => <OfertsCard article={item} />}
           keyExtractor={(item) => item.id.toString()}
         />
       </View>
     );
   };
 
-  const oferts = [
+  const articles = [
     {
       id: 1,
       originalPrice: 200000,

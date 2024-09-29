@@ -21,7 +21,7 @@ const   BoughtsCard = ({ bought }) => {
       </View>
       </View>
       <View style={styles.buttonContainer}>
-      <Button style={styles.buttonState} buttonColor='#96b89c' mode="contained" onPress={()=>navigation.navigate('')}>
+      <Button style={styles.buttonState} buttonColor='#96b89c' mode="contained">
       {bought.state}
       </Button>
       </View>

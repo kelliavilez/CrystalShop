@@ -20,9 +20,15 @@ import ArticleDetailsCard from './src/components/ArticleDetailsCard';
 import ShoppingCart from './src/screens/ShoppingCart';
 import Profile from './src/screens/Profile';
 import Favorite from './src/screens/Favorite';
+import { Searchbar } from 'react-native-paper';
+import { useState } from 'react';
+import SearchBar from './src/components/SearchBar';
+import OfertsDetailsCard from './src/components/OfertsDetailsCard';
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+
 const AuthenticationStack = () => ( //where the user can login or signup
   <Stack.Navigator
     screenOptions={{
@@ -34,7 +40,10 @@ const AuthenticationStack = () => ( //where the user can login or signup
   </Stack.Navigator>
 );
 
+
+
 const AppDrawer = () => (
+  
   <Drawer.Navigator>
     <Drawer.Screen name='Home' component={Home} />
     <Drawer.Screen name='Pagos' component={Payment} />
@@ -42,12 +51,6 @@ const AppDrawer = () => (
     <Drawer.Screen name='Ofertas' component={Oferts} />
     <Drawer.Screen name='Mis compras' component={MyBoughts} />
     <Drawer.Screen name='Categorias' component={ArticlesCategory} />
-    <Drawer.Screen name='Bedroom' component={Bedroom} />
-    <Drawer.Screen name='Gardening' component={Gardening} />
-    <Drawer.Screen name='Food' component={Food} />
-    <Drawer.Screen name='Makeup' component={Makeup} />
-    <Drawer.Screen name='Pets' component={Pets} />
-    <Drawer.Screen name='ArticleDetailsCard' component={ArticleDetailsCard} />
     <Drawer.Screen name='Carrito de compras' component={ShoppingCart} />
     <Drawer.Screen name='Perfil de usuario' component={Profile} />
     <Drawer.Screen name='Mis favoritos' component={Favorite} />
@@ -68,6 +71,13 @@ const App = () => (
           component={AppDrawer}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="ArticleDetailsCard" component={ArticleDetailsCard} />
+        <Stack.Screen name="OfertsDetailsCard" component={OfertsDetailsCard} />
+        <Stack.Screen name='Bedroom' component={Bedroom} />
+        <Stack.Screen name='Gardening' component={Gardening} />
+        <Stack.Screen name='Food' component={Food} />
+        <Stack.Screen name='Makeup' component={Makeup} />
+        <Stack.Screen name='Pets' component={Pets} />
       </Stack.Navigator>
     </NavigationContainer>
   </PaperProvider>

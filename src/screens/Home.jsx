@@ -2,29 +2,19 @@ import { StyleSheet, View, FlatList } from "react-native";
 import ArticlesCard from "../components/ArticlesCard";
 import { Card, Button, Text, IconButton, TextInput } from 'react-native-paper';
 import styles from "../styles/globalStyles";
+import { useState, useEffect } from "react";
+import SearchBar from "../components/SearchBar";
 
 
 function Home(navigation) {
+
     const numColumns = 2;
     const handleNavigateToDetails = (article) => {
       navigation.navigate('ArticleDetailsCard', { article });
     };
     return (
         <View style={styles.viewStyle}>
-
-           <TextInput
-            label="Busqueda"
-            placeholder='Busque aquí'
-            onChangeText={text => setText()}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-            <Text style={styles.textStyele}></Text>
+            <SearchBar/>
             <FlatList
             data={articles}
             renderItem={({ item }) => 

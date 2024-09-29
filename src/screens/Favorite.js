@@ -2,10 +2,12 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../styles/globalStyles';
 import FavoriteCard from "../components/FavoriteCard"; // Asegúrate de que la ruta sea correcta
+import SearchBar from '../components/SearchBar';
 
 const Favorite = () => {
   return (
     <View style={styles.viewStyle}>
+      <SearchBar/>
       <FlatList
         data={oferts}
         renderItem={({ item }) => <FavoriteCard ofert={item} />} // Asegúrate de que el prop "ofert" es esperado en FavoriteCard

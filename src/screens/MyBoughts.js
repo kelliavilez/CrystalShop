@@ -3,10 +3,12 @@ import { View, Text, Image, Button, FlatList  } from 'react-native';
 import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import BoughtsCard from '../components/BoughtsCard';
+import SearchBar from '../components/SearchBar';
 
 const MyBoughts = () => {
     return (
       <View style={styles.viewStyle}>
+        <SearchBar/>
         <FlatList
           data={boughts}
           renderItem={({ item }) => <BoughtsCard bought={item} />}

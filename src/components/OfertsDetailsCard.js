@@ -3,9 +3,12 @@ import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
 import { Rating } from 'react-native-ratings'; // Ajusta si usas una versión diferente de react-native-ratings
 
-const ArticleDetailsCard = ({ route }) => {
+const OfertsDetailsCard = ({ route }) => {
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
+
+  const discountAmount = (article.originalPrice * article.discount) / 100;
+  const finalPrice = article.originalPrice - discountAmount;
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
@@ -15,8 +18,10 @@ const ArticleDetailsCard = ({ route }) => {
           <Text style={styles.title}>Item: {article.name}</Text>
           <Image source={{ uri: article.photo }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
-          <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
-          <Text style={styles.body}>Características: {article.characteritics}</Text>
+          <Text style={styles.body}>Valor original: ${article.originalPrice.toLocaleString()}</Text>
+          <Text style={styles.finalPrice} variant="bodySmall">Precio con descuento: ${finalPrice.toLocaleString()}</Text>
+          <Text style={styles.body}>Descuento: {article.discount}%</Text>
+          <Text style={styles.body}>Categoria: {article.category}</Text>
           <Text></Text>
           <Button buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
           <Text></Text>
@@ -102,5 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArticleDetailsCard;
-
+export default OfertsDetailsCard;

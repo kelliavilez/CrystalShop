@@ -4,16 +4,12 @@ import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Button, Text, IconButton } from 'react-native-paper';
 
-const FoodCard = ({ food }) => {
+const FoodCard = ({ article }) => {
 
   const navigation=useNavigation();
 
-  const handleSelect = () => {
-    navigation.navigate('ArticlesDetails', { food }); 
-  };
-
   const maxPrice = 99999999;
-  const price = food.price > maxPrice ? maxPrice : food.price;
+  const price = article.price > maxPrice ? maxPrice : article.price;
   const formattedPrice = price.toLocaleString();
 
 
@@ -21,15 +17,15 @@ const FoodCard = ({ food }) => {
     <View>
     <Card style={styles.card}>
     <Card.Content>
-      <Image source={{ uri: food.photo }} style={styles.photosHome} />
-      <Text variant="bodySmall" >{food.description}</Text>   
+      <Image source={{ uri: article.photo }} style={styles.photosHome} />
+      <Text variant="bodySmall" >{article.description}</Text>   
       <Text variant="bodySmall" style={styles.priceText}>${formattedPrice}</Text>
       <Button 
       style={styles.buttonHome} 
       labelStyle={styles.buttonTextHome} 
       buttonColor='#96b89c'
        mode="contained" 
-       onPress={handleSelect}>
+       onPress={() => navigation.navigate('ArticleDetailsCard', { article })}>
       Elegir
       </Button>
     </Card.Content>
