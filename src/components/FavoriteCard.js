@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+/*import React, { useContext } from 'react';
 import { View, Image, ScrollView, Text } from 'react-native';
 import { Card, Button } from 'react-native-paper';
 import { AppContext } from '../context/AppContext';  // Importamos el contexto global
@@ -47,8 +47,8 @@ const FavoriteCard = ({ ofert }) => {
     );
 };
 
-export default FavoriteCard;
-/*import React from 'react';
+export default FavoriteCard;*/
+import React from 'react';
 import { View, Image, ScrollView,Text } from 'react-native';
 import styles from '../styles/favoriteStyles';
 import { Card, Text as PaperText, Button } from 'react-native-paper';
@@ -98,4 +98,4 @@ const FavoriteCard = ({ article }) => {
     );
 };
 
-export default FavoriteCard;*/
+export default FavoriteCard;

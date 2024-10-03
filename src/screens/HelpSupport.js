@@ -48,6 +48,9 @@ const HelpSupport = () => {
                 value={text}
                 onChangeText={setText}
                 style={styles.textInput}
+                underlineColor='#89c07a'
+                activeUnderlineColor='#89c07a'
+                activeOutlineColor='#a9bea3'
               />
             </Dialog.Content>
             <Dialog.Actions>
