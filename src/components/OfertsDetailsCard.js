@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'cover',
     marginVertical: 16,
+    borderRadius: 10
   },
   cardContent: {
     marginVertical: 16,

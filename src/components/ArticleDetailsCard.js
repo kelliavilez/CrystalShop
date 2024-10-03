@@ -8,12 +8,16 @@ const ArticleDetailsCard = ({ route }) => {
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
 
+  const maxPrice = 99999999;
+  const price = article.price > maxPrice ? maxPrice : article.price;
+  const formattedPrice = price.toLocaleString();
+
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Card style={styles.card} >
         <Card.Content>
           <Text style={styles.headline}>Detalles de Artículo</Text>
-          <Text style={styles.title}>Item: {article.name}</Text>
+          <Text style={styles.title}>Item:</Text>
           <Image source={{ uri: article.photo }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
@@ -79,6 +83,7 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'cover',
     marginVertical: 16,
+    borderRadius: 10
   },
   cardContent: {
     marginVertical: 16,

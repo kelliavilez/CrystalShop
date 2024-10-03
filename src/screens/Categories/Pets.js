@@ -6,14 +6,20 @@ import BedroomCard from '../../components/BedroomCard';
 import GardeningCard from '../../components/GardeningCard';
 import PetsCard from '../../components/PetsCard';
 import SearchBar from '../../components/SearchBar';
+import { useState } from 'react';
 
 const Pets = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredArticles = articles.filter((article) =>
+    article.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   const numColumns = 2;
     return (
       <View style={styles.viewStyle}>
-        <SearchBar/>
+        <SearchBar onSearch={setSearchQuery}/>
         <FlatList
-          data={articles}
+          data={filteredArticles}
           renderItem={({ item }) => <PetsCard article={item} />}
           keyExtractor={(item) => item.id.toString()}
           numColumns={2}

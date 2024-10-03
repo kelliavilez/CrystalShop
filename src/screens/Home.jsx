@@ -8,26 +8,35 @@ import SearchBar from "../components/SearchBar";
 
 function Home(navigation) {
 
-    const numColumns = 2;
-    const handleNavigateToDetails = (article) => {
-      navigation.navigate('ArticleDetailsCard', { article });
-    };
-    return (
-        <View style={styles.viewStyle}>
-            <SearchBar/>
-            <FlatList
-            data={articles}
-            renderItem={({ item }) => 
-            <ArticlesCard 
-            article={item} 
-            onPress={() => handleNavigateToDetails(item)} 
-           />}
-            keyExtractor={(item) => item.id.toString()}
-            numColumns={2}
-            key={numColumns}
-            />
-        </View>
-    );
+  
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredArticles = articles.filter((article) =>
+    article.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
+  const numColumns = 2;
+
+  const handleNavigateToDetails = (article) => {
+    navigation.navigate('ArticleDetailsCard', { article });
+  };
+
+  return (
+    <View style={styles.viewStyle}>
+        <SearchBar onSearch={setSearchQuery}/>
+        <FlatList
+        data={filteredArticles}
+        renderItem={({ item }) => 
+        <ArticlesCard 
+        article={item} 
+        onPress={() => handleNavigateToDetails(item)} 
+       />}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
+        key={numColumns}
+        />
+    </View>
+);
 }
 
 const articles = [

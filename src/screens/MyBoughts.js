@@ -4,21 +4,27 @@ import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import BoughtsCard from '../components/BoughtsCard';
 import SearchBar from '../components/SearchBar';
+import { useState } from 'react';
 
 const MyBoughts = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredArticles = articles.filter((article) =>
+    article.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
     return (
       <View style={styles.viewStyle}>
-        <SearchBar/>
+        <SearchBar onSearch={setSearchQuery}/>
         <FlatList
-          data={boughts}
-          renderItem={({ item }) => <BoughtsCard bought={item} />}
+          data={filteredArticles}
+          renderItem={({ item }) => <BoughtsCard article={item} />}
           keyExtractor={(item) => item.id.toString()}   
         />
       </View>
     );
   };
 
-  const boughts = [
+  const articles = [
     {
       id: 1,
       photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/38252836/resize/800/800?1691160167',
