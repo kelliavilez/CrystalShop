@@ -105,7 +105,7 @@ const AppDrawer = () => (
     options={{
       drawerIcon: ({ size }) => (
         <Icon
-          name={'home'}
+          name={'local-mall'}
           size={size}
           color={"#1f3b28"}
         />
@@ -145,7 +145,7 @@ const AppDrawer = () => (
     options={{
       drawerIcon: ({ size }) => (
         <Icon
-          name={'shopping'}
+          name={'shopping-cart'}
           size={size}
           color={"#1f3b28"}
         />

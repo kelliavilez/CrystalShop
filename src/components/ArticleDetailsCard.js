@@ -19,7 +19,7 @@ const ArticleDetailsCard = ({ route }) => {
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
           <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
-          <Button buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
+          <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
           <Text></Text>
           <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
           <Card style={styles.card}>
