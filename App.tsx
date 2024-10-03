@@ -2,6 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { AppProvider } from './src/context/AppContext';
+import { PaperProvider } from 'react-native-paper';
 import LogIn from './src/screens/LogIn';
 import SignUp from './src/screens/SignUp';
 import Home from './src/screens/Home';
