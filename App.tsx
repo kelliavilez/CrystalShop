@@ -24,7 +24,7 @@ import { Searchbar } from 'react-native-paper';
 import { useState } from 'react';
 import SearchBar from './src/components/SearchBar';
 import OfertsDetailsCard from './src/components/OfertsDetailsCard';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -44,16 +44,113 @@ const AuthenticationStack = () => ( //where the user can login or signup
 
 const AppDrawer = () => (
 
-  <Drawer.Navigator>
-    <Drawer.Screen name='Home' component={Home} />
-    <Drawer.Screen name='Perfil de usuario' component={Profile} />
-    <Drawer.Screen name='Mis favoritos' component={Favorite} />
-    <Drawer.Screen name='Mis compras' component={MyBoughts} />
-    <Drawer.Screen name='Ofertas' component={Oferts} />
-    <Drawer.Screen name='Pagos' component={Payment} />
-    <Drawer.Screen name='Ayuda y soporte' component={HelpSupport} />
-    <Drawer.Screen name='Categorias' component={ArticlesCategory} />
-    <Drawer.Screen name='Carrito de compras' component={ShoppingCart} />
+  <Drawer.Navigator 
+  screenOptions={{
+    drawerStyle: {
+      backgroundColor: "#ebf7ec",
+      width: 240,
+    },
+    drawerActiveTintColor: "#447348", 
+    drawerInactiveTintColor: "#1e241e", 
+    drawerActiveBackgroundColor: "#b4dbb7", 
+    headerStyle: {
+      backgroundColor: "#ebf7ec", 
+    },
+    headerTintColor: "#1f3b28", 
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  }}>
+    <Drawer.Screen name='Inicio' component={Home} 
+    options={{
+        drawerIcon: ({ size }) => (
+          <Icon
+            name={'home'}
+            size={size}
+            color={"#1f3b28"}
+          />
+        ),
+      }} />
+    <Drawer.Screen name='Perfil de usuario' component={Profile} 
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'person'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Mis favoritos' component={Favorite}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'bookmark'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Mis compras' component={MyBoughts}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'shopify'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Ofertas' component={Oferts}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'home'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Pagos' component={Payment}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'payments'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Ayuda y soporte' component={HelpSupport}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'help'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Categorias' component={ArticlesCategory}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'category'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
+    <Drawer.Screen name='Carrito de compras' component={ShoppingCart}
+    options={{
+      drawerIcon: ({ size }) => (
+        <Icon
+          name={'shopping'}
+          size={size}
+          color={"#1f3b28"}
+        />
+      ),
+    }} />
   </Drawer.Navigator>
 );
 

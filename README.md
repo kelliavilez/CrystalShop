@@ -12,3 +12,5 @@ npm install @react-native-community/masked-view
 npm install react-native-reanimated@latest
 npm install react-native-ratings
 npm install dayjs
+npm i --save-dev @types/react-native-vector-icons
+npm install react-native-vector-icons@latest     
