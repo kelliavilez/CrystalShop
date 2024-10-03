@@ -56,4 +56,3 @@ const categories = [
 
 export default Categories;
 
-  

@@ -3,7 +3,7 @@ import { View, Image, ScrollView, Text } from 'react-native';
 import styles from '../styles/paymentStyles';
 import { Card, Text as PaperText, RadioButton, Button, IconButton } from 'react-native-paper';
 
-import { Pressable, } from 'react-native';
+import { Pressable } from 'react-native';
 
 const Payment = () => {
     const [checked, setChecked] = React.useState('first');
