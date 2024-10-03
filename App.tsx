@@ -25,6 +25,7 @@ import { useState } from 'react';
 import SearchBar from './src/components/SearchBar';
 import OfertsDetailsCard from './src/components/OfertsDetailsCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -175,6 +176,7 @@ const App = () => (
         <Stack.Screen name='Food' component={Food} />
         <Stack.Screen name='Makeup' component={Makeup} />
         <Stack.Screen name='Pets' component={Pets} />
+        <Stack.Screen name='FavoriteDetailsCard' component={FavoriteDetailsCard} />
       </Stack.Navigator>
     </NavigationContainer>
   </PaperProvider>

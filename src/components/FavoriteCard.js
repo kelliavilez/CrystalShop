@@ -28,7 +28,7 @@ const FavoriteCard = ({ article }) => {
                             mode="contained"
                             buttonColor='#89c07a'
                             style={styles.button}
-                            onPress={() => navigation.navigate('ArticleDetailsCard', { article })}
+                            onPress={() => navigation.navigate('FavoriteDetailsCard', { article })}
                          >
                             Ver más
                         </Button>
