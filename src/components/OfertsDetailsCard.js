@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
-import { Rating } from 'react-native-ratings'; // Ajusta si usas una versión diferente de react-native-ratings
+import { Rating } from 'react-native-ratings'; 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 const OfertsDetailsCard = ({ route }) => {
   const { article } = route.params;
@@ -23,9 +25,9 @@ const OfertsDetailsCard = ({ route }) => {
           <Text style={styles.body}>Descuento: {article.discount}%</Text>
           <Text style={styles.body}>Categoria: {article.category}</Text>
           <Text></Text>
-          <Button buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
+          <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
           <Text></Text>
-          <Button buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
+          <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>

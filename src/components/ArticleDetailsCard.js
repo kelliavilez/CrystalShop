@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
-import { Rating } from 'react-native-ratings'; // Ajusta si usas una versión diferente de react-native-ratings
+import { Rating } from 'react-native-ratings'; 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const ArticleDetailsCard = ({ route }) => {
