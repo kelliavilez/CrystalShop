@@ -16,7 +16,7 @@ const ArticleDetailsCard = ({ route }) => {
       type: 'ADD_TO_CART',
       payload: {
         id: article.id,
-        productName: article.name,
+        productName: article.description,
         price: article.price,
         image: article.photo,
         quantity: 1,

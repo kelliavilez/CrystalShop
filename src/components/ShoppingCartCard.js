@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import { Image, Text, Pressable, View } from 'react-native';
 import styles from '../styles/cardItemStyles';
-import { AppContext } from '../context/AppContext'; // Ajusta la ruta a donde está el AppProvider
+import { AppContext } from '../context/AppContext';
 
 const CardItemCart = ({ car }) => {
-    const { state, dispatch } = useContext(AppContext); // Obtenemos el estado global y el dispatch del contexto
+    const { state, dispatch } = useContext(AppContext);
+
+    // Verifica si el artículo está seleccionado
+    const isSelected = state.cart.selectedItems.includes(car.id);
 
     const handleIncrement = () => {
         dispatch({ type: 'INCREMENT_QUANTITY', payload: { id: car.id } });
@@ -14,11 +17,17 @@ const CardItemCart = ({ car }) => {
         dispatch({ type: 'DECREMENT_QUANTITY', payload: { id: car.id } });
     };
 
+    const toggleSelectItem = () => {
+        dispatch({ type: 'TOGGLE_SELECT_ITEM', payload: { id: car.id } });
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.wrapperImageCheck}>
-                <Pressable style={styles.button} onPress={() => alert('V')}>
-                    <Text style={styles.iconPlus}>V</Text>
+                <Pressable style={styles.button} onPress={toggleSelectItem}>
+                    <Text style={styles.iconPlus}>
+                        {isSelected ? '✔' : ''} {/* Muestra ✔ si está seleccionado */}
+                    </Text>
                 </Pressable>
                 <Image
                     source={{ uri: car.image }}
@@ -27,7 +36,7 @@ const CardItemCart = ({ car }) => {
             </View>
             <View style={{ justifyContent: 'space-between' }}>
                 <View>
-                    <Text style={styles.productName}>{car.deacription}</Text>
+                    <Text style={styles.productName}>{car.productName}</Text>
                     <Text style={styles.price}>${car.price}</Text>
                 </View>
                 <View style={styles.wrapperCardBottom}>
@@ -45,6 +54,7 @@ const CardItemCart = ({ car }) => {
 };
 
 export default CardItemCart;
+
 /*import React from 'react';
 import { Image, Text, Pressable, View } from 'react-native';
 import styles from '../styles/cardItemStyles';

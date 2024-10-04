@@ -11,7 +11,6 @@ import HelpSupport from './src/screens/HelpSupport';
 import Oferts from './src/screens/Oferts';
 import MyBoughts from './src/screens/MyBoughts';
 import ArticlesCategory from './src/screens/Categories';
-import Payment from './src/screens/Payment';
 import Bedroom from './src/screens/Categories/Bedroom';
 import Food from './src/screens/Categories/Food';
 import Gardening from './src/screens/Categories/Gargening';
@@ -24,6 +23,7 @@ import ArticleDetailsCard from './src/components/ArticleDetailsCard';
 import OfertsDetailsCard from './src/components/OfertsDetailsCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
+import PaymentsCard from './src/components/PaymentsCard';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -110,16 +110,6 @@ const AppDrawer = () => (
           />
         ),
       }} />
-    <Drawer.Screen name='Pagos' component={Payment}
-      options={{
-        drawerIcon: ({ size }) => (
-          <Icon
-            name={'payments'}
-            size={size}
-            color={"#1f3b28"}
-          />
-        ),
-      }} />
     <Drawer.Screen name='Ayuda y soporte' component={HelpSupport}
       options={{
         drawerIcon: ({ size }) => (
@@ -176,6 +166,7 @@ const App = () => (
           <Stack.Screen name='Makeup' component={Makeup} />
           <Stack.Screen name='Pets' component={Pets} />
           <Stack.Screen name='FavoriteDetailsCard' component={FavoriteDetailsCard} />
+          <Stack.Screen name='PaymentsCard' component={PaymentsCard} />
       </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

@@ -1,38 +1,41 @@
 import React, { createContext, useReducer } from 'react';
 import { cartReducer } from './cartReducer'; 
 import { userReducer } from './userReducer'; 
+
 const AppContext = createContext();
 
 const initialState = {
-  user: {
-    username: '',
-    email: '',
-    dateOfBirth: '',
-    address: '',
-    photo: null,
-  },
-  cart: {
-    cartItems: [],
-    total: 0,
-  },
+    user: {
+        username: '',
+        email: '',
+        dateOfBirth: '',
+        address: '',
+        photo: null, 
+    },
+    cart: {
+        cartItems: [],
+        total: 0,
+        selectedItems: [],  // Manejo de artículos seleccionados
+    },
 };
 
 const appReducer = (state, action) => ({
-  user: userReducer(state.user, action),
-  cart: cartReducer(state.cart, action),
+    user: userReducer(state.user, action),
+    cart: cartReducer(state.cart, action),
 });
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(appReducer, initialState);
+    const [state, dispatch] = useReducer(appReducer, initialState);
 
-  return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppContext.Provider>
-  );
+    return (
+        <AppContext.Provider value={{ state, dispatch }}>
+            {children}
+        </AppContext.Provider>
+    );
 };
 
 export { AppProvider, AppContext };
+
 
 
 /*import React, { createContext, useReducer } from 'react';

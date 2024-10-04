@@ -16,15 +16,15 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
         marginBottom:15,
         marginTop:20,
     },
     cardContent: {
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
     },
     cardContent2:{
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
         marginBottom:5,
         marginTop:10,
 
