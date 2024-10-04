@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import OfertsCard from '../components/OfertsCard';
 
 const styles = StyleSheet.create({
     container: {
@@ -8,12 +7,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 20,
         backgroundColor: '#f7fef4',
-      },
+    },
     header: {
         marginVertical: 38,
-        marginHorizontal:20,
-        marginTop:25,
-        paddingTop:10,
+        marginHorizontal: 20,
+        marginTop: 25,
+        paddingTop: 10,
     },
     imagenLog: {
         width: 150,
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
         borderRadius: 150,
     },
-    link:{
+    link: {
         fontSize: 16,
         fontWeight: '150',
         color: '#89c07a',
@@ -69,9 +68,9 @@ const styles = StyleSheet.create({
 
     iconContainer: {
         flexDirection: 'row',
-        justifyContent: 'center', 
-        marginBottom: 1, 
-      },
+        justifyContent: 'center',
+        marginBottom: 1,
+    },
 
     card: {
         padding: 1,
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
     },
     optionMenu: {
         marginTop: 20,
-      },
+    },
     optionButtonMenu: {
         marginVertical: 5,
         borderColor: '#89c07a',
@@ -135,11 +134,11 @@ const styles = StyleSheet.create({
         marginBottom: 130,
         marginHorizontal: 20
     },
-    categoryPhoto:{
+    categoryPhoto: {
         width: 60,
         height: 60,
         borderRadius: 50,
-        
+
     },
     text: {
         fontSize: 18,
@@ -166,23 +165,23 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 20,
         marginBottom: 23,
-        
+
     },
     photosHome: {
         width: 148,
         height: 100,
         borderRadius: 10,
-        
+
     },
     buttonHome: {
-      width: 100,
-      height: 40, 
-      borderRadius: 20, 
-      alignContent: 'center',
-      marginTop:5
+        width: 100,
+        height: 40,
+        borderRadius: 20,
+        alignContent: 'center',
+        marginTop: 5
     },
     buttonTextHome: {
-      fontSize: 10, 
+        fontSize: 10,
     },
 });
 

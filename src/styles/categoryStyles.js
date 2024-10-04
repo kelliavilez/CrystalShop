@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import OfertsCard from '../components/OfertsCard';
 
 const styles = StyleSheet.create({
     card: {

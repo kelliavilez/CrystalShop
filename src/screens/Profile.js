@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Card, Avatar, Text, Title, Subheading, Button } from 'react-native-paper';
-import { AppContext } from '../context/AppContext'; // Importa el contexto
-import styles from '../styles/profileStyles'; // Importar los estilos
+import { AppContext } from '../context/AppContext';
+import styles from '../styles/profileStyles'; 
 
 const Profile = () => {
-  const { state } = useContext(AppContext); // Accede al estado global
+  const { state } = useContext(AppContext);
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>

@@ -40,16 +40,16 @@ const BoughtsCard = ({ article }) => {
               <Text variant="bodySmall">{article.category}</Text>
               <Text variant="bodySmall">{article.productName}</Text>
               {status && (
-              <Text variant="bodySmall">
-                Estado: {status}
-              </Text>
+                <Text variant="bodySmall">
+                  Estado: {status}
+                </Text>
               )}
             </View>
           </View>
 
-          
+
           <View style={styles.buttonContainer}>
-          <Button
+            <Button
               mode="outlined"
               onPress={showStatusAlert}
               style={styles.buttonState}
@@ -57,7 +57,7 @@ const BoughtsCard = ({ article }) => {
             >
               Estado
             </Button>
-            
+
           </View>
 
         </Card.Content>

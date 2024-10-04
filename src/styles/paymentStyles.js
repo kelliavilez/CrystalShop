@@ -7,30 +7,30 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: '#f7fef4',
         marginBottom: 10,
-    }, 
+    },
     productImage: {
-    width: 75,
-    height: 75,
-    borderRadius: 8,
+        width: 75,
+        height: 75,
+        borderRadius: 8,
     },
     container2: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
     },
     card: {
         backgroundColor: '#96b89c',
-        marginBottom:15,
-        marginTop:20,
+        marginBottom: 15,
+        marginTop: 20,
     },
     cardContent: {
         backgroundColor: '#96b89c',
     },
-    cardContent2:{
+    cardContent2: {
         backgroundColor: '#96b89c',
-        marginBottom:5,
-        marginTop:10,
+        marginBottom: 5,
+        marginTop: 10,
 
     },
     button: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     totalText: {
         fontSize: 18,
         fontWeight: 'bold',
-        alignItems:'stretch'
+        alignItems: 'stretch'
     },
     totalContent: {
         flexDirection: 'row',

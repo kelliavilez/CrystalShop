@@ -1,19 +1,17 @@
 const initialCartState = {
     cartItems: [],
     total: 0,
-    selectedItems: [], // Artículos seleccionados
+    selectedItems: [], 
 };
 
-// Función para calcular el total de todos los productos en el carrito
 const calculateTotal = (cartItems) => {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 };
 
-// Función para calcular el total basado en los artículos seleccionados
 const calculateSelectedTotal = (cartItems, selectedItems) => {
     return cartItems
-        .filter(item => selectedItems.includes(item.id)) // Filtra solo los seleccionados
-        .reduce((sum, item) => sum + item.price * item.quantity, 0); // Calcula el total de los seleccionados
+        .filter(item => selectedItems.includes(item.id)) 
+        .reduce((sum, item) => sum + item.price * item.quantity, 0); 
 };
 
 export const cartReducer = (state = initialCartState, action) => {
@@ -60,7 +58,7 @@ export const cartReducer = (state = initialCartState, action) => {
                         ? { ...item, quantity: item.quantity - 1 }
                         : item
                 )
-                .filter(item => item.quantity > 0); // Filtra los artículos cuya cantidad sea mayor a 0
+                .filter(item => item.quantity > 0); 
 
             return {
                 ...state,
@@ -71,13 +69,13 @@ export const cartReducer = (state = initialCartState, action) => {
         case 'TOGGLE_SELECT_ITEM':
             const isSelected = state.selectedItems.includes(action.payload.id);
             const updatedSelectedItems = isSelected
-                ? state.selectedItems.filter(id => id !== action.payload.id) // Deselecciona si ya estaba seleccionado
-                : [...state.selectedItems, action.payload.id]; // Selecciona si no estaba
+                ? state.selectedItems.filter(id => id !== action.payload.id)
+                : [...state.selectedItems, action.payload.id]; 
 
             return {
                 ...state,
                 selectedItems: updatedSelectedItems,
-                total: calculateSelectedTotal(state.cartItems, updatedSelectedItems), // Calcula el total basado en los seleccionados
+                total: calculateSelectedTotal(state.cartItems, updatedSelectedItems), 
             };
         case 'CLEAR_CART':
             return {

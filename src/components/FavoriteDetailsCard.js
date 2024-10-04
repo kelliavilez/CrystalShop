@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
-import { Rating } from 'react-native-ratings'; 
+import { Rating } from 'react-native-ratings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppContext } from '../context/AppContext'; 
+import { AppContext } from '../context/AppContext';
 
 const FavoriteDetailsCard = ({ route }) => {
 
@@ -39,9 +39,9 @@ const FavoriteDetailsCard = ({ route }) => {
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
           <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
-          <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
+          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
-          <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregado a favoritos</Button>
+          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregado a favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>
@@ -59,12 +59,12 @@ const FavoriteDetailsCard = ({ route }) => {
           </Card>
 
           <Text style={styles.title}>Preguntas</Text>
-          <TextInput 
-            style={styles.textInput} placeholder="Haz una pregunta al vendedor" maxLength={100}  />
+          <TextInput
+            style={styles.textInput} placeholder="Haz una pregunta al vendedor" maxLength={100} />
           <Button buttonColor='#89c07a' mode="contained">Enviar pregunta</Button>
 
           <Text style={styles.title}>Comentarios</Text>
-          <TextInput style={styles.textInput} placeholder="Escribe un comentario" maxLength={200}  />
+          <TextInput style={styles.textInput} placeholder="Escribe un comentario" maxLength={200} />
 
           <Text style={styles.title}>Calificación</Text>
           <Rating
@@ -80,11 +80,11 @@ const FavoriteDetailsCard = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-    textInput: {
-        width: 320,
-        marginBottom: 16,
-        backgroundColor: '#e1f1dd'
-    },
+  textInput: {
+    width: 320,
+    marginBottom: 16,
+    backgroundColor: '#e1f1dd'
+  },
   contentContainer: {
     padding: 16,
     alignItems: 'center',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   card: {
     marginVertical: 8,
     width: '100%',
-    backgroundColor:'#78a98c',
+    backgroundColor: '#78a98c',
   },
   mediumImage: {
     width: '100%',

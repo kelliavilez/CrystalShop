@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
-import { Card, Button, Text, IconButton } from 'react-native-paper';
+import { Card, Button, Text } from 'react-native-paper';
 
 const MakeupCard = ({ article }) => {
 

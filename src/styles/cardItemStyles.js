@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: '#f7fef4',
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
   totalText: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: 'grey'
   },
   checkoutButton: {
     backgroundColor: '#28a745',

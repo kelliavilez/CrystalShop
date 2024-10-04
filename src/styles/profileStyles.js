@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 5,
     backgroundColor: '#89c07a',
-    alignItems:'center',
+    alignItems: 'center',
   },
   container2: {
-      backgroundColor: '#e0e0e0',
-      padding: 10,
-      borderRadius: 10,
-      marginVertical: 10,
+    backgroundColor: '#e0e0e0',
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10,
   }
 }
 );

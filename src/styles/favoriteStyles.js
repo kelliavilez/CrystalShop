@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { green } from 'react-native-reanimated/lib/typescript/Colors';
 
 const styles = StyleSheet.create({
     status: {
         fontSize: 10,
         fontWeight: 'bold',
-        color: 'green',  // Cambia el color del texto
+        color: 'green', 
         marginBottom: 5,
     },
     container: {
@@ -19,12 +18,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     photoCard: {
-      width: 100,
-      height: '100%',
-      borderRadius: 10,
-      marginRight: 10,
-      marginBottom: 30,
-      marginTop: 10
+        width: 100,
+        height: '100%',
+        borderRadius: 10,
+        marginRight: 10,
+        marginBottom: 30,
+        marginTop: 10
     },
 
     container2: {
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
         padding: 3,
         backgroundColor: '#89c07a',
         borderRadius: 30,
-        marginBottom:1,
+        marginBottom: 1,
         height: 50,
         marginTop: 10
     },

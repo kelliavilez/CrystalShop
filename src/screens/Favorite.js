@@ -7,14 +7,14 @@ import { useState } from 'react';
 
 const Favorite = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  
+
   const filteredArticles = articles.filter((article) =>
     article.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <View style={styles.viewStyle}>
-      <SearchBar onSearch={setSearchQuery}/>
+      <SearchBar onSearch={setSearchQuery} />
       <FlatList
         data={filteredArticles}
         renderItem={({ item }) => <FavoriteCard article={item} />} // Asegúrate de que el prop "ofert" es esperado en FavoriteCard
@@ -30,7 +30,7 @@ const articles = [
     photo: 'https://catmajestic.com/wp-content/uploads/2023/04/Rascador-para-gatos-fingerprint-1000x1000.jpg',
     name: 'Rascador Gatos',
     description: 'Ideal para mantener las uñas de tu gato afiladas y evitar que rasguñe tus muebles.',
-    statusCategory:'Disponible - Mascotas',
+    statusCategory: 'Disponible - Mascotas',
     price: 200000,
     category: 'Mascotas'
   },
@@ -39,7 +39,7 @@ const articles = [
     photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/29406919/resize/800/800?1668354944',
     name: 'Macetas de cerámica',
     description: 'Perfectas para plantar flores o hierbas en interiores o exteriores.',
-    statusCategory:'Disponible - Jardineria',
+    statusCategory: 'Disponible - Jardineria',
     price: 20000,
     category: 'Jardineria'
   },
@@ -48,7 +48,7 @@ const articles = [
     photo: 'https://m.maccosmetics.com.co/media/export/cms/products/640x600/mac_sku_M66Y03_640x600_0.jpg',
     name: 'Delineador waterproof',
     description: 'Perfecto para una aplicación precisa y duradera durante todo el día.',
-    statusCategory:'Disponible - Maquillaje',
+    statusCategory: 'Disponible - Maquillaje',
     price: 20500,
     category: 'Maquillaje'
   },
@@ -57,7 +57,7 @@ const articles = [
     photo: 'https://http2.mlstatic.com/D_NQ_NP_713947-MCO45035432163_022021-O.webp',
     name: 'Almohada ortopédica',
     description: 'Diseñada para proporcionar soporte adecuado para el cuello y la cabeza.',
-    statusCategory:'Disponible - Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
     price: 90000,
     category: 'Dormitorio'
   },

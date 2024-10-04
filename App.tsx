@@ -28,7 +28,7 @@ import PaymentsCard from './src/components/PaymentsCard';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const AuthenticationStack = () => ( //where the user can login or signup
+const AuthenticationStack = () => ( 
   <Stack.Navigator
     screenOptions={{
       headerTintColor: 'black',
@@ -142,7 +142,7 @@ const AppDrawer = () => (
       }} />
   </Drawer.Navigator>
 );
-// Componente principal de la app
+
 const App = () => (
   <AppProvider>
     <PaperProvider>
@@ -167,7 +167,7 @@ const App = () => (
           <Stack.Screen name='Pets' component={Pets} />
           <Stack.Screen name='FavoriteDetailsCard' component={FavoriteDetailsCard} />
           <Stack.Screen name='PaymentsCard' component={PaymentsCard} />
-      </Stack.Navigator>
+        </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
   </AppProvider>

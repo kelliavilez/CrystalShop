@@ -3,7 +3,7 @@ import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
 import { Rating } from 'react-native-ratings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { AppContext } from '../context/AppContext'; 
+import { AppContext } from '../context/AppContext';
 
 
 const ArticleDetailsCard = ({ route }) => {
@@ -39,7 +39,7 @@ const ArticleDetailsCard = ({ route }) => {
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
           <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained"  onPress={handleAddToCart} >Agregar al carrito</Button>
+          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart} >Agregar al carrito</Button>
           <Text></Text>
           <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
           <Card style={styles.card}>

@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { View, Image, ScrollView, Text, Alert } from 'react-native';
 import { Card, Text as PaperText, RadioButton, Button } from 'react-native-paper';
 import styles from '../styles/paymentStyles';
-import { AppContext } from '../context/AppContext';  
+import { AppContext } from '../context/AppContext';
 
-const PaymentsCard = () => { 
+const PaymentsCard = () => {
 
     const { state, dispatch } = useContext(AppContext);
     const [checked, setChecked] = useState('first');
@@ -23,15 +23,15 @@ const PaymentsCard = () => {
 
         const boughtItems = selectedItems.map(item => ({
             id: item.id,
-            productName: item.productName, 
-            image: item.image,   
+            productName: item.productName,
+            image: item.image,
             category: item.category,
             state: 'Pagado',
         }));
 
         dispatch({
             type: 'ADD_TO_BOUGHTS_HISTORY',
-            payload: boughtItems, 
+            payload: boughtItems,
         });
 
         dispatch({
@@ -47,7 +47,7 @@ const PaymentsCard = () => {
         );
     };
 
-    const { username, address } = state.user;  
+    const { username, address } = state.user;
 
     return (
         <ScrollView>
@@ -113,7 +113,7 @@ const PaymentsCard = () => {
                             mode="contained"
                             buttonColor='#89c07a'
                             style={styles.buttonLog}
-                            onPress={handleAddToMyBoughts} 
+                            onPress={handleAddToMyBoughts}
                         >
                             Pagar
                         </Button>

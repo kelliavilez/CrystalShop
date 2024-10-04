@@ -15,7 +15,6 @@ const LogIn = () => {
   const testUser = "testuser";
   const testPassword = "Test@1234";
 
-  // Validación del nombre de usuario
   const userName = (text) => {
     if (text.length <= 10) {
       setUser(text);
@@ -25,7 +24,6 @@ const LogIn = () => {
     }
   };
 
-  // Validación de la contraseña
   const validatePassword = (text) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
@@ -36,20 +34,19 @@ const LogIn = () => {
     }
   };
 
-  // useEffect para mostrar un mensaje cuando el usuario o contraseña no sean válidos
   useEffect(() => {
     if (!isUserValid) {
       setError('El nombre de usuario debe tener máximo 10 caracteres.');
     } else if (!isPasswordValid) {
       setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
     } else {
-      setError(''); // Limpiar el error si todo está bien
+      setError(''); 
     }
-  }, [isUserValid, isPasswordValid]); // Se activa cuando la validez de usuario o contraseña cambia
+  }, [isUserValid, isPasswordValid]);
 
   const handleLogin = () => {
     if (user === testUser && password === testPassword) {
-      navigation.navigate('Main'); 
+      navigation.navigate('Main');
     } else {
       setError('Usuario o contraseña incorrectos');
     }
