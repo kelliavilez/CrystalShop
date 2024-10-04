@@ -9,9 +9,16 @@ const MyBoughts = () => {
   const { state } = useContext(AppContext);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredBoughts = state.boughts.boughtsItems.filter((item) =>
-    item.productName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    
+    const query = searchQuery.toLowerCase();
+
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesPrice = article.price.toString().includes(query); 
+    return matchesDescription || matchesCategory || matchesPrice;
+  
+  });
 
   return (
     <View style={styles.viewStyle}>
