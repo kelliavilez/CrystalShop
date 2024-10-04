@@ -28,7 +28,7 @@ import PaymentsCard from './src/components/PaymentsCard';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const AuthenticationStack = () => ( 
+const AuthenticationStack = () => (
   <Stack.Navigator
     screenOptions={{
       headerTintColor: 'black',
@@ -158,15 +158,51 @@ const App = () => (
             component={AppDrawer}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="ArticleDetailsCard" component={ArticleDetailsCard} />
-          <Stack.Screen name="OfertsDetailsCard" component={OfertsDetailsCard} />
-          <Stack.Screen name='Bedroom' component={Bedroom} />
-          <Stack.Screen name='Gardening' component={Gardening} />
-          <Stack.Screen name='Food' component={Food} />
-          <Stack.Screen name='Makeup' component={Makeup} />
-          <Stack.Screen name='Pets' component={Pets} />
-          <Stack.Screen name='FavoriteDetailsCard' component={FavoriteDetailsCard} />
-          <Stack.Screen name='PaymentsCard' component={PaymentsCard} />
+          <Stack.Screen
+            name="ArticleDetailsCard"
+            component={ArticleDetailsCard}
+            options={{ title: 'Detalles de articulo' }} 
+          />
+          <Stack.Screen
+            name="OfertsDetailsCard"
+            component={OfertsDetailsCard}
+            options={{ title: 'Detalles de oferta' }} 
+          />
+          <Stack.Screen
+            name="FavoriteDetailsCard"
+            component={FavoriteDetailsCard}
+            options={{ title: 'Detalles de articulo' }} 
+          />
+          <Stack.Screen
+            name="PaymentsCard"
+            component={PaymentsCard}
+            options={{ title: 'Portal pagos' }} 
+          />
+          <Stack.Screen 
+            name="Bedroom" 
+            component={Bedroom} 
+            options={{ title: 'Categoría: Dormitorio' }} 
+          />
+          <Stack.Screen 
+            name="Gardening" 
+            component={Gardening} 
+            options={{ title: 'Categoría: Jardinería' }} 
+          />
+          <Stack.Screen 
+            name="Food" 
+            component={Food} 
+            options={{ title: 'Categoría: Comida' }} 
+          />
+          <Stack.Screen 
+            name="Makeup" 
+            component={Makeup} 
+            options={{ title: 'Categoría: Maquillaje' }}
+          />
+          <Stack.Screen 
+            name="Pets" 
+            component={Pets} 
+            options={{ title: 'Categoría: Mascotas' }} 
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
