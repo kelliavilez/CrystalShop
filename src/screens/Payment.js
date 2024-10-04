@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Image, ScrollView, Text } from 'react-native';
 import styles from '../styles/paymentStyles';
 import { Card, Text as PaperText, RadioButton, Button, IconButton } from 'react-native-paper';
-
+import { AppContext } from '../context/AppContext';  // Importa el contexto
 import { Pressable } from 'react-native';
 
 const Payment = () => {
+    const { state } = useContext(AppContext);  // Obtiene el estado del contexto
+    const { username, address } = state.user;  // Extrae la información del usuario
     const [checked, setChecked] = React.useState('first');
-
     const [quantity, setQuantity] = useState(0);
 
     const increaseQuantity = () => {
@@ -26,9 +27,8 @@ const Payment = () => {
                 <Card style={styles.card}>
                     <Card.Content>
                         <PaperText variant="titleLarge">Información del Usuario</PaperText>
-                        <PaperText variant="bodyMedium">Nombre Usuario</PaperText>
-                        <PaperText variant="bodyMedium">Dirección</PaperText>
-                        <PaperText variant="bodyMedium">Ciudad y Departamentos</PaperText>
+                        <PaperText variant="bodyMedium">Nombre: {username}</PaperText>
+                        <PaperText variant="bodyMedium">Dirección: {address}</PaperText>
                     </Card.Content>
                 </Card>
 
