@@ -1,31 +1,56 @@
-import React, { useState, useContext } from 'react';
-import { TextInput} from 'react-native-paper';
-import { Rating } from 'react-native-ratings';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { View, Image, ScrollView, Text } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, Image, ScrollView, Text, Alert } from 'react-native';
+import { Card, Text as PaperText, RadioButton, Button } from 'react-native-paper';
 import styles from '../styles/paymentStyles';
-import { Card, Text as PaperText, RadioButton, Button, IconButton } from 'react-native-paper';
-import { AppContext } from '../context/AppContext';  // Importa el contexto
-import { Pressable } from 'react-native';
+import { AppContext } from '../context/AppContext';  
 
-const PaymentsCard = ({ route }) => {
-    const { state } = useContext(AppContext);  // Obtiene el estado del contexto
-    const { username, address } = state.user;  // Extrae la información del usuario
-    const [checked, setChecked] = React.useState('first');
-    const [quantity, setQuantity] = useState(0);
+const PaymentsCard = () => { 
 
-    const increaseQuantity = () => {
-        setQuantity(quantity + 1);
-    };
+    const { state, dispatch } = useContext(AppContext);
+    const [checked, setChecked] = useState('first');
 
-    const decreaseQuantity = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
+    const selectedItems = state.cart.cartItems.filter(item => state.cart.selectedItems.includes(item.id));
+
+    const total = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    const totalSelected = selectedItems.reduce((sum, item) => sum + item.quantity, 0);
+
+    const handleAddToMyBoughts = () => {
+        if (selectedItems.length === 0) {
+            Alert.alert('Carrito Vacío', 'No hay artículos seleccionados para comprar.');
+            return;
         }
+
+        const boughtItems = selectedItems.map(item => ({
+            id: item.id,
+            productName: item.productName, 
+            image: item.image,   
+            category: item.category,
+            state: 'Pagado',
+        }));
+
+        dispatch({
+            type: 'ADD_TO_BOUGHTS_HISTORY',
+            payload: boughtItems, 
+        });
+
+        dispatch({
+            type: 'CLEAR_CART',
+        });
+
+        Alert.alert(
+            'Pago Exitoso',
+            'Pago procesado exitosamente. Sus artículos han sido añadidos a sus compras.',
+            [
+                { text: 'OK', onPress: () => console.log('Pago completado') }
+            ]
+        );
     };
+
+    const { username, address } = state.user;  
 
     return (
-        <ScrollView >
+        <ScrollView>
             <View style={styles.container}>
                 <Card style={styles.card}>
                     <Card.Content>
@@ -65,89 +90,31 @@ const PaymentsCard = ({ route }) => {
                     </Card.Content>
                 </Card>
 
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
+                {selectedItems.map((item) => (
+                    <Card key={item.id} style={styles.cardContent2}>
+                        <Card.Content>
+                            <View style={styles.rowContainer}>
+                                <Image source={{ uri: item.image }} style={styles.productImage} />
+                                <View style={styles.infoContainer}>
+                                    <PaperText variant="bodyMedium">Cantidad: {item.quantity}</PaperText>
+                                    <PaperText variant="bodyMedium">{item.productName}</PaperText>
+                                    <PaperText variant="bodyMedium">Precio: ${item.price.toFixed(2)}</PaperText>
+                                </View>
                             </View>
-                            <View style={styles.container2}>
-                                <Pressable onPress={decreaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>-</Text>
-                                </Pressable>
-                                <Text style={styles.quantityText}>{quantity}</Text>
-                                <Pressable onPress={increaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>+</Text>
-                                </Pressable>
-                            </View>
-                        </View>
+                        </Card.Content>
+                    </Card>
+                ))}
 
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Pressable onPress={decreaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>-</Text>
-                                </Pressable>
-                                <Text style={styles.quantityText}>{quantity}</Text>
-                                <Pressable onPress={increaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>+</Text>
-                                </Pressable>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
-                <Card style={styles.cardContent2}>
-                    <Card.Content>
-                        <View style={styles.rowContainer}>
-                            <Image
-                                source={{ uri: 'https://dovet.es/wp-content/uploads/2019/06/cachorro-pastor-aleman.jpg' }}
-                                style={styles.image}
-                            />
-                            <View style={styles.infoContainer}>
-                                <PaperText variant="titleLarge">Nombre producto</PaperText>
-                                <PaperText variant="bodyMedium">Descripción</PaperText>
-                                <PaperText variant="bodyMedium">Precio</PaperText>
-                            </View>
-                            <View style={styles.container2}>
-                                <Pressable onPress={decreaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>-</Text>
-                                </Pressable>
-                                <Text style={styles.quantityText}>{quantity}</Text>
-                                <Pressable onPress={increaseQuantity} style={styles.button}>
-                                    <Text style={styles.buttonText}>+</Text>
-                                </Pressable>
-                            </View>
-                        </View>
-                    </Card.Content>
-                </Card>
                 <View style={styles.totalContainer}>
                     <View style={styles.separator} />
                     <View style={styles.totalContent}>
-                        <Text style={styles.totalText}>Total: $100.000</Text>
+                        <Text style={styles.totalText}>Total: ${total.toFixed(2)}</Text>
                         <Button
                             mode="contained"
                             buttonColor='#89c07a'
                             style={styles.buttonLog}
-                            onPress={() => alert('Estamos procesando su pago')
-                            }>
+                            onPress={handleAddToMyBoughts} 
+                        >
                             Pagar
                         </Button>
                     </View>

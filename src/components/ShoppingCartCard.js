@@ -37,7 +37,9 @@ const CardItemCart = ({ car }) => {
             <View style={{ justifyContent: 'space-between' }}>
                 <View>
                     <Text style={styles.productName}>{car.productName}</Text>
+                    <Text style={styles.price}>{car.originalPrice}</Text>
                     <Text style={styles.price}>${car.price}</Text>
+                    <Text style={styles.price}>{car.discount}</Text>
                 </View>
                 <View style={styles.wrapperCardBottom}>
                     <Pressable style={styles.button} onPress={handleDecrement}>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, FlatList, Text, Pressable } from 'react-native';
+import { View, FlatList, Text, Pressable, ScrollView } from 'react-native';
 import { AppContext } from '../context/AppContext';  // Importamos el contexto global
 import CardItemCart from '../components/ShoppingCartCard';
 import styles from '../styles/ShoppingCarStyles';
@@ -16,6 +16,7 @@ const ShoppingCart = () => {
     .reduce((sum, item) => sum + item.price * item.quantity, 0); // Calcula el total de los seleccionados
 
   return (
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.viewStyle}>
       {/* Lista de artículos en el carrito */}
       <FlatList
@@ -31,7 +32,7 @@ const ShoppingCart = () => {
         {/* Botón de pagar */}
         <Pressable
           style={styles.checkoutButton}
-          onPress={() => navigation.navigate('PaymentsCard', {  })}
+          onPress={() => navigation.navigate('PaymentsCard', {})}
           disabled={totalSelected === 0} // Deshabilitar botón si no hay artículos seleccionados
         >
           <Text style={styles.checkoutButtonText}>
@@ -41,6 +42,7 @@ const ShoppingCart = () => {
         
       </View>
     </View>
+    </ScrollView>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import { cartReducer } from './cartReducer'; 
 import { userReducer } from './userReducer'; 
+import { boughtsReducer } from './boughtsReducer';
 
 const AppContext = createContext();
 
@@ -17,11 +18,15 @@ const initialState = {
         total: 0,
         selectedItems: [],  // Manejo de artículos seleccionados
     },
+    boughts: {
+        boughtsItems: []
+    }
 };
 
 const appReducer = (state, action) => ({
     user: userReducer(state.user, action),
     cart: cartReducer(state.cart, action),
+    boughts: boughtsReducer(state.boughts, action)
 });
 
 const AppProvider = ({ children }) => {

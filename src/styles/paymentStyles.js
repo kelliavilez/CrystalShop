@@ -7,8 +7,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: '#f7fef4',
         marginBottom: 10,
+    }, 
+    productImage: {
+    width: 75,
+    height: 75,
+    borderRadius: 8,
     },
-
     container2: {
         flexDirection: 'row', 
         alignItems: 'center',

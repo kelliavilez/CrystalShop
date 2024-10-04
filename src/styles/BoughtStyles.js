@@ -17,7 +17,14 @@ card: {
     shadowOpacity: 0.25,
     shadowRadius: 4,
 },
-
+buttonText: {
+  color: 'green',         
+}, 
+productImage: {
+width: 75,
+height: 75,
+borderRadius: 8,
+},
 
 buttonCard: {
     Width: 50, 
@@ -37,7 +44,8 @@ buttonCard: {
     Width: 100, 
     maxHeight: 50,
     marginTop: -20,
-    marginLeft:150 
+    marginLeft:150,
+    borderColor: 'green'
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -87,6 +95,7 @@ buttonCard: {
     borderRadius: 5,
     marginTop: -8,
   },
+  
 });
 
 export default styles;

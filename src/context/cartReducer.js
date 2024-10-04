@@ -79,6 +79,13 @@ export const cartReducer = (state = initialCartState, action) => {
                 selectedItems: updatedSelectedItems,
                 total: calculateSelectedTotal(state.cartItems, updatedSelectedItems), // Calcula el total basado en los seleccionados
             };
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                cartItems: [],
+                selectedItems: [],
+                total: 0,
+            };
 
         default:
             return state;

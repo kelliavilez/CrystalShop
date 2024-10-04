@@ -1,32 +1,35 @@
-import React from 'react';
-import { View, Text, Image, Button, FlatList  } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, FlatList } from 'react-native';
 import styles from '../styles/globalStyles';
-import { useNavigation } from '@react-navigation/native';
+import { AppContext } from '../context/AppContext';  
 import BoughtsCard from '../components/BoughtsCard';
 import SearchBar from '../components/SearchBar';
-import { useState } from 'react';
 
 const MyBoughts = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  
-  const filteredArticles = articles.filter((article) =>
-    article.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-    return (
-      <View style={styles.viewStyle}>
-        <SearchBar onSearch={setSearchQuery}/>
-        <FlatList
-          data={filteredArticles}
-          renderItem={({ item }) => <BoughtsCard article={item} />}
-          keyExtractor={(item) => item.id.toString()}   
-        />
-      </View>
+    const { state } = useContext(AppContext);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const filteredBoughts = state.boughts.boughtsItems.filter((item) =>
+        item.productName.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  };
+
+    return (
+        <View style={styles.viewStyle}>
+            <SearchBar onSearch={setSearchQuery} />
+            <FlatList
+                data={filteredBoughts} 
+                renderItem={({ item }) => <BoughtsCard article={item} />}
+                keyExtractor={(item) => item.id.toString()}   
+            />
+        </View>
+    );
+};
+
+export default MyBoughts;
 
   const articles = [
     {
-      id: 1,
+      id: 46,
       photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/38252836/resize/800/800?1691160167',
       description: 'Hermoso juego de macetas de ceramica con diseños de animales: cebra, zorro, vaca, mapache, gato, entre otros varios',
       state: 'Entregado',
@@ -34,14 +37,14 @@ const MyBoughts = () => {
       
     },
     {
-      id: 2,
+      id: 47,
       photo: 'https://d1flfk77wl2xk4.cloudfront.net/Assets/40/564/XXL_p0208456440.jpg',
       description: 'Hermoso blush tono rosado , con alta duracion y pigmento, perfecto para toca ocasion, nuevo diseño con aplicador',
       state: 'Cancelado',
       category: 'Maquillaje'
     },
     {
-      id: 3,
+      id: 48,
       photo: 'https://lencicol.com/wp-content/uploads/2023/09/AnyConv.com__Juego-de-Sabana-Azul-Oscuro-25cm-Altura-01.webp',
       description: 'Juego de cama azul oscuro noche, perfecto para dar un toque elegante a tú habitacion y elevar tú espacio',
       state: 'Pendiente',
@@ -49,5 +52,5 @@ const MyBoughts = () => {
     }
   ];
 
-  export default MyBoughts;
+
   

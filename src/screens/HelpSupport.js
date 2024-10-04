@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/HelpSupportStyles';
@@ -8,6 +8,9 @@ const HelpSupport = () => {
 
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState('');
+  const [maxLengthReached, setMaxLengthReached] = useState(false);
+
+  const maxLength = 300;
 
   const showDialog = () => setVisible(true);
   const hideDialog = () => setVisible(false);
@@ -17,6 +20,13 @@ const HelpSupport = () => {
     hideDialog();
   };
 
+  useEffect(() => {
+    if (text.length >= maxLength) {
+      setMaxLengthReached(true);
+    } else {
+      setMaxLengthReached(false);
+    }
+  }, [text]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -44,7 +54,7 @@ const HelpSupport = () => {
                 label="Mensaje"
                 multiline
                 numberOfLines={4}
-                maxLength={300}
+                maxLength={maxLength}
                 value={text}
                 onChangeText={setText}
                 style={styles.textInput}
@@ -52,6 +62,9 @@ const HelpSupport = () => {
                 activeUnderlineColor='#89c07a'
                 activeOutlineColor='#a9bea3'
               />
+              {maxLengthReached && (
+                <Text style={styles.errorText}>Límite máximo de caracteres alcanzado ({maxLength})</Text>
+              )}
             </Dialog.Content>
             <Dialog.Actions>
               <Button labelStyle={styles.optionButtonLabel} onPress={hideDialog}>Cancelar</Button>

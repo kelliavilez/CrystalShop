@@ -25,7 +25,7 @@ const Oferts = () => {
 
   const articles = [
     {
-      id: 1,
+      id: 7,
       originalPrice: 200000,
       discount: 20,
       photo: 'https://catmajestic.com/wp-content/uploads/2023/04/Rascador-para-gatos-fingerprint-1000x1000.jpg',
@@ -34,7 +34,7 @@ const Oferts = () => {
       category: 'Mascotas'
     },
     {
-      id: 2,
+      id: 8,
       originalPrice: 40000,
       discount: 5,
       photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/29406919/resize/800/800?1668354944',
@@ -43,7 +43,7 @@ const Oferts = () => {
       category: 'Jardineria'
     },
     {
-      id: 3,
+      id: 9,
       originalPrice: 60000,
       discount: 30,
       photo: 'https://m.maccosmetics.com.co/media/export/cms/products/640x600/mac_sku_M66Y03_640x600_0.jpg',
@@ -52,7 +52,7 @@ const Oferts = () => {
       category: 'Maquillaje'
     },
     {
-      id: 4,
+      id: 10,
       originalPrice: 160000,
       discount: 35,
       photo: 'https://http2.mlstatic.com/D_NQ_NP_713947-MCO45035432163_022021-O.webp',
@@ -61,7 +61,7 @@ const Oferts = () => {
       category: 'Dormitorio'
     },
     {
-      id: 5,
+      id: 11,
       originalPrice: 90000,
       discount: 60,
       photo: 'https://www.proveedores.com/articulos/wp-content/uploads/2016/02/chocolate-gourmet-2.jpg',

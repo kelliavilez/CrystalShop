@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
 import { Rating } from 'react-native-ratings'; 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { AppContext } from '../context/AppContext'; 
 
 const FavoriteDetailsCard = ({ route }) => {
+
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
+  const { dispatch } = useContext(AppContext);
+
+  const handleAddToCart = () => {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        id: article.id,
+        productName: article.name,
+        price: article.price,
+        image: article.photo,
+        quantity: 1,
+      },
+    });
+  };
 
   const maxPrice = 99999999;
   const price = article.price > maxPrice ? maxPrice : article.price;
@@ -23,7 +39,7 @@ const FavoriteDetailsCard = ({ route }) => {
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
           <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
-          <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
+          <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
           <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregado a favoritos</Button>
           <Card style={styles.card}>
