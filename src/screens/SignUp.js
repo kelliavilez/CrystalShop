@@ -1,242 +1,68 @@
-/*import React, { useState, useContext } from 'react';
-import { View, Text, Alert, Image } from 'react-native';
-import { TextInput, Button } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { AppContext } from '../context/AppContext'; 
-import dayjs from 'dayjs';
-import styles from '../styles/globalStyles';
-
-const SignUp = () => {
-  const { dispatch } = useContext(AppContext); 
-  const [username, setUsername] = useState(''); 
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState(''); 
-  const [address, setAddress] = useState('');
-  const [error, setError] = useState('');
-  const navigation = useNavigation();
-
-  const userName = (text) => {
-    if (text.length <= 10) {
-      setUsername(text);
-      setError('');
-    } else {
-      setError('El nombre de usuario debe tener máximo 10 caracteres.');
-    }
-  };
-
-  const validatePassword = (text) => {
-    const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
-    setPassword(text);
-    if (passwordRule.test(text)) {
-      setError('');
-    } else {
-      setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
-    }
-  };
-
-  const correctEmail = (text) => {
-    const emailRule = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    setEmail(text);
-    if (emailRule.test(text)) {
-      setError('');
-    } else {
-      setError('Correo electrónico inválido.');
-    }
-  };
-
-  const correctAddress = (text) => {
-    if (text.length <= 30) {
-      setAddress(text);
-      setError('');
-    } else {
-      setError('La dirección debe tener máximo 30 caracteres.');
-    }
-  };
-
-  const validateDate = (text) => {
-    setDateOfBirth(text);
-    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-    if (!dateRegex.test(text)) {
-      setError('Fecha de nacimiento inválida');
-      return;
-    }
-
-    const birthDate = dayjs(text, 'DD/MM/YYYY');
-    const today = dayjs();
-    const minAgeDate = today.subtract(18, 'year');
-    const maxAgeDate = today.subtract(50, 'year');
-
-    if (birthDate.isAfter(minAgeDate)) {
-      setError('No estás en el rango de edad para crear la cuenta');
-      Alert.alert('Error de edad', 'Debes tener al menos 18 años para crear una cuenta');
-    } else if (birthDate.isBefore(maxAgeDate)) {
-      setError('No estás en el rango de edad para crear la cuenta');
-      Alert.alert('Error de edad', 'No puedes crear una cuenta si tienes más de 50 años');
-    } else {
-      setError('');
-    }
-  };
-
-  const handleSignUp = () => {
-    if (error) {
-      Alert.alert('Error', error);
-      return;
-    }
-
-    if (!username || !password || !email || !dateOfBirth || !address) {
-      Alert.alert('Error', 'Por favor, complete todos los campos');
-      return;
-    }
-
-    dispatch({
-      type: 'SET_USER',
-      payload: {
-        username,
-        email,
-        dateOfBirth,
-        address,
-      },
-    });
-
-    Alert.alert('Éxito', '¡Cuenta creada exitosamente!');
-    navigation.navigate('Main');
-  };
-
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Image
-            source={{ uri: 'https://previews.123rf.com/images/neonicflower/neonicflower1511/neonicflower151100006/47737821-%C3%A1rbol-icono-de-%C3%A1rbol-%C3%A1rbol-de-eco-%C3%A1rbol-de-la-ecolog%C3%ADa-icono-%C3%A1rbol-aislado-en-el-fondo-%C3%A1rbol.jpg' }}
-            style={styles.imagenLog}
-            accessibilityLabel='Logo GreenMarket'
-          />
-          <Text style={styles.titleSign}>Crea una cuenta</Text>
-          <Text style={styles.subtitleLog}>Compra ecológica que siempre resalta y abarca</Text>
-
-          <TextInput
-            label="Usuario"
-            value={username}
-            onChangeText={userName}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-          <TextInput
-            label="Contraseña"
-            value={password}
-            placeholder="Password"
-            onChangeText={validatePassword}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            secureTextEntry={true}
-            style={styles.textInput}
-          />
-          <TextInput
-            label="Correo electrónico"
-            onChangeText={correctEmail}
-            value={email}
-            placeholder='example@gmail.com'
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            keyboardType="email-address"
-            style={styles.textInput}
-          />
-          <TextInput
-            label="Fecha de nacimiento"
-            value={dateOfBirth}
-            onChangeText={validateDate}
-            placeholder='DD/MM/YYYY'
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-          <TextInput
-            label="Dirección"
-            value={address}
-            onChangeText={correctAddress}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-          {error && <Text style={styles.error}>{error}</Text>}
-
-          <View>
-            <Button
-              mode="contained"
-              buttonColor='#89c07a'
-              style={styles.buttonLog}
-              onPress={handleSignUp}
-            >
-              Regístrate
-            </Button>
-          </View>
-
-          <View>
-            <Text>
-              ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => navigation.navigate('LogIn')}>Inicia sesión</Text>
-            </Text>
-          </View>
-        </View>
-      </View>
-    </ScrollView>
-  );
-};
-
-export default SignUp;*/
-
-
 import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, Alert, Image } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
-import { AppContext } from '../context/AppContext'; 
+import { AppContext } from '../context/AppContext';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import styles from '../styles/globalStyles';
+import { Picker } from '@react-native-picker/picker';
 
 const SignUp = () => {
-  const { dispatch } = useContext(AppContext); 
-  const [username, setUsername] = useState(''); 
+  const { dispatch } = useContext(AppContext);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState(''); 
+  const [dateOfBirth, setDateOfBirth] = useState('');
   const [address, setAddress] = useState('');
-  
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+  const [names, setNames] = useState('');
+  const [lastnames, setLastnames] = useState('');
+
+
   const [validationMessages, setValidationMessages] = useState({
     username: '',
     password: '',
     email: '',
     dateOfBirth: '',
-    address: ''
+    address: '',
+    country: '',
+    department: '',
+    city: '',
+    names: '',
+    lastnames: ''
   });
 
   const navigation = useNavigation();
 
   dayjs.extend(customParseFormat);
+
+  useEffect(() => {
+    const namesRule = /^[a-zA-Z\s]+$/;
+
+    if (names.length === 0) {
+      setValidationMessages((prev) => ({ ...prev, names: 'Los nombres son requeridos.' }));
+    } else if (namesRule.test(names)) {
+      setValidationMessages((prev) => ({ ...prev, names: 'Nombres válidos ✅' }));
+    } else {
+      setValidationMessages((prev) => ({ ...prev, names: 'Solo se permiten letras.' }));
+    }
+  }, [names]);
+
+  useEffect(() => {
+    const lastnamesRule = /^[a-zA-Z\s]+$/;
+
+    if (lastnames.length === 0) {
+      setValidationMessages((prev) => ({ ...prev, lastnames: 'Los apellidos son requeridos.' }));
+    } else if (lastnamesRule.test(lastnames)) {
+      setValidationMessages((prev) => ({ ...prev, lastnames: 'Apellidos válidos ✅' }));
+    } else {
+      setValidationMessages((prev) => ({ ...prev, lastnames: 'Solo se permiten letras.' }));
+    }
+  }, [lastnames]);
 
   useEffect(() => {
     if (username.length > 0 && username.length <= 10) {
@@ -255,8 +81,8 @@ const SignUp = () => {
     } else if (passwordRule.test(password)) {
       setValidationMessages((prev) => ({ ...prev, password: 'Contraseña válida ✅' }));
     } else {
-      setValidationMessages((prev) => ({ 
-        ...prev, 
+      setValidationMessages((prev) => ({
+        ...prev,
         password: 'Mínimo 8 caracteres, una mayúscula, un número y un carácter especial.'
       }));
     }
@@ -313,22 +139,53 @@ const SignUp = () => {
     }
   }, [address]);
 
+  useEffect(() => {
+    if (selectedCountry) {
+      setValidationMessages((prev) => ({ ...prev, country: 'País seleccionado ✅' }));
+    } else {
+      setValidationMessages((prev) => ({ ...prev, country: 'Selecciona un país.' }));
+    }
+  }, [selectedCountry]);
+
+  useEffect(() => {
+    if (selectedDepartment) {
+      setValidationMessages((prev) => ({ ...prev, department: 'Departamento seleccionado ✅' }));
+    } else {
+      setValidationMessages((prev) => ({ ...prev, department: 'Selecciona un departamento.' }));
+    }
+  }, [selectedDepartment]);
+
+  useEffect(() => {
+    if (selectedCity) {
+      setValidationMessages((prev) => ({ ...prev, city: 'Ciudad seleccionada ✅' }));
+    } else {
+      setValidationMessages((prev) => ({ ...prev, city: 'Selecciona una ciudad.' }));
+    }
+  }, [selectedCity]);
+
+
   const handleSignUp = () => {
 
-    if (!username || !password || !email || !dateOfBirth || !address) {
+    if (!username || !password || !email || !dateOfBirth || !address || !selectedCountry || !selectedDepartment || !selectedCity || !names || !lastnames) {
       Alert.alert('Error', 'Por favor, complete todos los campos.');
       return;
     }
 
-    const hasErrors = Object.values(validationMessages).some(message => 
-      message.includes('inválido') || 
-      message.includes('requiere') || 
-      message.includes('Máximo') || 
-      message.includes('mínimo') || 
-      message.includes('Máximo 30 caracteres.') || 
-      message.includes('La dirección es requerida.') || 
-      message.includes('Debes tener al menos 18 años.') || 
-      message.includes('No puedes tener más de 50 años.')
+    const hasErrors = Object.values(validationMessages).some(message =>
+      message.includes('inválido') ||
+      message.includes('requiere') ||
+      message.includes('Máximo') ||
+      message.includes('mínimo') ||
+      message.includes('Máximo 30 caracteres.') ||
+      message.includes('La dirección es requerida.') ||
+      message.includes('Debes tener al menos 18 años.') ||
+      message.includes('No puedes tener más de 50 años.') ||
+      message.includes('Selecciona un país.') ||
+      message.includes('Selecciona un departamento.') ||
+      message.includes('Selecciona una ciudad.') ||
+      message.includes('Los nombres son requeridos.') ||
+      message.includes('Solo se permiten letras.') ||
+      message.includes('Los apellidos son requeridos.')
     );
 
     if (hasErrors) {
@@ -343,6 +200,8 @@ const SignUp = () => {
         email,
         dateOfBirth,
         address,
+        names,
+        lastnames
       },
     });
 
@@ -351,7 +210,7 @@ const SignUp = () => {
   };
 
   return (
-<ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff' }}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff' }}>
       <View style={styles.header}>
         <Image
           source={{ uri: 'https://previews.123rf.com/images/neonicflower/neonicflower1511/neonicflower151100006/47737821-%C3%A1rbol-icono-de-%C3%A1rbol-%C3%A1rbol-de-eco-%C3%A1rbol-de-la-ecolog%C3%ADa-icono-%C3%A1rbol-aislado-en-el-fondo-%C3%A1rbol.jpg' }}
@@ -374,6 +233,26 @@ const SignUp = () => {
           style={styles.textInput}
         />
         <Text style={styles.validationMessage}>{validationMessages.username}</Text>
+
+        <TextInput
+          label="Nombres"
+          value={names}
+          onChangeText={setNames}
+          underlineColor='#89c07a'
+          activeUnderlineColor='#89c07a'
+          style={styles.textInput}
+        />
+        <Text style={styles.validationMessage}>{validationMessages.names}</Text>
+
+        <TextInput
+          label="Apellidos"
+          value={lastnames}
+          onChangeText={setLastnames}
+          underlineColor='#89c07a'
+          activeUnderlineColor='#89c07a'
+          style={styles.textInput}
+        />
+        <Text style={styles.validationMessage}>{validationMessages.lastnames}</Text>
 
         <TextInput
           label="Contraseña"
@@ -420,6 +299,86 @@ const SignUp = () => {
         />
         <Text style={styles.validationMessage}>{validationMessages.dateOfBirth}</Text>
 
+        <Picker
+          style={styles.textInput}
+          selectedValue={selectedCountry}
+          onValueChange={(itemValue) => setSelectedCountry(itemValue)}
+        >
+          <Picker.Item label="Selecciona un país" value="" />
+          <Picker.Item label="Colombia" value="colombia" />
+        </Picker>
+        <Text style={styles.validationMessage}>{validationMessages.country}</Text>
+
+        <Picker
+          style={styles.textInput}
+          selectedValue={selectedDepartment}
+          onValueChange={(itemValue) => setSelectedDepartment(itemValue)}
+        >
+          <Picker.Item label="Seleccionar departamento" value="" />
+          <Picker.Item label="Antioquia" value="antioquia" />
+          <Picker.Item label="Bogotá" value="bogota" />
+          <Picker.Item label="Cundinamarca" value="cundinamarca" />
+        </Picker>
+        <Text style={styles.validationMessage}>{validationMessages.department}</Text>
+
+        <Picker
+          style={styles.textInput}
+          selectedValue={selectedCity}
+          onValueChange={(itemValue) => setSelectedCity(itemValue)}
+          enabled={selectedDepartment !== ''}
+        >
+          <Picker.Item label="Selecciona una ciudad" value="" />
+          {selectedDepartment === 'antioquia' && (
+            <Picker.Item label="Medellín" value="medellin" />
+          )}
+          {selectedDepartment === 'antioquia' && (
+            <Picker.Item label="Bello" value="bello" />
+          )}
+          {selectedDepartment === 'antioquia' && (
+            <Picker.Item label="Envigado" value="envigado" />
+          )}
+          {selectedDepartment === 'antioquia' && (
+            <Picker.Item label="Itagui" value="itagui" />
+          )}
+          {selectedDepartment === 'antioquia' && (
+            <Picker.Item label="Sabaneta" value="sabaneta" />
+          )}
+
+          {selectedDepartment === 'cundinamarca' && (
+            <Picker.Item label="Soacha" value="soacha" />
+          )}
+          {selectedDepartment === 'cundinamarca' && (
+            <Picker.Item label="Funza" value="funza" />
+          )}
+          {selectedDepartment === 'cundinamarca' && (
+            <Picker.Item label="Girardot" value="giradot" />
+          )}
+          {selectedDepartment === 'cundinamarca' && (
+            <Picker.Item label="Mosquera" value="mosquera" />
+          )}
+          {selectedDepartment === 'cundinamarca' && (
+            <Picker.Item label="Pacho" value="pacho" />
+          )}
+
+          {selectedDepartment === 'bogota' && (
+            <Picker.Item label="Cota" value="cota" />
+          )}
+          {selectedDepartment === 'bogota' && (
+            <Picker.Item label="Mosquera" value="mosquera" />
+          )}
+          {selectedDepartment === 'bogota' && (
+            <Picker.Item label="Tenjo" value="tenjo" />
+          )}
+          {selectedDepartment === 'bogota' && (
+            <Picker.Item label="Silvania" value="silvania" />
+          )}
+          {selectedDepartment === 'bogota' && (
+            <Picker.Item label="Sibaté" value="sibate" />
+          )}
+        </Picker>
+        <Text style={styles.validationMessage}>{validationMessages.city}</Text>
+
+
         <TextInput
           label="Dirección"
           value={address}
@@ -432,6 +391,7 @@ const SignUp = () => {
           cursorColor='#cee8c7'
           style={styles.textInput}
         />
+
         <Text style={styles.validationMessage}>{validationMessages.address}</Text>
 
         <View>

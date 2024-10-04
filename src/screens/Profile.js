@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Card, Avatar, Text, Title, Subheading, Button } from 'react-native-paper';
 import { AppContext } from '../context/AppContext';
-import styles from '../styles/profileStyles'; 
+import styles from '../styles/profileStyles';
 
 const Profile = () => {
   const { state } = useContext(AppContext);
@@ -20,9 +20,10 @@ const Profile = () => {
             <Title style={styles.name}>{state.user.username}</Title>
           </Card.Content>
           <Card.Content style={styles.details}>
-            <Text style={styles.label}>Nombre:</Text>
-            <Title style={styles.value}>{state.user.username}</Title>
-
+            <Text style={styles.label}>Nombres: </Text>
+            <Title style={styles.value}>{state.user.names}</Title>
+            <Text style={styles.label}>Apellidos: </Text>
+            <Title style={styles.value}>{state.user.lastnames}</Title>
             <Text style={styles.label}>Fecha de nacimiento:</Text>
             <Title style={styles.value}>{state.user.dateOfBirth}</Title>
           </Card.Content>
