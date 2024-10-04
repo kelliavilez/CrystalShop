@@ -58,6 +58,7 @@ const AppDrawer = () => (
       headerTintColor: "#1f3b28",
       headerTitleStyle: {
         fontWeight: 'bold',
+        color: '#35570a'
       },
     }}>
     <Drawer.Screen name='Inicio' component={Home}
@@ -155,6 +156,7 @@ const App = () => (
             headerTintColor: "#1f3b28",
             headerTitleStyle: {
               fontWeight: 'bold',
+              color: '#35570a'
             },
           }}>
           <Stack.Screen
