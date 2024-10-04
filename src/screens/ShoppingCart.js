@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { View, FlatList, Text, Pressable } from 'react-native';
 import { AppContext } from '../context/AppContext';  // Importamos el contexto global
 import CardItemCart from '../components/ShoppingCartCard';
-import styles from '../styles/shoppingCarStyles';
+import styles from '../styles/ShoppingCarStyles';
 
 const ShoppingCart = () => {
   const { state, dispatch } = useContext(AppContext); 

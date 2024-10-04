@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+/*import React, { useContext } from 'react';
 import { View, Image, ScrollView, Text } from 'react-native';
 import { Card, Button } from 'react-native-paper';
 import { AppContext } from '../context/AppContext';  // Importamos el contexto global
@@ -47,13 +47,16 @@ const FavoriteCard = ({ ofert }) => {
     );
 };
 
-export default FavoriteCard;
-/*import React from 'react';
+export default FavoriteCard;*/
+import React from 'react';
 import { View, Image, ScrollView,Text } from 'react-native';
 import styles from '../styles/favoriteStyles';
 import { Card, Text as PaperText, Button } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 
-const FavoriteCard = ({ ofert }) => {
+const FavoriteCard = ({ article }) => {
+
+    const navigation=useNavigation();
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -61,13 +64,13 @@ const FavoriteCard = ({ ofert }) => {
                     <Card.Content>
                         <View style={styles.rowContainer}>
                             <Image
-                                source={{ uri: ofert.photo }}
+                                source={{ uri: article.photo }}
                                 style={styles.photoCard}
                             />
                             <View style={styles.infoContainer}>
-                                <PaperText style={styles.nameText} variant="titleLarge">{ofert.name}</PaperText>
-                                <PaperText style={styles.descriptionText} variant="bodyMedium">{ofert.description}</PaperText>
-                                <PaperText style={styles.status} variant="bodyMedium">{ofert.statusCategory}</PaperText>
+                                <PaperText style={styles.nameText} variant="titleLarge">{article.name}</PaperText>
+                                <PaperText style={styles.descriptionText} variant="bodyMedium">{article.description}</PaperText>
+                                <PaperText style={styles.status} variant="bodyMedium">{article.statusCategory}</PaperText>
                             </View>
                             
                         </View>
@@ -75,9 +78,9 @@ const FavoriteCard = ({ ofert }) => {
                             mode="contained"
                             buttonColor='#89c07a'
                             style={styles.button}
-                            onPress={() => alert('Estamos procesando su pago')
-                            }>
-                            Añadir al carrito
+                            onPress={() => navigation.navigate('FavoriteDetailsCard', { article })}
+                         >
+                            Ver más
                         </Button>
                         <Button
                             mode="contained"
@@ -95,4 +98,4 @@ const FavoriteCard = ({ ofert }) => {
     );
 };
 
-export default FavoriteCard;*/
+export default FavoriteCard;

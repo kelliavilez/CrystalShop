@@ -3,13 +3,19 @@ import { View, Text, Image, Button, FlatList  } from 'react-native';
 import styles from '../styles/globalStyles';
 import OfertsCard from "../components/OfertsCard";
 import SearchBar from '../components/SearchBar';
+import { useState } from 'react';
 
 const Oferts = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredArticles = articles.filter((article) =>
+    article.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
     return (
       <View style={styles.viewStyle}>
-        <SearchBar/>
+        <SearchBar onSearch={setSearchQuery}/>
         <FlatList
-          data={articles}
+          data={filteredArticles}
           renderItem={({ item }) => <OfertsCard article={item} />}
           keyExtractor={(item) => item.id.toString()}
         />

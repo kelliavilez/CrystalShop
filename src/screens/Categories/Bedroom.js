@@ -1,17 +1,24 @@
 import React from 'react';
-import { View, Text, Image, Button, FlatList  } from 'react-native';
+import { View, FlatList } from 'react-native';
 import styles from '../../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
 import BedroomCard from '../../components/BedroomCard';
 import SearchBar from '../../components/SearchBar';
+import { useState } from 'react';
 
 const Bedroom = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredArticles = articles.filter((article) =>
+    article.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
   const numColumns = 2;
     return (
       <View style={styles.viewStyle}>
-        <SearchBar/>
+        <SearchBar onSearch={setSearchQuery}/>
         <FlatList
-          data={articles}
+          data={filteredArticles}
           renderItem={({ item }) => <BedroomCard article={item} />}
           keyExtractor={(item) => item.id.toString()}
           numColumns={2}

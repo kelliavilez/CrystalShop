@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const SearchBar = ({ placeholder = "Buscar", onSearch }) => {
@@ -21,6 +21,7 @@ const SearchBar = ({ placeholder = "Buscar", onSearch }) => {
         onChangeText={handleSearchChange}
         style={{ flex: 1, fontSize: 16, padding: 10 }}
       />
+    
     </View>
   );
 };

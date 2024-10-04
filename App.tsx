@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { AppProvider } from './src/context/AppContext'; // Importa el AppProvider
+import { AppProvider } from './src/context/AppContext';
 import { PaperProvider } from 'react-native-paper';
 import LogIn from './src/screens/LogIn';
 import SignUp from './src/screens/SignUp';
@@ -23,6 +23,7 @@ import Favorite from './src/screens/Favorite';
 import ArticleDetailsCard from './src/components/ArticleDetailsCard';
 import OfertsDetailsCard from './src/components/OfertsDetailsCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -174,7 +175,8 @@ const App = () => (
           <Stack.Screen name='Food' component={Food} />
           <Stack.Screen name='Makeup' component={Makeup} />
           <Stack.Screen name='Pets' component={Pets} />
-        </Stack.Navigator>
+          <Stack.Screen name='FavoriteDetailsCard' component={FavoriteDetailsCard} />
+      </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
   </AppProvider>

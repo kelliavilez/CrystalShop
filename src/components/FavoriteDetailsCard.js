@@ -4,30 +4,28 @@ import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
 import { Rating } from 'react-native-ratings'; 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-const OfertsDetailsCard = ({ route }) => {
+const FavoriteDetailsCard = ({ route }) => {
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
 
-  const discountAmount = (article.originalPrice * article.discount) / 100;
-  const finalPrice = article.originalPrice - discountAmount;
+  const maxPrice = 99999999;
+  const price = article.price > maxPrice ? maxPrice : article.price;
+  const formattedPrice = price.toLocaleString();
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Card style={styles.card} >
         <Card.Content>
           <Text style={styles.headline}>Detalles de Artículo</Text>
-          <Text style={styles.title}>Item: {article.name}</Text>
+          <Text style={styles.title}>Item:</Text>
           <Image source={{ uri: article.photo }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
-          <Text style={styles.body}>Valor original: ${article.originalPrice.toLocaleString()}</Text>
-          <Text style={styles.finalPrice} variant="bodySmall">Precio con descuento: ${finalPrice.toLocaleString()}</Text>
-          <Text style={styles.body}>Descuento: {article.discount}%</Text>
-          <Text style={styles.body}>Categoria: {article.category}</Text>
+          <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
+          <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
           <Button icon={({size}) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained">Agregar al carrito</Button>
           <Text></Text>
-          <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
+          <Button icon={({size}) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregado a favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>
@@ -110,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OfertsDetailsCard;
+export default FavoriteDetailsCard;
