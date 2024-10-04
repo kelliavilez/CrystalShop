@@ -27,7 +27,7 @@ const CardItemCart = ({ car }) => {
             </View>
             <View style={{ justifyContent: 'space-between' }}>
                 <View>
-                    <Text style={styles.productName}>{car.productName}</Text>
+                    <Text style={styles.productName}>{car.deacription}</Text>
                     <Text style={styles.price}>${car.price}</Text>
                 </View>
                 <View style={styles.wrapperCardBottom}>

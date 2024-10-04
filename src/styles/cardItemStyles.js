@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom: 10,
     position: 'relative',
+    height: 1000
   },
   wrapperImageCheck: {
     flexDirection: 'row',
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
   productName: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: 'black'
   },
   price: {
     fontSize: 14,
