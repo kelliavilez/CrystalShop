@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   photo: {
-    width: 100,
+    width: 120,
     height: '100%',
     borderRadius: 10,
     marginRight: 10,
@@ -68,8 +68,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     width: 200,
     height: 100,
-
-
   },
   price: {
     flexDirection: 'row',
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
   originalPrice: {
     fontSize: 16,
     color: '#888',
-    textDecorationLine: 'line-through', 
+    textDecorationLine: 'line-through',
   },
   finalPrice: {
     fontSize: 16,
@@ -89,10 +87,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    backgroundColor: '#FF6347', 
+    backgroundColor: '#FF6347',
     padding: 5,
     borderRadius: 5,
     marginTop: -8,
+  },
+  categoryText: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 5,
+  },
+  productNameText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  statusText: {
+    fontSize: 14,
+    color: '#333',
+    fontStyle: 'italic',
   },
 
 });

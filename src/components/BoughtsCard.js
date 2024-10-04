@@ -13,15 +13,15 @@ const BoughtsCard = ({ article }) => {
       [
         {
           text: 'Entregado',
-          onPress: () => setStatus('entregado'),
+          onPress: () => setStatus('Entregado'),
         },
         {
-          text: 'En transito',
-          onPress: () => setStatus('En transito'),
+          text: 'En tránsito',
+          onPress: () => setStatus('En tránsito'),
         },
         {
           text: 'Cancelado',
-          onPress: () => setStatus('cancelado'),
+          onPress: () => setStatus('Cancelado'),
         },
       ],
       { cancelable: true }
@@ -29,23 +29,21 @@ const BoughtsCard = ({ article }) => {
   };
 
   return (
-    <View>
+    <View style={styles.cardContainer}>
       <Card style={styles.card}>
         <Card.Content>
           <View style={styles.container}>
             <Image source={{ uri: article.image }} style={styles.photo} />
             <View style={styles.textContainer}>
-              <Text variant="bodySmall">{article.category}</Text>
-              <Text variant="bodySmall">{article.productName}</Text>
+              <Text style={styles.categoryText} variant="bodySmall">{article.category}</Text>
+              <Text style={styles.productNameText} variant="bodyMedium">{article.productName}</Text>
               {status && (
-                <Text variant="bodySmall">
+                <Text style={styles.statusText} variant="bodySmall">
                   Estado: {status}
                 </Text>
               )}
             </View>
           </View>
-
-
           <View style={styles.buttonContainer}>
             <Button
               mode="outlined"
@@ -53,11 +51,9 @@ const BoughtsCard = ({ article }) => {
               style={styles.buttonState}
               labelStyle={styles.buttonText}
             >
-              Estado
+              Cambiar Estado
             </Button>
-
           </View>
-
         </Card.Content>
       </Card>
     </View>
@@ -65,4 +61,3 @@ const BoughtsCard = ({ article }) => {
 };
 
 export default BoughtsCard;
-
