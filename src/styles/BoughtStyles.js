@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   productNameText: {
     fontSize: 15,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 5
   },
   statusText: {
     fontSize: 14,

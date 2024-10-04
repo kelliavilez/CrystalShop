@@ -22,6 +22,7 @@ const OfertsDetailsCard = ({ route }) => {
         discount: article.discount,
         image: article.photo,
         quantity: 1,
+        category: article.category
       },
     });
   };

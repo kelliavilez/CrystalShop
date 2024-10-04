@@ -35,8 +35,8 @@ const BoughtsCard = ({ article }) => {
           <View style={styles.container}>
             <Image source={{ uri: article.image }} style={styles.photo} />
             <View style={styles.textContainer}>
-              <Text style={styles.categoryText} variant="bodySmall">{article.category}</Text>
               <Text style={styles.productNameText} variant="bodyMedium">{article.productName}</Text>
+              <Text style={styles.categoryText} variant="bodySmall">{article.category}</Text>
               {status && (
                 <Text style={styles.statusText} variant="bodySmall">
                   Estado: {status}
