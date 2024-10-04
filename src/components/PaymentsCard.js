@@ -97,7 +97,7 @@ const PaymentsCard = () => {
                                 <Image source={{ uri: item.image }} style={styles.productImage} />
                                 <View style={styles.infoContainer}>
                                     <PaperText variant="bodyMedium">Cantidad: {item.quantity}</PaperText>
-                                    <PaperText variant="bodyMedium">{item.productName}</PaperText>
+                                    <PaperText variant="bodyMedium" style={styles.productName}>{item.productName}</PaperText>
                                     <PaperText variant="bodyMedium">Precio: ${item.price.toFixed(2)}</PaperText>
                                 </View>
                             </View>

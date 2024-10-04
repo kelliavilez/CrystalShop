@@ -9,15 +9,10 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     productImage: {
-        width: 75,
-        height: 75,
+        width: 100,  
+        height: 100,
         borderRadius: 8,
-    },
-    container2: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+        marginRight: 10, 
     },
     card: {
         backgroundColor: '#96b89c',
@@ -31,7 +26,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#96b89c',
         marginBottom: 5,
         marginTop: 10,
-
     },
     button: {
         padding: 3,
@@ -51,6 +45,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        padding: 5, 
     },
     image: {
         width: 50,
@@ -75,6 +70,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    productName: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        flexWrap: 'wrap',
+        width: 200, 
+        marginBottom: 5,
     },
 
 })

@@ -108,9 +108,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   productName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
-    color: 'black'
+    flexWrap: 'wrap',
+    width: 250, 
   },
   price: {
     fontSize: 14,
