@@ -147,7 +147,16 @@ const App = () => (
   <AppProvider>
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#ebf7ec',
+            },
+            headerTintColor: "#1f3b28",
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}>
           <Stack.Screen
             name='Auth'
             component={AuthenticationStack}
@@ -161,47 +170,47 @@ const App = () => (
           <Stack.Screen
             name="ArticleDetailsCard"
             component={ArticleDetailsCard}
-            options={{ title: 'Detalles de articulo' }} 
+            options={{ title: 'Detalles de articulo' }}
           />
           <Stack.Screen
             name="OfertsDetailsCard"
             component={OfertsDetailsCard}
-            options={{ title: 'Detalles de oferta' }} 
+            options={{ title: 'Detalles de oferta' }}
           />
           <Stack.Screen
             name="FavoriteDetailsCard"
             component={FavoriteDetailsCard}
-            options={{ title: 'Detalles de articulo' }} 
+            options={{ title: 'Detalles de articulo' }}
           />
           <Stack.Screen
             name="PaymentsCard"
             component={PaymentsCard}
-            options={{ title: 'Portal pagos' }} 
+            options={{ title: 'Portal pagos' }}
           />
-          <Stack.Screen 
-            name="Bedroom" 
-            component={Bedroom} 
-            options={{ title: 'Categoría: Dormitorio' }} 
+          <Stack.Screen
+            name="Bedroom"
+            component={Bedroom}
+            options={{ title: 'Categoría: Dormitorio' }}
           />
-          <Stack.Screen 
-            name="Gardening" 
-            component={Gardening} 
-            options={{ title: 'Categoría: Jardinería' }} 
+          <Stack.Screen
+            name="Gardening"
+            component={Gardening}
+            options={{ title: 'Categoría: Jardinería' }}
           />
-          <Stack.Screen 
-            name="Food" 
-            component={Food} 
-            options={{ title: 'Categoría: Comida' }} 
+          <Stack.Screen
+            name="Food"
+            component={Food}
+            options={{ title: 'Categoría: Comida' }}
           />
-          <Stack.Screen 
-            name="Makeup" 
-            component={Makeup} 
+          <Stack.Screen
+            name="Makeup"
+            component={Makeup}
             options={{ title: 'Categoría: Maquillaje' }}
           />
-          <Stack.Screen 
-            name="Pets" 
-            component={Pets} 
-            options={{ title: 'Categoría: Mascotas' }} 
+          <Stack.Screen
+            name="Pets"
+            component={Pets}
+            options={{ title: 'Categoría: Mascotas' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
