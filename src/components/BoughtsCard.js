@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { View, Image, Alert } from 'react-native';
 import styles from '../styles/BoughtStyles';
 import { Card, Button, Text } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 
 const BoughtsCard = ({ article }) => {
   const [status, setStatus] = useState(null);
-  const navigation = useNavigation();
 
   const showStatusAlert = () => {
     Alert.alert(
@@ -18,8 +16,8 @@ const BoughtsCard = ({ article }) => {
           onPress: () => setStatus('entregado'),
         },
         {
-          text: 'Pendiente',
-          onPress: () => setStatus('pendiente'),
+          text: 'En transito',
+          onPress: () => setStatus('En transito'),
         },
         {
           text: 'Cancelado',

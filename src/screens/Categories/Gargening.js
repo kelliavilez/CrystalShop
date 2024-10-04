@@ -6,12 +6,22 @@ import SearchBar from '../../components/SearchBar';
 import { useState } from 'react';
 
 const Gardening = () => {
+  
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredArticles = articles.filter((article) =>
-    article.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    
+    const query = searchQuery.toLowerCase();
+
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesPrice = article.price.toString().includes(query); 
+    return matchesDescription || matchesCategory || matchesPrice;
+  
+  });
+
   const numColumns = 2;
+
   return (
     <View style={styles.viewStyle}>
       <SearchBar onSearch={setSearchQuery} />

@@ -8,9 +8,19 @@ import { useState } from 'react';
 const Oferts = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredArticles = articles.filter((article) =>
-    article.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    const query = searchQuery.toLowerCase();
+
+    const discountedPrice = article.originalPrice - (article.originalPrice * (article.discount / 100));
+
+    const matchesName = article.name.toLowerCase().includes(query);
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesDiscountedPrice = discountedPrice.toString().includes(query); 
+
+    return matchesName || matchesDescription || matchesCategory || matchesDiscountedPrice;
+  });
+  
   return (
     <View style={styles.viewStyle}>
       <SearchBar onSearch={setSearchQuery} />

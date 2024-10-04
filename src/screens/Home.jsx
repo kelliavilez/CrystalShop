@@ -10,9 +10,16 @@ function Home(navigation) {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredArticles = articles.filter((article) =>
-    article.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    
+    const query = searchQuery.toLowerCase();
+
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesPrice = article.price.toString().includes(query); 
+    return matchesDescription || matchesCategory || matchesPrice;
+  
+  });
 
   const numColumns = 2;
 
