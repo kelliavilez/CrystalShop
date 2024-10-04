@@ -130,7 +130,7 @@ const AppDrawer = () => (
           />
         ),
       }} />
-    <Drawer.Screen name='Carrito de compras' component={ShoppingCart}
+    <Drawer.Screen name='Mi carrito' component={ShoppingCart}
       options={{
         drawerIcon: ({ size }) => (
           <Icon
