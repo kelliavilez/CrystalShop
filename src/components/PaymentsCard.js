@@ -13,8 +13,6 @@ const PaymentsCard = () => {
 
     const total = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    const totalSelected = selectedItems.reduce((sum, item) => sum + item.quantity, 0);
-
     const handleAddToMyBoughts = () => {
         if (selectedItems.length === 0) {
             Alert.alert('Carrito Vacío', 'No hay artículos seleccionados para comprar.');
@@ -40,7 +38,7 @@ const PaymentsCard = () => {
 
         Alert.alert(
             'Pago Exitoso',
-            'Pago procesado exitosamente. Sus artículos han sido añadidos a sus compras.',
+            'Ir a mis compras para ver historial',
             [
                 { text: 'OK', onPress: () => console.log('Pago completado') }
             ]

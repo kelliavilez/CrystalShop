@@ -20,6 +20,7 @@ const ArticleDetailsCard = ({ route }) => {
         price: article.price,
         image: article.photo,
         quantity: 1,
+        category: article.category
       },
     });
   };
