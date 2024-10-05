@@ -33,7 +33,7 @@ const OfertsDetailsCard = ({ route }) => {
         payload: {
             id: article.id,
             productName: article.name,
-            price: article.price,
+            price: finalPrice,
             image: article.photo,
             category: article.statusCategory,
             description: article.description

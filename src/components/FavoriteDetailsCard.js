@@ -20,7 +20,7 @@ const FavoriteDetailsCard = ({ route }) => {
         price: article.price,
         image: article.image,
         quantity: 1,
-        description: article.description
+        description: article.characteritics
       },
     });
   };
@@ -34,10 +34,6 @@ const FavoriteDetailsCard = ({ route }) => {
     });
   };
 
-  const maxPrice = 99999999;
-  const price = article.price > maxPrice ? maxPrice : article.price;
-  const formattedPrice = price.toLocaleString();
-
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Card style={styles.card} >
@@ -45,9 +41,9 @@ const FavoriteDetailsCard = ({ route }) => {
           <Text style={styles.headline}>Detalles de Artículo</Text>
           <Text style={styles.title}>Item:</Text>
           <Image source={{ uri: article.image }} style={styles.mediumImage} />
-          <Text style={styles.body}>Descripción: {article.description}</Text>
-          <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
-          <Text style={styles.body}>Características: {article.productName}</Text>
+          <Text style={styles.body}>Descripción: {article.productName}</Text>
+          <Text style={styles.body}>Valor: ${article.price ? article.price.toLocaleString() : 'N/A'}</Text>
+          <Text style={styles.body}>Características: {article.description}</Text>
           <Text></Text>
           <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>

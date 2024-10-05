@@ -42,7 +42,8 @@ const articles = [
     name: 'Rascador Gatos',
     description: 'Ideal para mantener las uñas de tu gato afiladas sin dañar tus cosas',
     category: 'Mascotas',
-    statusCategory: 'Disponible - Mascotas'
+    statusCategory: 'Disponible - Mascotas',
+    characteritics: 'Blanca y negra',
   },
   {
     id: 8,
