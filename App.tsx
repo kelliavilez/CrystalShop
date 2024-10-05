@@ -24,6 +24,7 @@ import OfertsDetailsCard from './src/components/OfertsDetailsCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 import PaymentsCard from './src/components/PaymentsCard';
+import CustomDrawerContent from './src/components/CustomDrawerContent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -44,6 +45,7 @@ const AuthenticationStack = () => (
 const AppDrawer = () => (
 
   <Drawer.Navigator
+  drawerContent={(props) => <CustomDrawerContent {...props} />}
     screenOptions={{
       drawerStyle: {
         backgroundColor: "#ebf7ec",
