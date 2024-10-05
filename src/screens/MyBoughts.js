@@ -9,7 +9,8 @@ const MyBoughts = () => {
   const { state } = useContext(AppContext);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredBoughts = state.boughts.boughtsItems.filter((item) =>
+  // Check if state.boughts and state.boughts.boughtsItems are defined
+  const filteredBoughts = (state.boughts?.boughtsItems || []).filter((item) =>
     item.productName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
