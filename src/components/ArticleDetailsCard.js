@@ -11,6 +11,7 @@ const ArticleDetailsCard = ({ route }) => {
   const [checked, setChecked] = useState('first');
   const { dispatch } = useContext(AppContext);
 
+  // Función para agregar al carrito
   const handleAddToCart = () => {
     dispatch({
       type: 'ADD_TO_CART',
@@ -24,6 +25,20 @@ const ArticleDetailsCard = ({ route }) => {
       },
     });
   };
+  const handleAddToFavorites = () => {
+    dispatch({
+      type: 'ADD_TO_FAVORITES',
+      payload: {
+        id: article.id,
+        productName: article.description,
+        price: article.price,
+        image: article.photo,
+        category: article.category
+      },
+    });
+  };
+
+
 
   const maxPrice = 99999999;
   const price = article.price > maxPrice ? maxPrice : article.price;
@@ -37,12 +52,22 @@ const ArticleDetailsCard = ({ route }) => {
           <Text style={styles.title}>Item:</Text>
           <Image source={{ uri: article.photo }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
-          <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
+          <Text style={styles.body}>Valor: ${formattedPrice}</Text>
           <Text style={styles.body}>Características: {article.characteritics}</Text>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart} >Agregar al carrito</Button>
+          
+          {/* Botón para agregar al carrito */}
+          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>
+            Agregar al carrito
+          </Button>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregar a favoritos</Button>
+
+          {/* Botón para agregar a favoritos */}
+          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained"  onPress={handleAddToFavorites}>
+            Agregar a favoritos
+          </Button>
+
+          {/* Opciones de método de pago */}
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>
@@ -59,14 +84,15 @@ const ArticleDetailsCard = ({ route }) => {
             </Card.Content>
           </Card>
 
+          {/* Preguntas y comentarios */}
           <Text style={styles.title}>Preguntas</Text>
-          <TextInput
-            style={styles.textInput} placeholder="Haz una pregunta al vendedor" maxLength={100} />
+          <TextInput style={styles.textInput} placeholder="Haz una pregunta al vendedor" maxLength={100} />
           <Button buttonColor='#89c07a' mode="contained">Enviar pregunta</Button>
 
           <Text style={styles.title}>Comentarios</Text>
           <TextInput style={styles.textInput} placeholder="Escribe un comentario" maxLength={200} />
 
+          {/* Rating */}
           <Text style={styles.title}>Calificación</Text>
           <Rating
             rating={0}
@@ -126,4 +152,3 @@ const styles = StyleSheet.create({
 });
 
 export default ArticleDetailsCard;
-

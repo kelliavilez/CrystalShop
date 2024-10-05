@@ -2,9 +2,12 @@ import React, { createContext, useReducer } from 'react';
 import { cartReducer } from './cartReducer';
 import { userReducer } from './userReducer';
 import { boughtsReducer } from './boughtsReducer';
+import { favoritesReducer } from './favoritesReducer'; // Reducer de favoritos
 
+// Creamos el contexto
 const AppContext = createContext();
 
+// Estado inicial
 const initialState = {
     user: {
         username: '',
@@ -16,17 +19,22 @@ const initialState = {
     cart: {
         cartItems: [],
         total: 0,
-        selectedItems: [],  
+        selectedItems: [],
     },
     boughts: {
-        boughtsItems: []
+        boughtItems: [] // Cambiado para mantener consistencia
+    },
+    favorites: {
+        favoritesItems: [] // Usamos el mismo nombre que en el reducer
     }
 };
 
+// Reducer principal
 const appReducer = (state, action) => ({
     user: userReducer(state.user, action),
     cart: cartReducer(state.cart, action),
-    boughts: boughtsReducer(state.boughts, action)
+    boughts: boughtsReducer(state.boughts, action),
+    favorites: favoritesReducer(state.favorites, action), // Reducer de favoritos
 });
 
 const AppProvider = ({ children }) => {
@@ -40,4 +48,3 @@ const AppProvider = ({ children }) => {
 };
 
 export { AppProvider, AppContext };
-

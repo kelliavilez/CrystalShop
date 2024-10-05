@@ -23,6 +23,18 @@ const FavoriteDetailsCard = ({ route }) => {
       },
     });
   };
+  const handleAddToFavorites = () => {
+    dispatch({
+      type: 'ADD_TO_FAVORITES',
+      payload: {
+        id: article.id,
+        name: article.name,
+        price: article.price,
+        image: article.photo,
+        description: article.description,
+      },
+    });
+  };
 
   const maxPrice = 99999999;
   const price = article.price > maxPrice ? maxPrice : article.price;
@@ -41,7 +53,7 @@ const FavoriteDetailsCard = ({ route }) => {
           <Text></Text>
           <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained">Agregado a favoritos</Button>
+          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToFavorites}>Agregado a favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>
