@@ -15,11 +15,15 @@ const Favorite = () => {
   return (
     <View style={styles.viewStyle}>
       <SearchBar onSearch={setSearchQuery} />
+      {filteredArticles.length > 0 ? (
       <FlatList
         data={filteredArticles}
         renderItem={({ item }) => <FavoriteCard article={item} />} // Asegúrate de que el prop "ofert" es esperado en FavoriteCard
         keyExtractor={(item) => item.id.toString()}
       />
+    ) : (
+      <Text style={styles.subtitleLog}>No tienes nada en favoritos</Text>
+    )}
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
 import styles from '../styles/globalStyles';
 import { AppContext } from '../context/AppContext';
 import BoughtsCard from '../components/BoughtsCard';
@@ -16,11 +16,15 @@ const MyBoughts = () => {
   return (
     <View style={styles.viewStyle}>
       <SearchBar onSearch={setSearchQuery} />
-      <FlatList
-        data={filteredBoughts}
-        renderItem={({ item }) => <BoughtsCard article={item} />}
-        keyExtractor={(item) => item.id.toString()}
-      />
+      {filteredBoughts.length > 0 ? (
+        <FlatList
+          data={filteredBoughts}
+          renderItem={({ item }) => <BoughtsCard article={item} />}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      ) : (
+        <Text style={styles.subtitleLog}>No tienes compras</Text>
+      )}
     </View>
   );
 };
