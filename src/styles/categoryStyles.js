@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import OfertsCard from '../components/OfertsCard';
 
 const styles = StyleSheet.create({
     card: {
@@ -7,18 +6,15 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         alignSelf: 'center',
-        backgroundColor: '#7049bb'
+        backgroundColor: '#307828'
     },
     textContainer: {
         width: 100,
         justifyContent: 'left'
     },
     container: {
-        display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        flex: 1,
-        backgroundColor: '#999a96',
+        backgroundColor: '#d6e3ca',
         width: 384
     },
     photo: {

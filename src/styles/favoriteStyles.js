@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { green } from 'react-native-reanimated/lib/typescript/Colors';
 
 const styles = StyleSheet.create({
     status: {
         fontSize: 10,
         fontWeight: 'bold',
-        color: 'green',  // Cambia el color del texto
+        color: 'green', 
         marginBottom: 5,
     },
     container: {

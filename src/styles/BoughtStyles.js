@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -17,7 +16,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
   },
-
+  buttonText: {
+    color: 'green',
+  },
+  productImage: {
+    width: 75,
+    height: 75,
+    borderRadius: 8,
+  },
 
   buttonCard: {
     Width: 50,
@@ -37,7 +43,8 @@ const styles = StyleSheet.create({
     Width: 100,
     maxHeight: 50,
     marginTop: -20,
-    marginLeft: 150
+    marginLeft: 150,
+    borderColor: 'green'
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -45,10 +52,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   photo: {
-    width: 100,
+    width: 120,
     height: '100%',
     borderRadius: 10,
     marginRight: 10,
@@ -61,8 +68,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     width: 200,
     height: 100,
-
-
   },
   price: {
     flexDirection: 'row',
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
   originalPrice: {
     fontSize: 16,
     color: '#888',
-    textDecorationLine: 'line-through', // Línea atravesando el precio original
+    textDecorationLine: 'line-through',
   },
   finalPrice: {
     fontSize: 16,
@@ -82,11 +87,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    backgroundColor: '#FF6347', // Fondo de color para resaltar el descuento
+    backgroundColor: '#FF6347',
     padding: 5,
     borderRadius: 5,
     marginTop: -8,
   },
+  categoryText: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 5,
+  },
+  productNameText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 5
+  },
+  statusText: {
+    fontSize: 14,
+    color: '#333',
+    fontStyle: 'italic',
+  },
+
 });
 
 export default styles;

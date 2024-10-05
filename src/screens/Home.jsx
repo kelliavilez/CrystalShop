@@ -1,31 +1,37 @@
-import { StyleSheet, View, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import ArticlesCard from "../components/ArticlesCard";
-import { Card, Button, Text, IconButton, TextInput } from 'react-native-paper';
 import styles from "../styles/globalStyles";
+import { useState } from "react";
+import SearchBar from "../components/SearchBar";
 
-function HomeScreen(navigation) {
+
+function Home(navigation) {
+
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredArticles = articles.filter((article) => {
+    
+    const query = searchQuery.toLowerCase();
+
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesPrice = article.price.toString().includes(query); 
+    return matchesDescription || matchesCategory || matchesPrice;
+  
+  });
+
   const numColumns = 2;
+
   const handleNavigateToDetails = (article) => {
     navigation.navigate('ArticleDetailsCard', { article });
   };
+
   return (
     <View style={styles.viewStyle}>
-
-      <TextInput
-        label="Busqueda"
-        placeholder='Busque aquí'
-        onChangeText={text => setText()}
-        underlineColor='#89c07a'
-        activeUnderlineColor='#89c07a'
-        activeOutlineColor='#a9bea3'
-        outlineColor='#cee8c7'
-        selectionColor='#cee8c7'
-        cursorColor='#cee8c7'
-        style={styles.textInput}
-      />
-      <Text style={styles.textStyele}></Text>
+      <SearchBar onSearch={setSearchQuery} />
       <FlatList
-        data={articles}
+        data={filteredArticles}
         renderItem={({ item }) =>
           <ArticlesCard
             article={item}
@@ -46,6 +52,9 @@ const articles = [
     description: 'Ropa de cama de algodón',
     price: 200000,
     characteritics: 'Color rosado',
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Tendidos cama'
   },
   {
     id: 2,
@@ -53,6 +62,9 @@ const articles = [
     description: 'Lámpara de mesa con regulador',
     price: 70000,
     characteritics: 'Luz calida',
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Lampara reguladora'
   },
   {
     id: 3,
@@ -60,6 +72,9 @@ const articles = [
     description: 'Almohada ortopédica, soporte espalda',
     price: 300000,
     characteritics: 'Suave',
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Almohada ortopedica'
   },
   {
     id: 4,
@@ -67,6 +82,9 @@ const articles = [
     description: 'Juguete interactivo para perros',
     price: 205000,
     characteritics: 'Color azul',
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Juguete perros'
   },
   {
     id: 5,
@@ -74,6 +92,9 @@ const articles = [
     description: 'Comedero para mascotas',
     price: 242000,
     characteritics: 'Automatico',
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Comedero'
   },
   {
     id: 6,
@@ -81,7 +102,10 @@ const articles = [
     description: 'Macetas de cerámica gemelas',
     price: 208000,
     characteritics: 'Blanca y negra',
+    category: 'Jardineria',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Macetas'
   }
 ];
 
-export default HomeScreen;
+export default Home;

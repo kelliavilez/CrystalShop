@@ -2,18 +2,14 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import styles from '../styles/globalStyles';
 import { useNavigation } from '@react-navigation/native';
-import { Card, Button, Text, IconButton } from 'react-native-paper';
+import { Card, Button, Text } from 'react-native-paper';
 
-const GardeningCard = ({ gardening }) => {
+const GardeningCard = ({ article }) => {
 
   const navigation = useNavigation();
 
-  const handleSelect = () => {
-    navigation.navigate('ArticlesDetails', { gardening });
-  };
-
   const maxPrice = 99999999;
-  const price = gardening.price > maxPrice ? maxPrice : gardening.price;
+  const price = article.price > maxPrice ? maxPrice : article.price;
   const formattedPrice = price.toLocaleString();
 
 
@@ -21,15 +17,15 @@ const GardeningCard = ({ gardening }) => {
     <View>
       <Card style={styles.card}>
         <Card.Content>
-          <Image source={{ uri: gardening.photo }} style={styles.photosHome} />
-          <Text variant="bodySmall" >{gardening.description}</Text>
+          <Image source={{ uri: article.photo }} style={styles.photosHome} />
+          <Text variant="bodySmall" >{article.description}</Text>
           <Text variant="bodySmall" style={styles.priceText}>${formattedPrice}</Text>
           <Button
             style={styles.buttonHome}
             labelStyle={styles.buttonTextHome}
             buttonColor='#96b89c'
             mode="contained"
-            onPress={handleSelect}>
+            onPress={() => navigation.navigate('ArticleDetailsCard', { article })}>
             Elegir
           </Button>
         </Card.Content>

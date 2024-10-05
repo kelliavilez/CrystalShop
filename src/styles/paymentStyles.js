@@ -8,26 +8,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7fef4',
         marginBottom: 10,
     },
-
-    container2: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+    productImage: {
+        width: 100,  
+        height: 100,
+        borderRadius: 8,
+        marginRight: 10, 
     },
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
         marginBottom: 15,
         marginTop: 20,
     },
     cardContent: {
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
     },
     cardContent2: {
-        backgroundColor: 'white',
+        backgroundColor: '#96b89c',
         marginBottom: 5,
         marginTop: 10,
-
     },
     button: {
         padding: 3,
@@ -47,6 +45,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        padding: 5, 
     },
     image: {
         width: 50,
@@ -71,6 +70,70 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    productName: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        flexWrap: 'wrap',
+        width: 200, 
+        marginBottom: 5,
+    },
+    textInput: {
+        width: 350,
+        marginBottom: 16,
+        backgroundColor: '#e1f1dd',
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+    },
+    modalContent: {
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 20,
+        elevation: 5,
+        maxHeight: '80%', 
+    },
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 15,
+        textAlign: 'center',
+        color: '#89c07a', 
+    },
+    input: {
+        height: 40,
+        borderColor: '#89c07a',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        color: '#000',
+    },
+    picker: {
+        height: 50,
+        width: '100%',
+        marginBottom: 10,
+        borderColor: '#89c07a', 
+        borderWidth: 1,
+        borderRadius: 5,
+    },
+    pickerContainer: { 
+        borderColor: '#89c07a',
+        borderWidth: 1,
+        borderRadius: 5,
+        marginBottom: 10,
+    },
+    modalButton: {
+        marginTop: 10,
+        backgroundColor: '#89c07a', 
+    },
+    cancelButtonText: { 
+        color: '#89c07a',
+        textAlign: 'center',
+        fontSize: 16,
     },
 
 })

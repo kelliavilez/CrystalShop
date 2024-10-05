@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+
 const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: '#f7fef4',
@@ -11,6 +12,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom: 10,
     position: 'relative',
+    height: 1000
   },
   wrapperImageCheck: {
     flexDirection: 'row',
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
   productName: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: 'black'
   },
   price: {
     fontSize: 14,
@@ -105,8 +108,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   productName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
+    flexWrap: 'wrap',
+    width: 250, 
   },
   price: {
     fontSize: 14,
@@ -131,6 +136,7 @@ const styles = StyleSheet.create({
   totalText: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: 'grey'
   },
   checkoutButton: {
     backgroundColor: '#28a745',

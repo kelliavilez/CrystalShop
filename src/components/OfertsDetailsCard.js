@@ -5,8 +5,8 @@ import { Rating } from 'react-native-ratings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { AppContext } from '../context/AppContext';
 
+const OfertsDetailsCard = ({ route }) => {
 
-const ArticleDetailsCard = ({ route }) => {
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
   const { dispatch } = useContext(AppContext);
@@ -17,7 +17,9 @@ const ArticleDetailsCard = ({ route }) => {
       payload: {
         id: article.id,
         productName: article.description,
-        price: article.price,
+        originalPrice: article.originalPrice,
+        price: finalPrice,
+        discount: article.discount,
         image: article.photo,
         quantity: 1,
         category: article.category
@@ -25,38 +27,37 @@ const ArticleDetailsCard = ({ route }) => {
     });
   };
 
-    const handleAddToFavorites = () => {
-        dispatch({
-            type: 'ADD_TO_FAVORITES',
-            payload: {
-                id: article.id,
-                productName: article.name,
-                price: article.price,
-                image: article.photo,
-                category: article.statusCategory,
-                description: article.description
-            },
-        });
-    };
+  const handleAddToFavorites = () => {
+    dispatch({
+        type: 'ADD_TO_FAVORITES',
+        payload: {
+            id: article.id,
+            productName: article.name,
+            price: finalPrice,
+            image: article.photo,
+            category: article.statusCategory,
+            description: article.description
+        },
+    });
+};
 
-
-
-  const maxPrice = 99999999;
-  const price = article.price > maxPrice ? maxPrice : article.price;
-  const formattedPrice = price.toLocaleString();
+  const discountAmount = (article.originalPrice * article.discount) / 100;
+  const finalPrice = article.originalPrice - discountAmount;
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Card style={styles.card} >
         <Card.Content>
           <Text style={styles.headline}>Detalles de Artículo</Text>
-          <Text style={styles.title}>Item:</Text>
+          <Text style={styles.title}>Item: {article.name}</Text>
           <Image source={{ uri: article.photo }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
-          <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
-          <Text style={styles.body}>Características: {article.characteritics}</Text>
+          <Text style={styles.body}>Valor original: ${article.originalPrice.toLocaleString()}</Text>
+          <Text style={styles.finalPrice} variant="bodySmall">Precio con descuento: ${finalPrice.toLocaleString()}</Text>
+          <Text style={styles.body}>Descuento: {article.discount}%</Text>
+          <Text style={styles.body}>Categoria: {article.category}</Text>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart} >Agregar al carrito</Button>
+          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
           <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToFavorites}>Agregar a favoritos</Button>
           <Card style={styles.card}>
@@ -141,4 +142,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ArticleDetailsCard;
+export default OfertsDetailsCard;

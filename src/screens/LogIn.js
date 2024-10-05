@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState, useEffect } from 'react';
+import { View, Image, Text, SafeAreaView } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/globalStyles';
 
-const LogIn = ({ navigation }) => {
+const LogIn = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isUserValid, setIsUserValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const navigation = useNavigation();
+
+  const testUser = "testuser";
+  const testPassword = "Test@1234";
 
   const userName = (text) => {
     if (text.length <= 10) {
       setUser(text);
-      setError('');
+      setIsUserValid(true);
     } else {
-      setError('El nombre de usuario debe tener máximo 10 caracteres.');
+      setIsUserValid(false);
     }
   };
 
@@ -21,9 +28,27 @@ const LogIn = ({ navigation }) => {
     const passwordRule = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
     setPassword(text);
     if (passwordRule.test(text)) {
-      setError('');
+      setIsPasswordValid(true);
     } else {
+      setIsPasswordValid(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!isUserValid) {
+      setError('El nombre de usuario debe tener máximo 10 caracteres.');
+    } else if (!isPasswordValid) {
       setError('La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, un número y un carácter especial.');
+    } else {
+      setError(''); 
+    }
+  }, [isUserValid, isPasswordValid]);
+
+  const handleLogin = () => {
+    if (user === testUser && password === testPassword) {
+      navigation.navigate('Main');
+    } else {
+      setError('Usuario o contraseña incorrectos');
     }
   };
 
@@ -68,10 +93,11 @@ const LogIn = ({ navigation }) => {
             mode="contained"
             buttonColor='#89c07a'
             style={styles.buttonLog}
-            onPress={() => console.log('Pressed')}
+            onPress={handleLogin}
           >
             Ingresar
           </Button>
+          {error ? <Text style={styles.errorText}>{error}</Text> : null}
           <View>
             <Text>
               ¿No tienes cuenta? <Text style={styles.link} onPress={() => navigation.navigate('Registro')}>Regístrate</Text>

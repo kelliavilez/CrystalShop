@@ -1,31 +1,59 @@
-import React from 'react';
-import { View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, Alert } from 'react-native';
 import styles from '../styles/BoughtStyles';
-import { useNavigation } from '@react-navigation/native';
-import { Card, Button, Text, IconButton } from 'react-native-paper';
+import { Card, Button, Text } from 'react-native-paper';
 
+const BoughtsCard = ({ article }) => {
+  const [status, setStatus] = useState(null);
 
-const BoughtsCard = ({ bought }) => {
-
-  const navigation = useNavigation();
+  const showStatusAlert = () => {
+    Alert.alert(
+      'Estados',
+      '',
+      [
+        {
+          text: 'Entregado',
+          onPress: () => setStatus('Entregado'),
+        },
+        {
+          text: 'En tránsito',
+          onPress: () => setStatus('En tránsito'),
+        },
+        {
+          text: 'Cancelado',
+          onPress: () => setStatus('Cancelado'),
+        },
+      ],
+      { cancelable: true }
+    );
+  };
 
   return (
-    <View>
+    <View style={styles.cardContainer}>
       <Card style={styles.card}>
         <Card.Content>
           <View style={styles.container}>
-            <Image source={{ uri: bought.photo }} style={styles.photo} />
+            <Image source={{ uri: article.image }} style={styles.photo} />
             <View style={styles.textContainer}>
-              <Text variant="bodySmall">{bought.category}</Text>
-              <Text variant="bodySmall">{bought.description}</Text>
+              <Text style={styles.productNameText} variant="bodyMedium">{article.productName}</Text>
+              <Text style={styles.categoryText} variant="bodySmall">{article.category}</Text>
+              {status && (
+                <Text style={styles.statusText} variant="bodySmall">
+                  Estado: {status}
+                </Text>
+              )}
             </View>
           </View>
           <View style={styles.buttonContainer}>
-            <Button style={styles.buttonState} buttonColor='#96b89c' mode="contained" onPress={() => navigation.navigate('')}>
-              {bought.state}
+            <Button
+              mode="outlined"
+              onPress={showStatusAlert}
+              style={styles.buttonState}
+              labelStyle={styles.buttonText}
+            >
+              Cambiar Estado
             </Button>
           </View>
-
         </Card.Content>
       </Card>
     </View>

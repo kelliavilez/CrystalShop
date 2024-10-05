@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
   originalPrice: {
     fontSize: 16,
     color: '#888',
-    textDecorationLine: 'line-through', // Línea atravesando el precio original
+    textDecorationLine: 'line-through', 
   },
   finalPrice: {
     fontSize: 16,
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    backgroundColor: '#FF6347', // Fondo de color para resaltar el descuento
+    backgroundColor: '#FF6347', 
     padding: 5,
     borderRadius: 5,
     marginTop: -8,

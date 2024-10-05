@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Pressable } from 'react-native';
 import styles from '../styles/categoryStyles';
 import { useNavigation } from '@react-navigation/native';
-import { Card, Button, Text, IconButton } from 'react-native-paper';
+import { Card, Text } from 'react-native-paper';
 
 
 const CategoriesCard = ({ category }) => {
@@ -18,7 +18,6 @@ const CategoriesCard = ({ category }) => {
             <View style={styles.photo}>
               <Image source={{ uri: category.photo }} style={styles.photo} />
             </View>
-
           </Card.Content>
         </Card>
       </Pressable>
