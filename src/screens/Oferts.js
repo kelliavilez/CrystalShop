@@ -51,7 +51,7 @@ const articles = [
     discount: 5,
     photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/29406919/resize/800/800?1668354944',
     name: 'Macetas de cerámica',
-    description: 'Perfectas para plantar flores o hierbas en interiores o exteriores.',
+    description: 'Perfectas para plantar en interiores o exteriores.',
     category: 'Jardineria',
     statusCategory: 'Disponible - Jardineria'
   },
@@ -61,7 +61,7 @@ const articles = [
     discount: 30,
     photo: 'https://m.maccosmetics.com.co/media/export/cms/products/640x600/mac_sku_M66Y03_640x600_0.jpg',
     name: 'Delineador waterproof',
-    description: 'Perfecto para una aplicación precisa y duradera durante todo el día.',
+    description: 'Perfecto para una aplicación precisa',
     category: 'Maquillaje',
     statusCategory: 'Disponible - Maquillaje'
   },
@@ -71,7 +71,7 @@ const articles = [
     discount: 35,
     photo: 'https://http2.mlstatic.com/D_NQ_NP_713947-MCO45035432163_022021-O.webp',
     name: 'Almohada ortopédica',
-    description: 'Diseñada para proporcionar soporte adecuado para el cuello y la cabeza.',
+    description: 'Diseñada para proporcionar soporte adecuado',
     category: 'Dormitorio',
     statusCategory: 'Disponible - Dormitorio'
   },
@@ -81,7 +81,7 @@ const articles = [
     discount: 60,
     photo: 'https://www.proveedores.com/articulos/wp-content/uploads/2016/02/chocolate-gourmet-2.jpg',
     name: 'Chocolates gourmet',
-    description: 'Ideal para mantener las uñas de tu gato afiladas y evitar que rasguñe tus muebles.',
+    description: 'Sabor que perdura',
     category: 'Comida',
     statusCategory: 'Disponible - Comida'
   }
