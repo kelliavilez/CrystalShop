@@ -40,7 +40,7 @@ const articles = [
     discount: 20,
     photo: 'https://catmajestic.com/wp-content/uploads/2023/04/Rascador-para-gatos-fingerprint-1000x1000.jpg',
     name: 'Rascador Gatos',
-    description: 'Ideal para mantener las uñas de tu gato afiladas sin dañar tus cosas',
+    description: 'Ideal para mantener la salud de tú gato',
     category: 'Mascotas',
     statusCategory: 'Disponible - Mascotas',
     characteritics: 'Blanca y negra',
