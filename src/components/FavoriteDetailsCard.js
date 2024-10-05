@@ -16,22 +16,20 @@ const FavoriteDetailsCard = ({ route }) => {
       type: 'ADD_TO_CART',
       payload: {
         id: article.id,
-        productName: article.name,
+        productName: article.description,
         price: article.price,
-        image: article.photo,
+        image: article.image,
         quantity: 1,
+        description: article.description
       },
     });
   };
-  const handleAddToFavorites = () => {
+
+  const handleRemoveFromFavorites = () => {
     dispatch({
-      type: 'ADD_TO_FAVORITES',
+      type: 'REMOVE_FROM_FAVORITES',
       payload: {
         id: article.id,
-        name: article.name,
-        price: article.price,
-        image: article.photo,
-        description: article.description,
       },
     });
   };
@@ -46,14 +44,14 @@ const FavoriteDetailsCard = ({ route }) => {
         <Card.Content>
           <Text style={styles.headline}>Detalles de Artículo</Text>
           <Text style={styles.title}>Item:</Text>
-          <Image source={{ uri: article.photo }} style={styles.mediumImage} />
+          <Image source={{ uri: article.image }} style={styles.mediumImage} />
           <Text style={styles.body}>Descripción: {article.description}</Text>
           <Text style={styles.body}>Valor: ${article.price.toLocaleString()}</Text>
-          <Text style={styles.body}>Características: {article.characteritics}</Text>
+          <Text style={styles.body}>Características: {article.productName}</Text>
           <Text></Text>
           <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToFavorites}>Agregado a favoritos</Button>
+          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleRemoveFromFavorites}>Eliminar de favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>

@@ -184,7 +184,7 @@ const App = () => (
           <Stack.Screen
             name="FavoriteDetailsCard"
             component={FavoriteDetailsCard}
-            options={{ title: 'Detalles de articulo' }}
+            options={{ title: 'Detalles de favoritos' }}
           />
           <Stack.Screen
             name="PaymentsCard"

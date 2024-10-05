@@ -41,7 +41,9 @@ const articles = [
     description: 'Saco para perros pequeños',
     price: 20000,
     characteritics: 'Tela suave para el frio',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'No disponible - Mascotas',
+    name: 'Ropa perros'
   },
   {
     id: 13,
@@ -49,7 +51,9 @@ const articles = [
     photo: 'https://www.juguetesparamismascotas.com/images/juguetes/perros/foto_primera/sandalias-de-verano-fresher-para-perros_pr.webp',
     description: 'Zapatitos para tu amigo perruno',
     characteritics: 'Para el cuidado de sus patas',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Zapatos perros'
   },
   {
     id: 14,
@@ -57,7 +61,9 @@ const articles = [
     photo: 'https://http2.mlstatic.com/D_NQ_NP_2X_649063-MCO73052321871_112023-T.webp',
     description: 'Juguete masticable para perro',
     characteritics: 'Maneja la ansiedad de tú mascota',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Juguete perros'
   },
   {
     id: 15,
@@ -65,7 +71,9 @@ const articles = [
     photo: 'https://megashoptv.vteximg.com.br/arquivos/ids/167696-900-900/Combo-4-Juguetes-Perros-Mascotas-Grandes-pelotas-dispensador-hueso1.jpg?v=638343830954530000',
     description: 'Set juguetes masticables perros',
     characteritics: 'Juguetes varios',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Juguetes perros'
   },
   {
     id: 16,
@@ -73,7 +81,9 @@ const articles = [
     photo: 'https://virtualmuebles.com/cdn/shop/products/71I6hgzNZeL._AC_SL1000.jpg?v=1723037443',
     description: 'Peleuches para tu mascota',
     characteritics: 'Varios estilos',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Peluches para mascotas'
   },
   {
     id: 17,
@@ -81,7 +91,9 @@ const articles = [
     photo: 'https://virtualmuebles.com/cdn/shop/products/71m9Bgw-ZmL._AC_SL1500.jpg?v=1723034227',
     description: 'Juguete entretenido para gatos',
     characteritics: 'Los mantiene activos',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Juguete gatos'
   },
 
 ];

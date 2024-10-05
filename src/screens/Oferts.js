@@ -41,7 +41,8 @@ const articles = [
     photo: 'https://catmajestic.com/wp-content/uploads/2023/04/Rascador-para-gatos-fingerprint-1000x1000.jpg',
     name: 'Rascador Gatos',
     description: 'Ideal para mantener las uñas de tu gato afiladas sin dañar tus cosas',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas'
   },
   {
     id: 8,
@@ -50,7 +51,8 @@ const articles = [
     photo: 'https://cdnx.jumpseller.com/vive-rosa-vive-jardin1/image/29406919/resize/800/800?1668354944',
     name: 'Macetas de cerámica',
     description: 'Perfectas para plantar flores o hierbas en interiores o exteriores.',
-    category: 'Jardineria'
+    category: 'Jardineria',
+    statusCategory: 'Disponible - Jardineria'
   },
   {
     id: 9,
@@ -59,7 +61,8 @@ const articles = [
     photo: 'https://m.maccosmetics.com.co/media/export/cms/products/640x600/mac_sku_M66Y03_640x600_0.jpg',
     name: 'Delineador waterproof',
     description: 'Perfecto para una aplicación precisa y duradera durante todo el día.',
-    category: 'Maquillaje'
+    category: 'Maquillaje',
+    statusCategory: 'Disponible - Maquillaje'
   },
   {
     id: 10,
@@ -68,7 +71,8 @@ const articles = [
     photo: 'https://http2.mlstatic.com/D_NQ_NP_713947-MCO45035432163_022021-O.webp',
     name: 'Almohada ortopédica',
     description: 'Diseñada para proporcionar soporte adecuado para el cuello y la cabeza.',
-    category: 'Dormitorio'
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio'
   },
   {
     id: 11,
@@ -77,7 +81,8 @@ const articles = [
     photo: 'https://www.proveedores.com/articulos/wp-content/uploads/2016/02/chocolate-gourmet-2.jpg',
     name: 'Chocolates gourmet',
     description: 'Ideal para mantener las uñas de tu gato afiladas y evitar que rasguñe tus muebles.',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'Disponible - Comida'
   }
 ];
 

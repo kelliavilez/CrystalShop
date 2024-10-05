@@ -7,7 +7,7 @@ export const boughtsReducer = (state = initialBoughtState, action) => {
         case 'ADD_TO_BOUGHTS_HISTORY':
             return {
                 ...state,
-                boughtsItems: [...state.boughtsItems, ...action.payload], 
+                boughtsItems: state.boughtsItems ? [...state.boughtsItems, ...action.payload] : [...action.payload],
             };
         default:
             return state;

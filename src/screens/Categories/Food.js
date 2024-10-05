@@ -43,7 +43,9 @@ const articles = [
     description: 'Deliciosos pockys de chocolate',
     price: 20000,
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'Disponible - Comida',
+    name: 'Pockys'
   },
   {
     id: 37,
@@ -51,15 +53,19 @@ const articles = [
     photo: 'https://m.media-amazon.com/images/I/81IhoXYiXLL._SL1500_.jpg',
     description: 'Paquete de Taiyakis para compartir',
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'Disponible - Comida',
+    name: 'Taiyakis'
   },
   {
     id: 38,
     price: 15000,
     photo: 'https://www.japonalternativo.com/wp-content/uploads/2021/02/hello-panda-matcha-green-tea.jpg',
-    description: 'Nuevas bebidad que debes probar',
+    description: 'Nuevas bebidas que debes probar',
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'Disponible - Comida',
+    name: 'Bebidas'
   },
   {
     id: 39,
@@ -67,7 +73,9 @@ const articles = [
     photo: 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/3a321a44ebba848e30c3f104fb3d90d3/Derivates/972a83060c897675153c0e1e354c0ed3c5f4f913.jpg',
     description: 'Caja bombones de chocolate',
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'No disponible - Comida',
+    name: 'Bombones chocolate'
   },
   {
     id: 40,
@@ -75,15 +83,19 @@ const articles = [
     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6-QAVhl73zwNP-J_beMdqF3ldI8d-Sw83Q&s',
     description: 'Delicioso pan artesanal',
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'Disponible - Comida',
+    name: 'Pan'
   },
   {
     id: 41,
     price: 40000,
     photo: 'https://thefoodtech.com/wp-content/uploads/2020/12/demanda-creciente-de-snacks-mas-saludables.jpg',
-    description: 'Snakcs saludables para tus hijos',
+    description: 'Snacks saludables para tus hijos',
     characteritics: 'Gran variedad de sabores',
-    category: 'Comida'
+    category: 'Comida',
+    statusCategory: 'No isponible - Comida',
+    name: 'Snacks saludables'
   },
 
 ];

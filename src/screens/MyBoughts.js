@@ -56,4 +56,3 @@ const articles = [
   }
 ];
 
-

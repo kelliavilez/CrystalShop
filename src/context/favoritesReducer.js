@@ -1,23 +1,30 @@
-// Estado inicial de favoritos
 const initialFavoritesState = {
     favoritesItems: [],
 };
 
-// Reducer de favoritos
-export const favoritesReducer = (state = initialFavoritesState, action) => {
+const favoritesReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_FAVORITES':
-            const exists = state.favoritesItems.some(item => item.id === action.payload.id);
-            if (exists) {
-                return state; // Si el artículo ya existe, no lo agregamos de nuevo
+            const isFavorite = state.favoritesItems.some(item => item.id === action.payload.id);
+            if (isFavorite) {
+                return state;
             }
             return {
                 ...state,
-                favoritesItems: [...state.favoritesItems, action.payload], // Agregamos el nuevo artículo a la lista
+                favoritesItems: [...state.favoritesItems, action.payload],
             };
-
+        case 'REMOVE_FROM_FAVORITES':
+            return {
+                ...state,
+                favoritesItems: state.favoritesItems.filter(item => item.id !== action.payload.id),
+            };
         default:
             return state;
     }
 };
+
+export default favoritesReducer;
+
+
+
 

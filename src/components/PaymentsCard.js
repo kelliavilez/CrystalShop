@@ -311,4 +311,3 @@ const PaymentsCard = () => {
 };
 
 export default PaymentsCard;
-

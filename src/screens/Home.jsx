@@ -52,7 +52,9 @@ const articles = [
     description: 'Ropa de cama de algodón',
     price: 200000,
     characteritics: 'Color rosado',
-    category: 'Dormitorio'
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Tendidos cama'
   },
   {
     id: 2,
@@ -60,7 +62,9 @@ const articles = [
     description: 'Lámpara de mesa con regulador',
     price: 70000,
     characteritics: 'Luz calida',
-    category: 'Dormitorio'
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Lampara reguladora'
   },
   {
     id: 3,
@@ -68,7 +72,9 @@ const articles = [
     description: 'Almohada ortopédica, soporte espalda',
     price: 300000,
     characteritics: 'Suave',
-    category: 'Dormitorio'
+    category: 'Dormitorio',
+    statusCategory: 'Disponible - Dormitorio',
+    name: 'Almohada ortopedica'
   },
   {
     id: 4,
@@ -76,7 +82,9 @@ const articles = [
     description: 'Juguete interactivo para perros',
     price: 205000,
     characteritics: 'Color azul',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Juguete perros'
   },
   {
     id: 5,
@@ -84,7 +92,9 @@ const articles = [
     description: 'Comedero para mascotas',
     price: 242000,
     characteritics: 'Automatico',
-    category: 'Mascotas'
+    category: 'Mascotas',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Comedero'
   },
   {
     id: 6,
@@ -92,7 +102,9 @@ const articles = [
     description: 'Macetas de cerámica gemelas',
     price: 208000,
     characteritics: 'Blanca y negra',
-    category: 'Jardineria'
+    category: 'Jardineria',
+    statusCategory: 'Disponible - Mascotas',
+    name: 'Macetas'
   }
 ];
 
