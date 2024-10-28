@@ -15,3 +15,5 @@ npm install dayjs
 npm i --save-dev @types/react-native-vector-icons
 npm install react-native-vector-icons@latest   
 npm install @react-native-picker/picker
+npm install firebase
+npm install @mercadopago/sdk-react ¿API que mando la profe, falta confirgurar?

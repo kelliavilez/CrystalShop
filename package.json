@@ -10,12 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@mercadopago/sdk-react": "^0.0.19",
     "@react-native-masked-view/masked-view": "^0.3.1",
     "@react-native-picker/picker": "^2.8.1",
     "@react-navigation/drawer": "^6.7.2",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/stack": "^6.4.1",
     "dayjs": "^1.11.13",
+    "firebase": "^11.0.1",
     "react": "18.3.1",
     "react-native": "0.75.2",
     "react-native-gesture-handler": "^2.20.0",

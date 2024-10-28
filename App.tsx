@@ -26,6 +26,12 @@ import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 import PaymentsCard from './src/components/PaymentsCard';
 import CustomDrawerContent from './src/components/CustomDrawerContent';
 
+/*
+import { initMercadoPago } from '@mercadopago/sdk-react'
+initMercadoPago('YOUR_PUBLIC_KEY');
+Donde va esta API???
+*/
+
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
