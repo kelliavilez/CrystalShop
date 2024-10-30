@@ -15,13 +15,8 @@ npm install dayjs
 npm i --save-dev @types/react-native-vector-icons
 npm install react-native-vector-icons@latest   
 npm install @react-native-picker/picker
-<<<<<<< Updated upstream
 npm install firebase
 npm install @mercadopago/sdk-react ¿API que mando la profe, falta confirgurar?
 npm install --save @react-native-firebase/app
 npm install @react-native-firebase/firestore
 git config --global core.autocrlf true // configurar problema git
-=======
-npm install @mercadopago/sdk-react
-
->>>>>>> Stashed changes
