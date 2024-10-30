@@ -30,7 +30,7 @@ const Favorite = () => {
     );
 };
 
-
+/*
 const articles = [
     {
         id: 42,
@@ -68,6 +68,6 @@ const articles = [
         price: 90000,
         category: 'Dormitorio'
     },
-];
+];*/
 
 export default Favorite;

@@ -1,4 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList } from 'react-native';
+import styles from '../styles/globalStyles';
+import OfertsCard from '../components/OfertsCard';
+import SearchBar from '../components/SearchBar';
+import firestore from '@react-native-firebase/firestore';
+
+const Oferts = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    // Cargar datos de Firestore desde la colección "oferts"
+    const fetchArticles = async () => {
+      try {
+        const articlesList = [];
+        const querySnapshot = await firestore().collection('oferts').get();
+        querySnapshot.forEach((doc) => {
+          articlesList.push({ id: doc.id, ...doc.data() });
+        });
+        setArticles(articlesList);
+      } catch (error) {
+        console.error("Error al obtener artículos: ", error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  const filteredArticles = articles.filter((article) => {
+    const query = searchQuery.toLowerCase();
+    const discountAmount = (article.originalPrice * article.discount) / 100;
+    const finalPrice = article.originalPrice - discountAmount;
+
+    const matchesName = article.name.toLowerCase().includes(query);
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesDiscountedPrice = finalPrice.toString().includes(query);
+
+    return matchesName || matchesDescription || matchesCategory || matchesDiscountedPrice;
+  });
+
+  return (
+    <View style={styles.viewStyle}>
+      <SearchBar onSearch={setSearchQuery} />
+      <FlatList
+        data={filteredArticles}
+        renderItem={({ item }) => <OfertsCard article={item} />}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={1}
+      />
+    </View>
+  );
+};
+
+export default Oferts;
+
+
+/*import React from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../styles/globalStyles';
 import OfertsCard from "../components/OfertsCard";
@@ -87,4 +145,4 @@ const articles = [
   }
 ];
 
-export default Oferts;
+export default Oferts;*/

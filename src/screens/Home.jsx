@@ -31,7 +31,7 @@ function Home({ navigation }) {
     const query = searchQuery.toLowerCase();
     const matchesDescription = article.description.toLowerCase().includes(query);
     const matchesCategory = article.category.toLowerCase().includes(query);
-    const matchesPrice = article.price.toString().includes(query); 
+    const matchesPrice = article.price.toString().includes(query);
     return matchesDescription || matchesCategory || matchesPrice;
   });
 
@@ -59,6 +59,7 @@ function Home({ navigation }) {
   );
 }
 
+export default Home;
 
 /*import { View, FlatList } from "react-native";
 import ArticlesCard from "../components/ArticlesCard";
@@ -171,4 +172,3 @@ const articles = [
   }
 ];*/
 
-export default Home;
