@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@mercadopago/sdk-react": "^0.0.19",
+<<<<<<< Updated upstream
     "@react-native-firebase/app": "^21.2.0",
     "@react-native-firebase/firestore": "^21.2.0",
+=======
+>>>>>>> Stashed changes
     "@react-native-masked-view/masked-view": "^0.3.1",
     "@react-native-picker/picker": "^2.8.1",
     "@react-navigation/drawer": "^6.7.2",
