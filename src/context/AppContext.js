@@ -20,7 +20,7 @@ const initialState = {
         selectedItems: [],
     },
     boughts: {
-        boughtItems: [] 
+        boughtItems: []
     },
     favorites: {
         favoritesItems: []

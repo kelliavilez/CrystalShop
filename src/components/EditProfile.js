@@ -19,29 +19,25 @@ const EditProfile = () => {
   const handleSave = async () => {
     try {
       const user = firebase.auth().currentUser;
-  
+
       if (!username || typeof photo === 'undefined') {
         Alert.alert('Error', 'Por favor, asegúrate de que todos los campos estén completos.');
         return;
       }
-  
-      // Convertir photo a una URI si es un objeto (en caso de imagen local)
+
       const photoURL = typeof photo === 'number' ? Image.resolveAssetSource(photo).uri : photo;
-  
-      // Actualizar perfil de usuario en Firebase Auth
+
       await user.updateProfile({
         displayName: username,
         photoURL: photoURL || 'https://www3.gobiernodecanarias.org/medusa/ecoblog/jtolsan/files/2014/04/Creeper-the-minecraft-creeper-32728884-1750-2500.jpg', // URL predeterminada
       });
-  
-      // Actualizar perfil en Firestore
+
       const userDocRef = firebase.db.collection('users').doc(user.uid);
-        await userDocRef.update({
-            username,
-            photo,
-        });
-  
-      // Actualizar el contexto
+      await userDocRef.update({
+        username,
+        photo,
+      });
+
       dispatch({
         type: 'UPDATE_PROFILE',
         payload: {
@@ -49,26 +45,26 @@ const EditProfile = () => {
           photo: photoURL,
         },
       });
-  
+
       Alert.alert('Perfil actualizado con éxito');
     } catch (error) {
       console.error('Error al actualizar el perfil:', error);
       Alert.alert('Error al actualizar el perfil', error.message);
     }
   };
-  
+
   const selectDefaultImage = (image) => {
-    setPhoto(image); // Aquí se establece la imagen local seleccionada
+    setPhoto(image);
   };
-  
+
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
       <Card style={styles.card}>
         <Card.Content>
           <View style={styles.avatarContainer}>
-            <Image 
-              source={photo || { uri: 'https://www3.gobiernodecanarias.org/medusa/ecoblog/jtolsan/files/2014/04/Creeper-the-minecraft-creeper-32728884-1750-2500.jpg' }} 
-              style={styles.avatar} 
+            <Image
+              source={photo || { uri: 'https://www3.gobiernodecanarias.org/medusa/ecoblog/jtolsan/files/2014/04/Creeper-the-minecraft-creeper-32728884-1750-2500.jpg' }}
+              style={styles.avatar}
             />
           </View>
           <TextInput
@@ -77,8 +73,7 @@ const EditProfile = () => {
             onChangeText={setUsername}
             style={styles.textInput}
           />
-          
-          {/* Sección para imágenes de perfil predeterminadas */}
+
           <View style={styles.defaultImagesContainer}>
             {defaultProfileImages.map((image, index) => (
               <TouchableOpacity key={index} onPress={() => selectDefaultImage(image)}>
@@ -86,13 +81,13 @@ const EditProfile = () => {
               </TouchableOpacity>
             ))}
           </View>
-          
-          <Button 
-            title="Guardar Cambios" 
-            onPress={handleSave} 
-            mode="contained" 
-            color="#89c07a" 
-            style={styles.button} 
+
+          <Button
+            title="Guardar Cambios"
+            onPress={handleSave}
+            mode="contained"
+            color="#89c07a"
+            style={styles.button}
           />
         </Card.Content>
       </Card>
@@ -134,7 +129,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     margin: 5,
-    borderRadius: 25, // Redondear la imagen
+    borderRadius: 25,
   },
 });
 
