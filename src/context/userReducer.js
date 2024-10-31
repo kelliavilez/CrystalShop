@@ -18,6 +18,7 @@ export const userReducer = (state = initialUserState, action) => {
         return {
           ...state,
           username: action.payload.username, // No anidar aquí, ya que no hay un objeto 'user'
+          email: action.payload.email || state.email,
           photo: action.payload.photo || '', // Asegúrate de que sea una cadena
         };
 
