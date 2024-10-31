@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import styles from '../styles/globalStyles';
 import { Picker } from '@react-native-picker/picker';
+import firebase from '../firebase'; // Asegúrate de que esta importación es correcta
 
 const SignUp = () => {
   const { dispatch } = useContext(AppContext);
@@ -162,52 +163,76 @@ const SignUp = () => {
       setValidationMessages((prev) => ({ ...prev, city: 'Selecciona una ciudad.' }));
     }
   }, [selectedCity]);
-
-
-  const handleSignUp = () => {
-
+  
+  const handleSignUp = async () => {
+    // Verificar que todos los campos requeridos estén completos
     if (!username || !password || !email || !dateOfBirth || !address || !selectedCountry || !selectedDepartment || !selectedCity || !names || !lastnames) {
-      Alert.alert('Error', 'Por favor, complete todos los campos.');
-      return;
+        Alert.alert('Error', 'Por favor, complete todos los campos.');
+        return;
     }
 
+    // Validación
     const hasErrors = Object.values(validationMessages).some(message =>
-      message.includes('inválido') ||
-      message.includes('requiere') ||
-      message.includes('Máximo') ||
-      message.includes('mínimo') ||
-      message.includes('Máximo 30 caracteres.') ||
-      message.includes('La dirección es requerida.') ||
-      message.includes('Debes tener al menos 18 años.') ||
-      message.includes('No puedes tener más de 50 años.') ||
-      message.includes('Selecciona un país.') ||
-      message.includes('Selecciona un departamento.') ||
-      message.includes('Selecciona una ciudad.') ||
-      message.includes('Los nombres son requeridos.') ||
-      message.includes('Solo se permiten letras.') ||
-      message.includes('Los apellidos son requeridos.')
+        message.includes('inválido') ||
+        message.includes('requiere') ||
+        message.includes('Máximo') ||
+        message.includes('mínimo') ||
+        message.includes('Máximo 30 caracteres.') ||
+        message.includes('La dirección es requerida.') ||
+        message.includes('Debes tener al menos 18 años.') ||
+        message.includes('No puedes tener más de 50 años.') ||
+        message.includes('Selecciona un país.') ||
+        message.includes('Selecciona un departamento.') ||
+        message.includes('Selecciona una ciudad.') ||
+        message.includes('Los nombres son requeridos.') ||
+        message.includes('Solo se permiten letras.') ||
+        message.includes('Los apellidos son requeridos.')
     );
 
     if (hasErrors) {
-      Alert.alert('Error', 'Por favor, corrija los errores en el formulario.');
-      return;
+        Alert.alert('Error', 'Por favor, corrija los errores en el formulario.');
+        return;
     }
 
-    dispatch({
-      type: 'SET_USER',
-      payload: {
-        username,
-        email,
-        dateOfBirth,
-        address,
-        names,
-        lastnames
-      },
-    });
+    try {
+        // Autenticar con Firebase Authentication
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password); // Asegúrate de usar firebase.auth()
+        const user = userCredential.user;
 
-    Alert.alert('Éxito', '¡Registro completado exitosamente!');
-    navigation.navigate('Main');
-  };
+        // Guardar los datos adicionales en Firestore
+        await firebase.db.collection('users').doc(user.uid).set({
+            username: username,
+            email: user.email,
+            dateOfBirth: dateOfBirth,
+            address: address,
+            names: names,
+            lastnames: lastnames,
+            country: selectedCountry,
+            department: selectedDepartment,
+            city: selectedCity,
+        });
+
+        Alert.alert('Éxito', '¡Registro completado exitosamente!');
+        navigation.navigate('Main');
+
+        // Dispatch para almacenar datos del usuario en el contexto (sin la contraseña)
+        dispatch({
+            type: 'SET_USER',
+            payload: {
+                username,
+                email,
+                dateOfBirth,
+                address,
+                names,
+                lastnames,
+            },
+        });
+    } catch (error) {
+        Alert.alert('Error', 'Hubo un problema al registrar el usuario. Intente de nuevo.');
+        console.error("Error al registrar usuario: ", error);
+    }
+};
+
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff' }}>

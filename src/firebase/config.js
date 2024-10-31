@@ -1,11 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyA8LCIpZucsSBZaD80b3TiWnCuNBlOsH80",
-    authDomain: "greenmarket-7ce04.firebaseapp.com",
-    projectId: "greenmarket-7ce04",
-    storageBucket: "greenmarket-7ce04.appspot.com",
-    messagingSenderId: "162659966439",
-    appId: "1:162659966439:web:d27fca4f5d878a49fa3142",
-    measurementId: "G-L6NTLJY9E0"
+  apiKey: "AIzaSyDLgWwn-2btIfZ7UrBKtSMTJHMj2Uj7RlA",
+  authDomain: "greenmarket-df290.firebaseapp.com",
+  projectId: "greenmarket-df290",
+  storageBucket: "greenmarket-df290.appspot.com",
+  messagingSenderId: "90264059231",
+  appId: "1:90264059231:web:bfa9b8e1e60fc7860ecaea"
   };
 
   export default firebaseConfig;

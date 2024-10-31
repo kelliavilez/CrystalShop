@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, Image, ScrollView, Text, StyleSheet, Alert } from 'react-native';
 import { Card, TextInput, RadioButton, Button } from 'react-native-paper';
 import { Rating } from 'react-native-ratings';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,6 +9,10 @@ import { AppContext } from '../context/AppContext';
 const ArticleDetailsCard = ({ route }) => {
   const { article } = route.params;
   const [checked, setChecked] = useState('first');
+  const [question, setQuestion] = useState('');
+  const [comment, setComment] = useState('');
+  const maxQuestionLength = 100;
+  const maxCommentLength = 200;
   const { dispatch } = useContext(AppContext);
 
   const handleAddToCart = () => {
@@ -25,19 +29,29 @@ const ArticleDetailsCard = ({ route }) => {
     });
   };
 
-    const handleAddToFavorites = () => {
-        dispatch({
-            type: 'ADD_TO_FAVORITES',
-            payload: {
-                id: article.id,
-                productName: article.name,
-                price: article.price,
-                image: article.photo,
-                category: article.statusCategory,
-                description: article.description
-            },
-        });
-    };
+  const handleAddToFavorites = () => {
+    dispatch({
+      type: 'ADD_TO_FAVORITES',
+      payload: {
+        id: article.id,
+        productName: article.name,
+        price: article.price,
+        image: article.photo,
+        category: article.statusCategory,
+        description: article.description
+      },
+    });
+  };
+
+  const handleQuestionSubmit = () => {
+    Alert.alert("Pregunta enviada");
+    setQuestion(''); // Limpiar el campo
+  };
+
+  const handleCommentSubmit = () => {
+    Alert.alert("Comentario enviado");
+    setComment(''); // Limpiar el campo
+  };
 
 
 
@@ -77,11 +91,29 @@ const ArticleDetailsCard = ({ route }) => {
 
           <Text style={styles.title}>Preguntas</Text>
           <TextInput
-            style={styles.textInput} placeholder="Haz una pregunta al vendedor" maxLength={100} />
-          <Button buttonColor='#89c07a' mode="contained">Enviar pregunta</Button>
+            style={styles.textInput}
+            placeholder="Haz una pregunta al vendedor"
+            maxLength={maxQuestionLength}
+            value={question}
+            onChangeText={setQuestion}
+          />
+          {question.length === maxQuestionLength && (
+            <Text style={styles.warningText}>Has alcanzado el límite de caracteres.</Text>
+          )}
+          <Button buttonColor='#89c07a' mode="contained" title="Enviar pregunta" onPress={handleQuestionSubmit}>Enviar pregunta</Button>
 
           <Text style={styles.title}>Comentarios</Text>
-          <TextInput style={styles.textInput} placeholder="Escribe un comentario" maxLength={200} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Escribe un comentario"
+            maxLength={maxCommentLength}
+            value={comment}
+            onChangeText={setComment}
+          />
+          {comment.length === maxCommentLength && (
+            <Text style={styles.warningText}>Has alcanzado el límite de caracteres.</Text>
+          )}
+          <Button buttonColor='#89c07a' mode="contained" title="Enviar pregunta" onPress={handleCommentSubmit}>Enviar comentario</Button>
 
           <Text style={styles.title}>Calificación</Text>
           <Rating

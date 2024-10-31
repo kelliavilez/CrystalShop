@@ -25,12 +25,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 import PaymentsCard from './src/components/PaymentsCard';
 import CustomDrawerContent from './src/components/CustomDrawerContent';
-
-/*
-import { initMercadoPago } from '@mercadopago/sdk-react'
-initMercadoPago('YOUR_PUBLIC_KEY');
-Donde va esta API???
-*/
+import EditProfile from './src/components/EditProfile';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -51,7 +46,7 @@ const AuthenticationStack = () => (
 const AppDrawer = () => (
 
   <Drawer.Navigator
-  drawerContent={(props) => <CustomDrawerContent {...props} />}
+    drawerContent={(props) => <CustomDrawerContent {...props} />}
     screenOptions={{
       drawerStyle: {
         backgroundColor: "#ebf7ec",
@@ -153,79 +148,84 @@ const AppDrawer = () => (
 );
 
 const App = () => (
-  <AppProvider>
-    <PaperProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: '#ebf7ec',
-            },
-            headerTintColor: "#1f3b28",
-            headerTitleStyle: {
-              fontWeight: 'bold',
-              color: '#35570a'
-            },
-          }}>
-          <Stack.Screen
-            name='Auth'
-            component={AuthenticationStack}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name='Main'
-            component={AppDrawer}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ArticleDetailsCard"
-            component={ArticleDetailsCard}
-            options={{ title: 'Detalles de articulo' }}
-          />
-          <Stack.Screen
-            name="OfertsDetailsCard"
-            component={OfertsDetailsCard}
-            options={{ title: 'Detalles de oferta' }}
-          />
-          <Stack.Screen
-            name="FavoriteDetailsCard"
-            component={FavoriteDetailsCard}
-            options={{ title: 'Detalles de favoritos' }}
-          />
-          <Stack.Screen
-            name="PaymentsCard"
-            component={PaymentsCard}
-            options={{ title: 'Portal pagos' }}
-          />
-          <Stack.Screen
-            name="Bedroom"
-            component={Bedroom}
-            options={{ title: 'Categoría: Dormitorio' }}
-          />
-          <Stack.Screen
-            name="Gardening"
-            component={Gardening}
-            options={{ title: 'Categoría: Jardinería' }}
-          />
-          <Stack.Screen
-            name="Food"
-            component={Food}
-            options={{ title: 'Categoría: Comida' }}
-          />
-          <Stack.Screen
-            name="Makeup"
-            component={Makeup}
-            options={{ title: 'Categoría: Maquillaje' }}
-          />
-          <Stack.Screen
-            name="Pets"
-            component={Pets}
-            options={{ title: 'Categoría: Mascotas' }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
-  </AppProvider>
+    <AppProvider>
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#ebf7ec',
+              },
+              headerTintColor: "#1f3b28",
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                color: '#35570a'
+              },
+            }}>
+            <Stack.Screen
+              name='Auth'
+              component={AuthenticationStack}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name='Main'
+              component={AppDrawer}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ArticleDetailsCard"
+              component={ArticleDetailsCard}
+              options={{ title: 'Detalles de articulo' }}
+            />
+            <Stack.Screen
+              name="OfertsDetailsCard"
+              component={OfertsDetailsCard}
+              options={{ title: 'Detalles de oferta' }}
+            />
+            <Stack.Screen
+              name="FavoriteDetailsCard"
+              component={FavoriteDetailsCard}
+              options={{ title: 'Detalles de favoritos' }}
+            />
+            <Stack.Screen
+              name="EditProfile"
+              component={EditProfile}
+              options={{ title: 'Editar perfil' }}
+            />
+            <Stack.Screen
+              name="PaymentsCard"
+              component={PaymentsCard}
+              options={{ title: 'Portal pagos' }}
+            />
+            <Stack.Screen
+              name="Bedroom"
+              component={Bedroom}
+              options={{ title: 'Categoría: Dormitorio' }}
+            />
+            <Stack.Screen
+              name="Gardening"
+              component={Gardening}
+              options={{ title: 'Categoría: Jardinería' }}
+            />
+            <Stack.Screen
+              name="Food"
+              component={Food}
+              options={{ title: 'Categoría: Comida' }}
+            />
+            <Stack.Screen
+              name="Makeup"
+              component={Makeup}
+              options={{ title: 'Categoría: Maquillaje' }}
+            />
+            <Stack.Screen
+              name="Pets"
+              component={Pets}
+              options={{ title: 'Categoría: Mascotas' }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </AppProvider>
 );
 
 export default App;
