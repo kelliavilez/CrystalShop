@@ -3,6 +3,7 @@ const initialUserState = {
   email: '',
   dateOfBirth: '',
   address: '',
+  photo: null, // Agrega la propiedad de la foto
 };
 
 export const userReducer = (state = initialUserState, action) => {
@@ -12,8 +13,17 @@ export const userReducer = (state = initialUserState, action) => {
         ...state,
         ...action.payload,
       };
+      
+      case 'UPDATE_PROFILE':
+        return {
+          ...state,
+          username: action.payload.username, // No anidar aquí, ya que no hay un objeto 'user'
+          email: action.payload.email || state.email,
+          photo: action.payload.photo || '', // Asegúrate de que sea una cadena
+        };
 
     default:
       return state;
   }
 };
+

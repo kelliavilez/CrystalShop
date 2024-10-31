@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90264059231",
+    "project_id": "greenmarket-df290",
+    "storage_bucket": "greenmarket-df290.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90264059231:android:9a740e0f82e867e70ecaea",
+        "android_client_info": {
+          "package_name": "com.greenmarket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD38KkMPqSt-KrdVsoEWjq4_W2b0uG_cz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

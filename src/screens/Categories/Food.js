@@ -1,4 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList } from 'react-native';
+import styles from '../../styles/globalStyles';
+import BedroomCard from '../../components/BedroomCard';
+import SearchBar from '../../components/SearchBar';
+import firestore from '@react-native-firebase/firestore';
+
+const Food = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    // Cargar datos de Firestore
+    const fetchArticles = async () => {
+      try {
+        const articlesList = [];
+        const querySnapshot = await firestore().collection('articles').get();
+        querySnapshot.forEach((doc) => {
+          articlesList.push({ id: doc.id, ...doc.data() });
+        });
+        setArticles(articlesList);
+      } catch (error) {
+        console.error("Error al obtener artículos: ", error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  const filteredArticles = articles.filter((article) => {
+    const articleId = parseInt(article.id, 10); // Convierte el ID a número si es necesario
+    const isInRange = articleId >= 36 && articleId <= 41;
+
+    const query = searchQuery.toLowerCase();
+    const matchesDescription = article.description.toLowerCase().includes(query);
+    const matchesCategory = article.category.toLowerCase().includes(query);
+    const matchesPrice = article.price.toString().includes(query); 
+
+    return isInRange && (matchesDescription || matchesCategory || matchesPrice);
+  });
+
+  const numColumns = 2;
+  return (
+    <View style={styles.viewStyle}>
+      <SearchBar onSearch={setSearchQuery} />
+      <FlatList
+        data={filteredArticles}
+        renderItem={({ item }) => <BedroomCard article={item} />}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
+        key={numColumns}
+      />
+    </View>
+  );
+};
+
+export default Food;
+
+/*import React from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../../styles/globalStyles';
 import FoodCard from '../../components/FoodCard';
@@ -100,4 +158,4 @@ const articles = [
 
 ];
 
-export default Food;
+export default Food;*/
