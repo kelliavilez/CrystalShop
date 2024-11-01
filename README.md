@@ -23,6 +23,6 @@ git config --global core.autocrlf true // configurar problema git
 npm install react-redux
 npm install @reduxjs/toolkit
 npm install @react-native-firebase/app @react-native-firebase/storage react-native-image-picker
-
+npm list react-native-inappbrowser-reborn
 
 

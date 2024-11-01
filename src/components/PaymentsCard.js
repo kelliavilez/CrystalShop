@@ -1,13 +1,13 @@
-// PaymentsCard.js
 import React, { useContext, useState } from 'react';
-import { View, Image, ScrollView, Text, Alert, Modal, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, ScrollView, Text, Alert, Modal, TextInput, TouchableOpacity } from 'react-native';
 import { Card, Text as PaperText, RadioButton, Button } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
 import styles from '../styles/paymentStyles';
+import { handleIntegrationMP } from '../mercadopago/mpintegration';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 import { AppContext } from '../context/AppContext';
 
 const PaymentsCard = () => {
-
     const { state, dispatch } = useContext(AppContext);
     const [checked, setChecked] = useState('first');
     const [showModal, setShowModal] = useState(false);
@@ -23,6 +23,7 @@ const PaymentsCard = () => {
 
     const selectedItems = state.cart.cartItems.filter(item => state.cart.selectedItems.includes(item.id));
     const total = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const { username, address } = state.user;
 
     const handleAddToMyBoughts = () => {
         if (selectedItems.length === 0) {
@@ -30,73 +31,47 @@ const PaymentsCard = () => {
             return;
         }
 
-        if (checked === 'first' || checked === 'second') {
-            setShowModal(true);
+        if (checked === 'first') {
+            handleCreditCardPayment(selectedItems); // Pago con Tarjeta de Crédito
+        } else if (checked === 'second') {
+            setShowModal(true); // Pago con PSE
         } else if (checked === 'three') {
-            handleEfectyPayment();
+            handleEfectyPayment(); // Pago con Efecty
         }
     };
 
-    const handleCreditCardPayment = () => {
-        const { cardNumber, accountNumber, selectedBank } = paymentData;
-
-        if (cardNumber.length !== 16) {
-            Alert.alert('Error', 'Por favor ingresa un número de tarjeta válido de 16 dígitos.');
-            return;
+    const handleCreditCardPayment = async (items) => {
+        try {
+            const data = await handleIntegrationMP(items);
+            if (data) {
+                InAppBrowser.open(data);
+                completePurchase(); // Llama a la función para agregar a compras una vez que el pago es exitoso
+            } else {
+                Alert.alert('Error', 'No se pudo procesar el pago con tarjeta de crédito.');
+            }
+        } catch (error) {
+            console.error('Error en el pago con tarjeta de crédito:', error);
         }
-
-        if (accountNumber.trim() === '') {
-            Alert.alert('Error', 'Por favor ingresa un número de cuenta válido.');
-            return;
-        }
-
-        if (selectedBank === '') {
-            Alert.alert('Error', 'Por favor selecciona un banco.');
-            return;
-        }
-
-        completePurchase();
-        setShowModal(false);
     };
 
     const handlePSEPayment = () => {
         const { pseDocument, pseBank, pseEmail } = paymentData;
 
-        if (pseDocument.trim() === '') {
-            Alert.alert('Error', 'Por favor ingresa tu número de documento.');
+        if (pseDocument.trim() === '' || pseBank === '' || pseEmail.trim() === '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pseEmail)) {
+            Alert.alert('Error', 'Por favor ingresa los datos completos y válidos para PSE.');
             return;
         }
 
-        if (pseBank === '') {
-            Alert.alert('Error', 'Por favor selecciona un banco.');
-            return;
-        }
-
-        if (pseEmail.trim() === '') {
-            Alert.alert('Error', 'Por favor ingresa tu correo electrónico.');
-            return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(pseEmail)) {
-            Alert.alert('Error', 'Por favor ingresa un correo electrónico válido.');
-            return;
-        }
-
-        completePurchase();
+        completePurchase(); // Agrega a mis compras después de confirmar pago con PSE
         setShowModal(false);
     };
 
     const handleEfectyPayment = () => {
         const efectyCode = Math.floor(100000000 + Math.random() * 900000000);
         setPaymentData({ ...paymentData, efectyCode });
-        Alert.alert(
-            'Código de Pago Generado',
-            `Tu código de pago es: ${efectyCode}`,
-            [
-                { text: 'OK', onPress: () => console.log('Código de pago generado') }
-            ]
-        );
+        Alert.alert('Código de Pago Generado', `Tu código de pago es: ${efectyCode}`, [{ text: 'OK' }]);
+
+        completePurchase(); // Agrega a mis compras al generar el código de pago de Efecty
     };
 
     const completePurchase = () => {
@@ -108,21 +83,10 @@ const PaymentsCard = () => {
             state: 'Pagado',
         }));
 
-        dispatch({
-            type: 'ADD_TO_BOUGHTS_HISTORY',
-            payload: boughtItems,
-        });
+        dispatch({ type: 'ADD_TO_BOUGHTS_HISTORY', payload: boughtItems });
+        dispatch({ type: 'CLEAR_CART' });
 
-        dispatch({
-            type: 'CLEAR_CART',
-        });
-
-        Alert.alert(
-            'Pago Exitoso',
-            'Ir a mis compras para ver historial',
-            [{ text: 'OK', onPress: () => console.log('Pago completado') }]
-        );
-
+        Alert.alert('Pago Exitoso', 'Ir a mis compras para ver historial', [{ text: 'OK' }]);
         setPaymentData({
             cardNumber: '',
             accountNumber: '',
@@ -133,8 +97,6 @@ const PaymentsCard = () => {
             efectyCode: ''
         });
     };
-
-    const { username, address } = state.user;
 
     return (
         <ScrollView>
@@ -157,7 +119,7 @@ const PaymentsCard = () => {
                                 onPress={() => setChecked('first')}
                                 color="black"
                             />
-                            <PaperText style={styles.radioLabel}>Tarjeta de Crédito</PaperText>
+                            <PaperText style={styles.radioLabel}>Tarjeta de Crédito/ MercadoPago</PaperText>
                         </View>
                         <View style={styles.radioItem}>
                             <RadioButton
@@ -214,52 +176,9 @@ const PaymentsCard = () => {
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent}>
                             <ScrollView>
-                                {checked === 'first' && (
-                                    <Text style={styles.modalTitle}>Ingresa los datos de tu Tarjeta de Crédito</Text>
-                                )}
-                                {checked === 'second' && (
-                                    <Text style={styles.modalTitle}>Ingresa los datos para PSE</Text>
-                                )}
-                                {checked === 'first' && (
-                                    <>
-                                        <TextInput
-                                            style={styles.input}
-                                            placeholder="Número de Tarjeta"
-                                            keyboardType="numeric"
-                                            maxLength={16}
-                                            value={paymentData.cardNumber}
-                                            onChangeText={(text) => setPaymentData({ ...paymentData, cardNumber: text })}
-                                        />
-                                        <TextInput
-                                            style={styles.input}
-                                            placeholder="Número de Cuenta"
-                                            keyboardType="numeric"
-                                            value={paymentData.accountNumber}
-                                            onChangeText={(text) => setPaymentData({ ...paymentData, accountNumber: text })}
-                                        />
-                                        <View style={styles.pickerContainer}>
-                                            <Picker
-                                                selectedValue={paymentData.selectedBank}
-                                                style={styles.picker}
-                                                onValueChange={(itemValue) => setPaymentData({ ...paymentData, selectedBank: itemValue })}
-                                            >
-                                                <Picker.Item label="Selecciona tu banco" value="" />
-                                                <Picker.Item label="Bancolombia" value="Bancolombia" />
-                                                <Picker.Item label="Nu" value="Nu" />
-                                                <Picker.Item label="Daviplata" value="Daviplata" />
-                                            </Picker>
-                                        </View>
-                                        <Button
-                                            mode="contained"
-                                            onPress={handleCreditCardPayment}
-                                            style={styles.modalButton}
-                                        >
-                                            Pagar con Tarjeta
-                                        </Button>
-                                    </>
-                                )}
                                 {checked === 'second' && (
                                     <>
+                                        <Text style={styles.modalTitle}>Ingresa los datos para PSE</Text>
                                         <TextInput
                                             style={styles.input}
                                             placeholder="Número de Documento"
@@ -293,13 +212,10 @@ const PaymentsCard = () => {
                                         >
                                             Pagar con PSE
                                         </Button>
+                                        <TouchableOpacity onPress={() => setShowModal(false)}>
+                                            <Text style={styles.cancelButtonText}>Cancelar</Text>
+                                        </TouchableOpacity>
                                     </>
-                                )}
-
-                                {(checked === 'first' || checked === 'second') && (
-                                    <TouchableOpacity onPress={() => setShowModal(false)}>
-                                        <Text style={styles.cancelButtonText}>Cancelar</Text>
-                                    </TouchableOpacity>
                                 )}
                             </ScrollView>
                         </View>
