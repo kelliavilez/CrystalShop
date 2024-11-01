@@ -41,10 +41,7 @@ const AuthenticationStack = () => (
   </Stack.Navigator>
 );
 
-
-
 const AppDrawer = () => (
-
   <Drawer.Navigator
     drawerContent={(props) => <CustomDrawerContent {...props} />}
     screenOptions={{
@@ -229,4 +226,3 @@ const App = () => (
 );
 
 export default App;
-
