@@ -32,11 +32,11 @@ const PaymentsCard = () => {
         }
 
         if (checked === 'first') {
-            handleCreditCardPayment(selectedItems); // Pago con Tarjeta de Crédito
+            handleCreditCardPayment(selectedItems); 
         } else if (checked === 'second') {
-            setShowModal(true); // Pago con PSE
+            setShowModal(true); 
         } else if (checked === 'three') {
-            handleEfectyPayment(); // Pago con Efecty
+            handleEfectyPayment(); 
         }
     };
 
@@ -45,7 +45,7 @@ const PaymentsCard = () => {
             const data = await handleIntegrationMP(items);
             if (data) {
                 InAppBrowser.open(data);
-                completePurchase(); // Llama a la función para agregar a compras una vez que el pago es exitoso
+                completePurchase(); 
             } else {
                 Alert.alert('Error', 'No se pudo procesar el pago con tarjeta de crédito.');
             }
@@ -62,7 +62,7 @@ const PaymentsCard = () => {
             return;
         }
 
-        completePurchase(); // Agrega a mis compras después de confirmar pago con PSE
+        completePurchase(); 
         setShowModal(false);
     };
 
@@ -71,7 +71,7 @@ const PaymentsCard = () => {
         setPaymentData({ ...paymentData, efectyCode });
         Alert.alert('Código de Pago Generado', `Tu código de pago es: ${efectyCode}`, [{ text: 'OK' }]);
 
-        completePurchase(); // Agrega a mis compras al generar el código de pago de Efecty
+        completePurchase(); 
     };
 
     const completePurchase = () => {

@@ -1,11 +1,11 @@
 export const handleIntegrationMP = async (items) => {
     const preference = {
         items: items.map((item) => ({
-            title: item.productName, // Asegúrate de que estés utilizando los nombres correctos
-            description: item.description || '', // Proporciona una descripción si está disponible
+            title: item.productName, 
+            description: item.description || '', 
             picture_url: item.image,
-            category_id: item.category || "other", // O la categoría correspondiente
-            quantity: item.quantity, // Asegúrate de que esto esté correcto
+            category_id: item.category || "other", 
+            quantity: item.quantity,
             currency_id: "COP",
             unit_price: item.discount
                 ? parseInt(item.price - item.price * (item.discount * 0.01))
@@ -24,7 +24,7 @@ export const handleIntegrationMP = async (items) => {
         });
 
         const data = await response.json();
-        console.log("Respuesta de MercadoPago:", data); // Verificar respuesta
+        console.log("Respuesta de MercadoPago:", data); 
         return data.init_point;
 
     } catch (error) {
