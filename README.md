@@ -24,5 +24,5 @@ npm install react-redux
 npm install @reduxjs/toolkit
 npm install @react-native-firebase/app @react-native-firebase/storage react-native-image-picker
 npm install react-native-inappbrowser-reborn
-
+npm install --save firebase@latest
 

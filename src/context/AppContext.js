@@ -1,8 +1,9 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer,useEffect } from 'react';
 import { cartReducer } from './cartReducer';
 import { userReducer } from './userReducer';
 import { boughtsReducer } from './boughtsReducer';
 import favoritesReducer from './favoritesReducer';
+import firestore from '@react-native-firebase/firestore';
 
 const AppContext = createContext();
 
@@ -36,6 +37,15 @@ const appReducer = (state, action) => ({
 
 const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(appReducer, initialState);
+
+    useEffect(() => {
+        const unsubscribe = firestore().collection('favorites').onSnapshot(snapshot => {
+            const favorites = snapshot.docs.map(doc => doc.data());
+            dispatch({ type: 'SYNC_FAVORITES', payload: favorites });
+        });
+
+        return () => unsubscribe(); // Cleanup listener
+    }, []);
 
     return (
         <AppContext.Provider value={{ state, dispatch }}>
