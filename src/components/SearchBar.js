@@ -13,7 +13,7 @@ const SearchBar = ({ placeholder = "Buscar", onSearch }) => {
   };
 
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#c3dec5', borderRadius: 25, elevation: 3, marginHorizontal: 10, marginTop: 15, marginBottom: 10 }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#ffffff', borderRadius: 25, elevation: 3, marginHorizontal: 10, marginTop: 15, marginBottom: 10 }}>
       <Icon name="search" size={20} style={{ marginHorizontal: 10 }} />
       <TextInput
         placeholder={placeholder}

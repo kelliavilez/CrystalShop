@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    color: '#777',
+    color: '#00C3FF',
     marginTop: 5,
   },
   value: {

@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
-        backgroundColor: '#e1f1dd',
+        backgroundColor: '#1E1F21',
         marginBottom: 50,
     },
     textStyele: {

@@ -25,16 +25,16 @@ const OfertsCard = ({ article }) => {
                 <Text style={styles.finalPrice} variant="bodySmall">${finalPrice.toLocaleString()}</Text>
                 <Text style={styles.discount} variant="bodySmall">-{article.discount}%</Text>
               </View>
-              <Text variant="bodySmall">{article.category}</Text>
-              <Text variant="titleMedium" >{article.name}</Text>
-              <Text variant="bodySmall">{article.description}</Text>
+              <Text style={{ color: '#1E1F21' }} variant="bodySmall">{article.category}</Text>
+              <Text style={{ color: '#007AFF' }} variant="titleMedium">{article.name}</Text>
+              <Text style={{ color: '#1E1F21' }} variant="bodySmall">{article.description}</Text>
             </View>
           </View>
           <View style={styles.buttonContainer}>
-            <Button style={styles.buttonMore} buttonColor='#96b89c' mode="contained" onPress={() => navigation.navigate('OfertsDetailsCard', { article })}>
+            <Button style={styles.buttonMore} buttonColor='#FF7F00' mode="contained" onPress={() => navigation.navigate('OfertsDetailsCard', { article })}>
               Mas
             </Button>
-            <Button style={styles.buttonSave} buttonColor='#96b89c' mode="contained" onPress={() => navigation.navigate('')}>
+            <Button style={styles.buttonSave} buttonColor='#FF7F00' mode="contained" onPress={() => navigation.navigate('')}>
               Guardado
             </Button>
           </View>

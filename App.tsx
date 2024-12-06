@@ -33,8 +33,8 @@ const Drawer = createDrawerNavigator();
 const AuthenticationStack = () => (
   <Stack.Navigator
     screenOptions={{
-      headerTintColor: '#1E1F21',
-      headerStyle: { backgroundColor: '#ffffff' },
+      headerTintColor: '#ffffff',
+      headerStyle: { backgroundColor: '#1E1F21' },
     }}>
     <Stack.Screen name='LogIn' component={LogIn} />
     <Stack.Screen name='Registro' component={SignUp} />
@@ -46,16 +46,16 @@ const AppDrawer = () => (
     drawerContent={(props) => <CustomDrawerContent {...props} />}
     screenOptions={{
       drawerStyle: {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#1E1F21",
         width: 240,
       },
-      drawerActiveTintColor: "#FF7F00",
+      drawerActiveTintColor: "#ffffff",
       drawerInactiveTintColor: "#ffffff",
       drawerActiveBackgroundColor: "#FFD580",
       headerStyle: {
-        backgroundColor: "#ffffff",
+        backgroundColor: "#1E1F21",
       },
-      headerTintColor: "#1E1F21",
+      headerTintColor: "#FF7F00",
       headerTitleStyle: {
         fontWeight: 'bold',
         color: '#FF7F00'
@@ -189,12 +189,12 @@ const App = () => (
         <Stack.Navigator
           screenOptions={{
             headerStyle: {
-              backgroundColor: '#ebf7ec',
+              backgroundColor: '#1E1F21',
             },
-            headerTintColor: "#1f3b28",
+            headerTintColor: "#FF7F00",
             headerTitleStyle: {
               fontWeight: 'bold',
-              color: '#35570a'
+              color: '#FF7F00'
             },
           }}>
           <Stack.Screen

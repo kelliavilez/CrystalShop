@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: 370,
     height: 220,
-    backgroundColor: '#78a98c',
+    backgroundColor: '#ffffff',
     flex: 1,
     flexDirection: 'column',
     borderRadius: 10,
@@ -83,11 +83,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FFFFFF',
-    backgroundColor: '#FF6347', 
+    backgroundColor: '#FF7F00', 
     padding: 5,
     borderRadius: 5,
     marginTop: -8,
   },
+
 });
 
 export default styles;
