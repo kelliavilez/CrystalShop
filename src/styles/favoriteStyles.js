@@ -28,28 +28,14 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         marginTop: 10
     },
-
-    container2: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-        marginTop: 10,
-        marginBottom: 15,
-    },
     card: {
         backgroundColor: '#FFFFFF',
         marginBottom: 15,
         marginTop: 20,
+        marginLeft: 5,
+        marginRight: 5
     },
-    cardContent: {
-        backgroundColor: 'white',
-    },
-    cardContent2: {
-        backgroundColor: 'white',
-        marginBottom: 1,
-        marginTop: 1,
-
-    },
+    
     button: {
         padding: 3,
         backgroundColor: '#FF7F00',

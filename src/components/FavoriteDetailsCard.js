@@ -59,9 +59,9 @@ const FavoriteDetailsCard = ({ route }) => {
           <Text style={styles.body}>Valor: ${article.price ? article.price.toLocaleString() : 'N/A'}</Text>
           <Text style={styles.body}>Características: {article.description}</Text>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
+          <Button icon={({ size }) => <Icon name="shopping-cart" size={size} />} buttonColor='#FF7F00' mode="contained" onPress={handleAddToCart}>Agregar al carrito</Button>
           <Text></Text>
-          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#89c07a' mode="contained" onPress={handleRemoveFromFavorites}>Eliminar de favoritos</Button>
+          <Button icon={({ size }) => <Icon name="bookmark" size={size} />} buttonColor='#FF7F00' mode="contained" onPress={handleRemoveFromFavorites}>Eliminar de favoritos</Button>
           <Card style={styles.card}>
             <Card.Content>
               <Text style={styles.title}>Forma de Pago</Text>
@@ -89,7 +89,7 @@ const FavoriteDetailsCard = ({ route }) => {
           {question.length === maxQuestionLength && (
             <Text style={styles.warningText}>Has alcanzado el límite de caracteres.</Text>
           )}
-          <Button buttonColor='#89c07a' mode="contained" title="Enviar pregunta" onPress={handleQuestionSubmit}>Enviar pregunta</Button>
+          <Button buttonColor='#FF7F00' mode="contained" title="Enviar pregunta" onPress={handleQuestionSubmit}>Enviar pregunta</Button>
 
           <Text style={styles.title}>Comentarios</Text>
           <TextInput
@@ -102,7 +102,7 @@ const FavoriteDetailsCard = ({ route }) => {
           {comment.length === maxCommentLength && (
             <Text style={styles.warningText}>Has alcanzado el límite de caracteres.</Text>
           )}
-          <Button buttonColor='#89c07a' mode="contained" title="Enviar pregunta" onPress={handleCommentSubmit}>Enviar comentario</Button>
+          <Button buttonColor='#FF7F00' mode="contained" title="Enviar pregunta" onPress={handleCommentSubmit}>Enviar comentario</Button>
 
           <Text style={styles.title}>Calificación</Text>
           <Rating
@@ -121,16 +121,17 @@ const styles = StyleSheet.create({
   textInput: {
     width: 320,
     marginBottom: 16,
-    backgroundColor: '#e1f1dd'
+    backgroundColor: '#FFFFFF'
   },
   contentContainer: {
     padding: 16,
     alignItems: 'center',
+    backgroundColor: '#1E1F21'
   },
   card: {
     marginVertical: 8,
     width: '100%',
-    backgroundColor: '#78a98c',
+    backgroundColor: '#FFFFFF'
   },
   mediumImage: {
     width: '100%',
@@ -152,13 +153,16 @@ const styles = StyleSheet.create({
   headline: {
     fontSize: 24,
     fontWeight: 'bold',
+    color:'black'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color:'black'
   },
   body: {
     fontSize: 16,
+    color:'black'
   },
 });
 

@@ -10,7 +10,6 @@ const FavoriteCard = ({ article }) => {
   return (
     <View style={styles.container}>
       <Card style={styles.card}>
-        <Card.Content style={styles.cardContent}>
           <View style={styles.rowContainer}>
             <Image
               source={{ uri: article.image }}
@@ -45,7 +44,6 @@ const FavoriteCard = ({ article }) => {
               Añadido a favoritos
             </Button>
           </View>
-        </Card.Content>
       </Card>
     </View>
   );

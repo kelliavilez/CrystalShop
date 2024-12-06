@@ -261,6 +261,9 @@ const styles = StyleSheet.create({
     },
     priceText: {
         color:'black'
+    },
+    contentContainer: {
+        backgroundColor: '#FFFFFF'
     }
 
 });
