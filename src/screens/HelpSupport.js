@@ -58,9 +58,9 @@ const HelpSupport = () => {
                 value={text}
                 onChangeText={setText}
                 style={styles.textInput}
-                underlineColor='#89c07a'
-                activeUnderlineColor='#89c07a'
-                activeOutlineColor='#a9bea3'
+                underlineColor='#FF7F00'
+                activeUnderlineColor='#FF7F00'
+                activeOutlineColor='#FF7F00'
               />
               {maxLengthReached && (
                 <Text style={styles.errorText}>Límite máximo de caracteres alcanzado ({maxLength})</Text>

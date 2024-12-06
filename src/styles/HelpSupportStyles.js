@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e9f5e9',
+    backgroundColor: '#ffffff',
     padding: 16,
     justifyContent: 'center',
     paddingHorizontal: 20,
@@ -13,16 +13,20 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   titleLog: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#4caf50',
-    marginBottom: 8,
+    fontSize: 30,
+    fontWeight: '800',
+    color: '#FF7F00',
+    marginBottom: 10,
+    textAlign: 'center',
   },
   subtitleLog: {
-    fontSize: 16,
-    color: '#1b5e20',
-    marginBottom: 16,
-    marginTop: 90
+    fontSize: 13,
+    fontWeight: '150',
+    color: '#1E1F21',
+    marginBottom: 10,
+    textAlign: 'left',
+    marginLeft: 10,
+    textAlign: 'center',
   },
   optionMenuContainer: {
     width: '100%',
@@ -32,23 +36,23 @@ const styles = StyleSheet.create({
   optionButton: {
     marginVertical: 8,
     width: '80%',
-    borderColor: '#4caf50'
+    borderColor: '#FF7F00'
   },
   optionButtonLabel: {
-    color: '#4caf50',
+    color: '#FF7F00',
   },
   dialogTitle: {
-    color: '#4caf50',
+    color: '#FF7F00',
     fontWeight: 'bold',
   },
   textInput: {
-    backgroundColor: '#dee3d3',
+    backgroundColor: 'ffffff',
     padding: 10,
     borderRadius: 8,
     marginVertical: 10,
   },
   dialogContent: {
-    backgroundColor: '#e6ebe1',
+    backgroundColor: '#ffffff',
     borderRadius: 10,
   },
 });
