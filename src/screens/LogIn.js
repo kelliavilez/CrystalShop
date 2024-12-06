@@ -105,8 +105,8 @@ const LogIn = () => {
               alt="Logo CrystalShop"
             />
             <View style={styles.titleContainer}>
-              <Text style={styles.titleLog}>Crystal</Text>
-              <Text style={styles.titleLog2}>Shop</Text>
+              <Text style={styles.titleLog}>All</Text>
+              <Text style={styles.titleLog2}>Crystal</Text>
             </View>
             <Text style={styles.subtitleLog}>Todo en un mismo lugar</Text>
           </View>
