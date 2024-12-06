@@ -13,8 +13,10 @@ const ArticleDetailsCard = ({ route }) => {
   const [comment, setComment] = useState('');
   const maxQuestionLength = 100;
   const maxCommentLength = 200;
-  const { dispatch } = useContext(AppContext);
-
+  const { state, dispatch } = useContext(AppContext);
+  
+  const username = state.user.username; // Extraer el username
+  
   const handleAddToCart = () => {
     dispatch({
       type: 'ADD_TO_CART',
@@ -30,6 +32,11 @@ const ArticleDetailsCard = ({ route }) => {
   };
 
   const handleAddToFavorites = () => {
+    if (!username) {
+      console.error("No se encontró un username en el estado global.");
+      return;
+    }
+  
     dispatch({
       type: 'ADD_TO_FAVORITES',
       payload: {
@@ -39,11 +46,14 @@ const ArticleDetailsCard = ({ route }) => {
         image: article.photo,
         category: article.category,
         description: article.description,
-        characteritics: article.characteritics
+        characteritics: article.characteritics,
+        username: username, // Aquí se incluye el username
       },
     });
-  };
+  
 
+    Alert.alert('Favoritos', 'Artículo agregado a favoritos con éxito.');
+  };
   const handleQuestionSubmit = () => {
     Alert.alert("Pregunta enviada");
     setQuestion(''); // Limpiar el campo

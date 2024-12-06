@@ -2,16 +2,17 @@ import React, { useState, useEffect, useContext } from 'react';
 import { View, FlatList, Text } from 'react-native';
 import { AppContext } from '../context/AppContext';
 import firestore from '@react-native-firebase/firestore';
-import ArticlesCard from "../components/ArticlesCard";  // Usamos ArticlesCard en lugar de SuggestionCard
+import ArticlesCard from "../components/ArticlesCard";
 import styles from '../styles/globalStyles';
-import SearchBar from '../components/SearchBar';
 
 const Suggestions = () => {
-    const { state } = useContext(AppContext); // Estado global con los artículos favoritos del usuario
+    const { state } = useContext(AppContext); // Estado global para el usuario
     const [allArticles, setAllArticles] = useState([]);
     const [favoriteArticles, setFavoriteArticles] = useState([]);
     const [recommendedArticles, setRecommendedArticles] = useState([]);
-    const [numColumns, setNumColumns] = useState(2);  // Establecer el número de columnas
+    const [numColumns, setNumColumns] = useState(2); // Número de columnas para el FlatList
+
+    const currentUser = state?.user; // Usuario actual del contexto global
 
     // Obtener todos los artículos disponibles desde Firestore
     useEffect(() => {
@@ -31,15 +32,25 @@ const Suggestions = () => {
         fetchArticles();
     }, []);
 
-    // Obtener los favoritos del usuario desde Firestore
+    // Obtener los favoritos del usuario actual desde Firestore
     useEffect(() => {
         const fetchFavorites = async () => {
+            if (!currentUser?.username) {
+                console.warn("Usuario no autenticado.");
+                return;
+            }
+
             try {
-                const snapshot = await firestore().collection('favorites').get();
+                const snapshot = await firestore()
+                    .collection('favorites')
+                    .where('username', '==', currentUser.username) // Filtrar por el usuario actual
+                    .get();
+
                 const favoritesData = snapshot.docs.map(doc => ({
                     ...doc.data(),
                     id: doc.id,
                 }));
+
                 setFavoriteArticles(favoritesData);
             } catch (error) {
                 console.error("Error obteniendo favoritos:", error);
@@ -47,7 +58,7 @@ const Suggestions = () => {
         };
 
         fetchFavorites();
-    }, []);
+    }, [currentUser?.username]);
 
     // Sincronizar favoritos y hacer recomendaciones
     useEffect(() => {
@@ -56,6 +67,7 @@ const Suggestions = () => {
         }
     }, [favoriteArticles, allArticles]);
 
+    // Comparar atributos de artículos
     const compareAttributes = (article, favorite) => {
         const getMatches = (str1, str2) => {
             const words1 = str1?.toLowerCase().split(' ') || [];
@@ -63,22 +75,20 @@ const Suggestions = () => {
             return words1.filter(word => words2.includes(word)).length;
         };
 
-        // Contar coincidencias en descripción, características y categoría
         const descriptionMatches = getMatches(article.description, favorite.description) >= 2;
         const characteristicsMatches = getMatches(article.characteristics, favorite.characteristics) >= 2;
         const categoryMatches = article.category?.toLowerCase() === favorite.category?.toLowerCase();
 
-        // Retornar verdadero si hay al menos dos coincidencias en descripción o características y coincide la categoría
         return (descriptionMatches || characteristicsMatches) && categoryMatches;
     };
 
-    // Función para seleccionar N artículos aleatorios
+    // Seleccionar N artículos aleatorios
     const getRandomArticles = (articles, count) => {
-        const shuffled = articles.sort(() => 0.5 - Math.random()); // Mezclar el array
-        return shuffled.slice(0, count); // Seleccionar los primeros N artículos
+        const shuffled = [...articles].sort(() => Math.random() - 0.5); // Crear una copia y mezclar
+        return shuffled.slice(0, count);
     };
 
-    // Función para recomendar artículos basados en las propiedades
+    // Función para recomendar artículos
     const recommendArticles = () => {
         const filteredArticles = allArticles.filter((article) => {
             const isFavorite = favoriteArticles.some(favorite => favorite.id === article.id);
@@ -88,8 +98,7 @@ const Suggestions = () => {
             );
         });
 
-        const randomArticles = getRandomArticles(filteredArticles, 10); // Usar la función definida previamente
-        setRecommendedArticles(randomArticles);
+        setRecommendedArticles(getRandomArticles(filteredArticles, 10));
     };
 
     return (
@@ -99,9 +108,9 @@ const Suggestions = () => {
                     data={recommendedArticles}
                     renderItem={({ item }) => <ArticlesCard article={item} />}
                     keyExtractor={(item) => item.id.toString()}
-                    numColumns={numColumns}  // Esto asegura que los artículos se muestren en 2 columnas
-                    columnWrapperStyle={{ justifyContent: 'space-between' }} // Espaciado entre columnas
-                    key={numColumns}  // Cambiar key cuando cambiamos el número de columnas
+                    numColumns={numColumns}
+                    columnWrapperStyle={{ justifyContent: 'space-between' }}
+                    key={numColumns} // Asegurar renderizado al cambiar columnas
                 />
             ) : (
                 <Text style={styles.subtitleLog}>No hay sugerencias disponibles.</Text>
@@ -111,6 +120,7 @@ const Suggestions = () => {
 };
 
 export default Suggestions;
+
 
 
 
