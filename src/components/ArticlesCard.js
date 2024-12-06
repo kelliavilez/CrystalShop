@@ -19,11 +19,11 @@ const ArticlesCard = ({ article }) => {
         <Card.Content>
           <Image source={{ uri: article.photo }} style={styles.photosHome} />
           <Text variant="bodySmall" style={styles.priceText}>${formattedPrice}</Text>
-          <Text variant="bodySmall" >{article.description}</Text>
+          <Text variant="bodySmall" style={styles.description} >{article.description}</Text>
           <Button
             style={styles.buttonHome}
             labelStyle={styles.buttonTextHome}
-            buttonColor='#96b89c'
+            buttonColor= '#FF7F00'
             mode="contained"
             onPress={() => navigation.navigate('ArticleDetailsCard', { article })}>
             Elegir

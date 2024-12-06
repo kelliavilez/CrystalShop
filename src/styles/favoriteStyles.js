@@ -4,14 +4,17 @@ const styles = StyleSheet.create({
     status: {
         fontSize: 10,
         fontWeight: 'bold',
-        color: 'green', 
+        color: '#00C3FF', 
         marginBottom: 5,
     },
     container: {
         flex: 1,
-        alignItems: 'left',
-        backgroundColor: '#f7fef4',
+        alignItems: 'flex-start', // 'left' no es válido en React Native, usa 'flex-start'
+        backgroundColor: '#FFFFFF',
         marginBottom: 10,
+        borderWidth: 1, // Grosor del borde
+        borderColor: '#000000', // Color negro del borde
+        borderRadius: 30, // Opcional, si quieres esquinas redondeadas
     },
     infoContainer: {
         height: 100,
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     card: {
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         marginBottom: 15,
         marginTop: 20,
     },
@@ -49,7 +52,7 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 3,
-        backgroundColor: '#89c07a',
+        backgroundColor: '#FF7F00',
         borderRadius: 30,
         marginBottom: 1,
         height: 50,

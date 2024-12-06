@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: 370,
     height: 220,
-    backgroundColor: '#78a98c',
+    backgroundColor: '#FFFFFF',
     flex: 1,
     flexDirection: 'column',
     borderRadius: 10,
@@ -15,9 +15,11 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
+    borderColor: '#000000', // Color del borde negro
+    borderWidth: 1,        // Grosor del borde negro
   },
   buttonText: {
-    color: 'green',
+    color: '#1E1F21',
   },
   productImage: {
     width: 75,
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     maxHeight: 50,
     marginTop: -20,
     marginLeft: 150,
-    borderColor: 'green'
+    borderColor: '#FF7F00'
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 14,
-    color: '#666',
+    color: '#00C3FF',
     marginBottom: 5,
   },
   productNameText: {
