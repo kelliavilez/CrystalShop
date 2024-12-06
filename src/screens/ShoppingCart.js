@@ -27,7 +27,7 @@ const ShoppingCart = () => {
           <Text style={styles.totalText}>Total : ${totalSelected.toFixed(2)}</Text>
 
           <Pressable
-            style={styles.checkoutButton}
+            style={[styles.checkoutButton, { backgroundColor: '#FF7F00' }]} 
             onPress={() => navigation.navigate('PaymentsCard', {})}
             disabled={totalSelected === 0}
           >

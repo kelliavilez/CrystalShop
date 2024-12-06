@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     padding: 16,
     alignItems: 'center',
+    backgroundColor: '#1E1F21'
   },
   card: {
     marginVertical: 8,

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: '#f7fef4',
+    backgroundColor: '#1E1F21',
   },
   container: {
     flexDirection: 'row',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     padding: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     borderRadius: 8,
     elevation: 3,
     marginBottom: 10,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   iconPlus: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'green',
+    color: '#FF7F00',
   },
   productImage: {
     width: 75,
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flexWrap: 'wrap',
     width: 250, 
+    color: '#1E1F21'
   },
   price: {
     fontSize: 14,
