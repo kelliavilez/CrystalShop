@@ -6,7 +6,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     validationMessage: {
         color: '#FF7F00',  // Aquí defines el color naranja directamente en el estilo
-        fontSize: 14,     
+        fontSize: 14,
     },
     container: {
         flex: 1,
@@ -55,11 +55,11 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 20,  // Redondeo solo del borde inferior izquierdo
         borderTopRightRadius: 20,   // Espaciado interno vertical
         marginTop: 30
-      },
-      picker: {
+    },
+    picker: {
         height: 34, // Altura del Picker
         width: '100%', // Asegura que ocupe todo el contenedor
-      },
+    },
     header: {
         backgroundColor: '#1E1F21',
         marginVertical: 38,
@@ -256,9 +256,13 @@ const styles = StyleSheet.create({
     buttonTextHome: {
         fontSize: 10,
     },
-    nameCategory: {
-        
+    description: {
+        color: '#00C3FF'
+    },
+    priceText: {
+        color:'black'
     }
+
 });
 
 export default styles;

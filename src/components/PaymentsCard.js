@@ -163,7 +163,7 @@ const PaymentsCard = () => {
                         <Text style={styles.totalText}>Total: ${total.toFixed(2)}</Text>
                         <Button
                             mode="contained"
-                            buttonColor='#89c07a'
+                            buttonColor='#FF7F00'
                             style={styles.buttonLog}
                             onPress={handleAddToMyBoughts}
                         >

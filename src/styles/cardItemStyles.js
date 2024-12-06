@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   button: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#FF7F00',
     borderRadius: 5,
     padding: 8,
     marginRight: 5,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   iconPlus: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'green',
+    color: '#FF7F00',
   },
   productImage: {
     width: 75,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     right: 10,
-    backgroundColor: '#28a745',
+    backgroundColor: '#FF7F00',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 5,
@@ -70,9 +70,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   checkoutButtonText: {
-    color: '#fff',
+    color: '#FF7F00',
     fontWeight: 'bold',
-  }, container: {
+  }, 
+  container: {
     flexDirection: 'row',
     padding: 10,
     backgroundColor: '#fff',
