@@ -235,22 +235,22 @@ const App = () => (
           <Stack.Screen
             name="Oversize"
             component={Oversize}
-            options={{ title: 'Categoría: Dormitorio' }}
+            options={{ title: 'Categoría: Oversize' }}
           />
           <Stack.Screen
             name="Formal"
             component={Formal}
-            options={{ title: 'Categoría: Jardinería' }}
+            options={{ title: 'Categoría: Formal' }}
           />
           <Stack.Screen
             name="Casual"
             component={Casual}
-            options={{ title: 'Categoría: Comida' }}
+            options={{ title: 'Categoría: Casual' }}
           />
           <Stack.Screen
             name="Deportiva"
             component={Deportiva}
-            options={{ title: 'Categoría: Maquillaje' }}
+            options={{ title: 'Categoría: Deportiva' }}
           />
         </Stack.Navigator>
       </NavigationContainer>

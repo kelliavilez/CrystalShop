@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     titleSign: {
         fontSize: 30,
         fontWeight: '800',
-        color: '#ffffff',
+        color: '#FF7F00',
         marginBottom: 10,
         textAlign: 'center',
     },
@@ -256,6 +256,9 @@ const styles = StyleSheet.create({
     buttonTextHome: {
         fontSize: 10,
     },
+    nameCategory: {
+        
+    }
 });
 
 export default styles;

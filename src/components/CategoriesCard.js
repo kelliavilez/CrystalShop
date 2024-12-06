@@ -11,7 +11,7 @@ const CategoriesCard = ({ category }) => {
 
   return (
     <View style={styles.container}>
-      <Text variant="titleMedium">{category.name}</Text>
+      <Text variant="titleMedium" style={{ color: '#FF7F00', fontSize: 18, fontWeight: 'bold' }}>{category.name}</Text>
       <Pressable onPress={() => navigation.navigate(category.route)}>
         <Card style={styles.card}>
           <Card.Content>

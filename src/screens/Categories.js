@@ -23,25 +23,25 @@ const Categories = ({ navigation }) => {
 const categories = [
   {
     id: 1,
-    photo: 'https://static.vecteezy.com/system/resources/previews/006/116/842/non_2x/dog-paw-marks-accessories-for-pets-shop-concept-animal-logo-vector.jpg',
+    photo: 'https://rivercaves.com/wp-content/uploads/2022/06/Buzo-Oversize-Negro-Gris-River-Caves.jpg',
     name: 'Oversize',
     route: 'Oversize',
   },
   {
     id: 2,
-    photo: 'https://img.freepik.com/vector-premium/plantilla-empresa-logotipo-tienda-plantas-botanicas-jardineria_8580-724.jpg',
+    photo: 'https://louisphilippe.abfrl.in/blog/wp-content/uploads/2024/02/Formal-Dress-Code-in-2024.jpg',
     name: 'Formal',
     route: 'Formal',
   },
   {
     id: 3,
-    photo: 'https://img.freepik.com/vector-gratis/set-maquillaje-accesorios-dibujo_24640-46682.jpg',
+    photo: 'https://plushlamourmagazine.com/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-19-at-12.12.41.jpeg',
     name: 'Casual',
     route: 'Casual',
   },
   {
     id: 4,
-    photo: 'https://img.kwcdn.com/product/open/2023-12-19/1702991492392-7e99973aaac54c61b4ff1e1c32f2f77d-goods.jpeg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp',
+    photo: 'https://duemosli.blogs.uv.es/files/2016/01/Ropa-deportiva-claves-y-consejos.jpg',
     name: 'Deportiva',
     route: 'Deportiva',
   },

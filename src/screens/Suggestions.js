@@ -4,6 +4,7 @@ import { AppContext } from '../context/AppContext';
 import firestore from '@react-native-firebase/firestore';
 import ArticlesCard from "../components/ArticlesCard";  // Usamos ArticlesCard en lugar de SuggestionCard
 import styles from '../styles/globalStyles';
+import SearchBar from '../components/SearchBar';
 
 const Suggestions = () => {
     const { state } = useContext(AppContext); // Estado global con los artículos favoritos del usuario
@@ -90,8 +91,6 @@ const Suggestions = () => {
         const randomArticles = getRandomArticles(filteredArticles, 10); // Usar la función definida previamente
         setRecommendedArticles(randomArticles);
     };
-
-
 
     return (
         <View style={styles.viewStyle}>

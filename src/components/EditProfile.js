@@ -86,7 +86,7 @@ const EditProfile = () => {
             title="Guardar Cambios"
             onPress={handleSave}
             mode="contained"
-            color="#89c07a"
+            color="#FF7F00"
             style={styles.button}
           />
         </Card.Content>
@@ -99,10 +99,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     padding: 16,
     alignItems: 'center',
+    backgroundColor: '#1E1F21',
   },
   card: {
     width: '100%',
-    backgroundColor: '#78a98c',
+    height: 650,
+    backgroundColor: '#ffffff',
   },
   avatarContainer: {
     alignItems: 'center',
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 8,
     marginVertical: 8,
-    backgroundColor: '#e1f1dd',
+    backgroundColor: '#FFD580',
     borderRadius: 10,
   },
   defaultImagesContainer: {

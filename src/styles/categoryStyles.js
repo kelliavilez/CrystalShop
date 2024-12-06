@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     card: {
-        borderRadius: 50,
-        width: 100,
-        height: 100,
+        borderRadius: 75,
+        width: 150,
+        height: 150,
         alignSelf: 'center',
-        backgroundColor: '#307828'
+        backgroundColor: '#FF7F00'
     },
     textContainer: {
         width: 100,
@@ -14,15 +14,15 @@ const styles = StyleSheet.create({
     },
     container: {
         alignItems: 'center',
-        backgroundColor: '#d6e3ca',
+        backgroundColor: '#1E1F21',
         width: 384
     },
     photo: {
-        borderRadius: 50,
-        width: 80,
-        height: 80,
+        borderRadius: 75,
+        width: 100,
+        height: 100,
         alignSelf: 'center',
-        marginTop: -3
+        marginTop: 5
     }
 });
 
