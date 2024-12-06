@@ -17,7 +17,7 @@ const CustomDrawerContent = (props) => {
           size={100} 
           source={{ uri: userPhoto }}
         />
-        <Title style={styles.userName}>{username}</Title>
+        <Title style={{ color: '#FF7F00' }}>{username}</Title>
       </View>
       <DrawerItemList {...props} />
     </DrawerContentScrollView>

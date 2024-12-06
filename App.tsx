@@ -33,8 +33,8 @@ const Drawer = createDrawerNavigator();
 const AuthenticationStack = () => (
   <Stack.Navigator
     screenOptions={{
-      headerTintColor: 'black',
-      headerStyle: { backgroundColor: 'Green' },
+      headerTintColor: '#1E1F21',
+      headerStyle: { backgroundColor: '#ffffff' },
     }}>
     <Stack.Screen name='LogIn' component={LogIn} />
     <Stack.Screen name='Registro' component={SignUp} />
@@ -46,19 +46,19 @@ const AppDrawer = () => (
     drawerContent={(props) => <CustomDrawerContent {...props} />}
     screenOptions={{
       drawerStyle: {
-        backgroundColor: "#ebf7ec",
+        backgroundColor: "#ffffff",
         width: 240,
       },
-      drawerActiveTintColor: "#447348",
-      drawerInactiveTintColor: "#1e241e",
-      drawerActiveBackgroundColor: "#b4dbb7",
+      drawerActiveTintColor: "#FF7F00",
+      drawerInactiveTintColor: "#ffffff",
+      drawerActiveBackgroundColor: "#FFD580",
       headerStyle: {
-        backgroundColor: "#ebf7ec",
+        backgroundColor: "#ffffff",
       },
-      headerTintColor: "#1f3b28",
+      headerTintColor: "#1E1F21",
       headerTitleStyle: {
         fontWeight: 'bold',
-        color: '#35570a'
+        color: '#FF7F00'
       },
     }}>
     <Drawer.Screen name='Inicio' component={Home}
@@ -67,9 +67,12 @@ const AppDrawer = () => (
           <Icon
             name={'home'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Perfil de usuario' component={Profile}
       options={{
@@ -77,9 +80,12 @@ const AppDrawer = () => (
           <Icon
             name={'person'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Mis favoritos' component={Favorite}
       options={{
@@ -87,9 +93,12 @@ const AppDrawer = () => (
           <Icon
             name={'bookmark'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Mis compras' component={MyBoughts}
       options={{
@@ -97,9 +106,12 @@ const AppDrawer = () => (
           <Icon
             name={'shopify'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Ofertas' component={Oferts}
       options={{
@@ -107,9 +119,12 @@ const AppDrawer = () => (
           <Icon
             name={'local-mall'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Ayuda y soporte' component={HelpSupport}
       options={{
@@ -117,9 +132,12 @@ const AppDrawer = () => (
           <Icon
             name={'help'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Categorias' component={ArticlesCategory}
       options={{
@@ -127,9 +145,12 @@ const AppDrawer = () => (
           <Icon
             name={'category'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
     <Drawer.Screen name='Mi carrito' component={ShoppingCart}
       options={{
@@ -137,20 +158,26 @@ const AppDrawer = () => (
           <Icon
             name={'shopping-cart'}
             size={size}
-            color={"#1f3b28"}
+            color={"#FF7F00"}
           />
         ),
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
       }} />
       <Drawer.Screen name='Mis sugerencias' component={Suggestions}
       options={{
         drawerIcon: ({ size }) => (
           <Icon
-            name={'shopping-cart'}
+            name={'favorite'}
             size={size}
-            color={"#1f3b28"}
+            color="#FF7F00"
           />
         ),
-      }} />
+        drawerLabelStyle: {
+          color: '#FF7F00',
+        }
+      }}  />
   </Drawer.Navigator>
   
 );

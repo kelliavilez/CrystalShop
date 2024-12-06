@@ -18,7 +18,14 @@ const Oferts = () => {
         querySnapshot.forEach((doc) => {
           articlesList.push({ id: doc.id, ...doc.data() });
         });
-        setArticles(articlesList);
+
+        // Filtra los artículos con ID entre 12 y 16
+        const filteredArticles = articlesList.filter((article) => {
+          const articleId = parseInt(article.id); // Convierte el id en número
+          return articleId >= 12 && articleId <= 16;
+        });
+
+        setArticles(filteredArticles);
       } catch (error) {
         console.error("Error al obtener artículos: ", error);
       }
@@ -54,6 +61,7 @@ const Oferts = () => {
 };
 
 export default Oferts;
+
 
 
 /*import React from 'react';

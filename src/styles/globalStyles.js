@@ -1,18 +1,72 @@
 import { StyleSheet } from 'react-native';
-
+/* #FF7F00 Naranjado
+#1E1F21 Negro para fondo
+#FFFFFF blanco
+#00C3FF Azul* */
 const styles = StyleSheet.create({
+    validationMessage: {
+        color: '#FF7F00',  // Aquí defines el color naranja directamente en el estilo
+        fontSize: 14,     
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
-        backgroundColor: '#f7fef4',
+        backgroundColor: '#1E1F21',
     },
+    container2: {
+        flex: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        backgroundColor: '#1E1F21',
+        marginLeft: -20,
+        marginRight: -20,
+        marginTop: -100
+
+    },
+    container3: {
+        marginBottom: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 50,
+        paddingHorizontal: 20,
+        backgroundColor: '#FFFFFF',
+        height: 300,
+        width: 350
+    },
+    container4: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        backgroundColor: '#ffffff',
+    },
+    pickerContainer: {
+        backgroundColor: '#ffffff',
+        borderWidth: 1.8,   // Borde del contenedor
+        borderColor: '#1E1F21',
+        width: 300,
+        marginBottom: 16,
+        backgroundColor: '#ffffff',
+        borderColor: '#000000',
+        borderRadius: 20,
+        borderTopLeftRadius: 20,  // Redondeo solo del borde inferior izquierdo
+        borderTopRightRadius: 20,   // Espaciado interno vertical
+        marginTop: 30
+      },
+      picker: {
+        height: 34, // Altura del Picker
+        width: '100%', // Asegura que ocupe todo el contenedor
+      },
     header: {
+        backgroundColor: '#1E1F21',
         marginVertical: 38,
         marginHorizontal: 20,
-        marginTop: 25,
-        paddingTop: 10,
+        marginTop: 0,
+        marginLeft: -20,
+        marginRight: -20,
     },
     imagenLog: {
         width: 150,
@@ -20,50 +74,69 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginBottom: 40,
         borderRadius: 150,
+        marginTop: 100
     },
     link: {
         fontSize: 16,
         fontWeight: '150',
-        color: '#89c07a',
+        color: '#FF7F00',
         marginBottom: 1,
         textAlign: 'left',
     },
-
+    titleContainer: {
+        flexDirection: 'row', // Coloca los elementos en fila
+        alignItems: 'center', // Alinea verticalmente los textos
+    },
     titleLog: {
         fontSize: 30,
         fontWeight: '800',
-        color: '#333333',
+        color: '#ffffff',
+        marginBottom: 10,
+        textAlign: 'center',
+    },
+    titleLog2: {
+        fontSize: 30,
+        fontWeight: '800',
+        color: '#FF7F00',
         marginBottom: 10,
         textAlign: 'center',
     },
     subtitleLog: {
         fontSize: 13,
         fontWeight: '150',
-        color: '#333333',
+        color: '#ffffff',
         marginBottom: 10,
         textAlign: 'left',
-
+        marginLeft: 10,
+        textAlign: 'center',
     },
     textInput: {
-        width: 350,
+        width: 300,
         marginBottom: 16,
-        backgroundColor: '#e1f1dd'
+        backgroundColor: '#ffffff',
+        borderColor: '#000000', // Establece el color del borde a negro
+        borderWidth: 1.8,         // Grosor del borde
+        borderRadius: 20,
+        borderTopLeftRadius: 20,  // Redondeo solo del borde inferior izquierdo
+        borderTopRightRadius: 20,   // Espaciado interno vertical
+        marginTop: 30
     },
     textInputHeaderHome: {
         height: 57,
         width: 320,
-        backgroundColor: '#e1f1dd'
+        backgroundColor: '#e1f1dd',
     },
     buttonLog: {
         paddingVertical: 5,
-        marginBottom: 80
+        marginBottom: 80,
+        marginTop: 20
     },
     titleSign: {
-        textAlign: 'center',
-        fontSize: 25,
-        color: 'black',
+        fontSize: 30,
+        fontWeight: '800',
+        color: '#ffffff',
         marginBottom: 10,
-        fontWeight: 'bold',
+        textAlign: 'center',
     },
 
     iconContainer: {
@@ -78,7 +151,7 @@ const styles = StyleSheet.create({
         elevation: 2,
         width: 180,
         height: 220,
-        backgroundColor: '#78a98c'
+        backgroundColor: '#ffffff',
     },
     textLog: {
         fontSize: 17,

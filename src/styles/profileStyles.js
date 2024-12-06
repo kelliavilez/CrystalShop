@@ -5,9 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 1,
-    backgroundColor: '#f7fef4',
+    backgroundColor: '#1E1F21',
     marginBottom: 10,
-    marginTop: 13,
 
   },
   card: {
@@ -15,6 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     elevation: 5,
     backgroundColor: '#ffffff',
+    marginTop: 30
   },
   cardContent: {
     alignItems: 'center',
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    backgroundColor: '#89c07a',
+    backgroundColor: '#FF7F00',
     alignItems: 'center',
   },
   container2: {

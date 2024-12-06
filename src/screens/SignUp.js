@@ -230,202 +230,160 @@ const SignUp = () => {
 
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#fff' }}>
+    <ScrollView>
       <View style={styles.header}>
         <Image
-          source={{ uri: 'https://previews.123rf.com/images/neonicflower/neonicflower1511/neonicflower151100006/47737821-%C3%A1rbol-icono-de-%C3%A1rbol-%C3%A1rbol-de-eco-%C3%A1rbol-de-la-ecolog%C3%ADa-icono-%C3%A1rbol-aislado-en-el-fondo-%C3%A1rbol.jpg' }}
+          source={require('../img/logoCrystalShop.jpg')}
           style={styles.imagenLog}
-          accessibilityLabel='Logo GreenMarket'
+          accessibilityLabel='Logo CrystalShop'
         />
         <Text style={styles.titleSign}>Crea una cuenta</Text>
         <Text style={styles.subtitleLog}>Compra ecológica que siempre resalta y abarca</Text>
 
-        <TextInput
-          label="Usuario"
-          value={username}
-          onChangeText={setUsername}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          activeOutlineColor='#a9bea3'
-          outlineColor='#cee8c7'
-          selectionColor='#cee8c7'
-          cursorColor='#cee8c7'
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.username}</Text>
+        <View style={styles.container4}>
+          <TextInput
+            label="Usuario"
+            value={username}
+            onChangeText={setUsername}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.username}</Text>
 
-        <TextInput
-          label="Nombres"
-          value={names}
-          onChangeText={setNames}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.names}</Text>
+          <TextInput
+            label="Nombres"
+            value={names}
+            onChangeText={setNames}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.names}</Text>
 
-        <TextInput
-          label="Apellidos"
-          value={lastnames}
-          onChangeText={setLastnames}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.lastnames}</Text>
+          <TextInput
+            label="Apellidos"
+            value={lastnames}
+            onChangeText={setLastnames}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.lastnames}</Text>
 
-        <TextInput
-          label="Contraseña"
-          value={password}
-          onChangeText={setPassword}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          activeOutlineColor='#a9bea3'
-          outlineColor='#cee8c7'
-          selectionColor='#cee8c7'
-          cursorColor='#cee8c7'
-          secureTextEntry={true}
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.password}</Text>
+          <TextInput
+            label="Contraseña"
+            value={password}
+            onChangeText={setPassword}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            secureTextEntry={true}
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.password}</Text>
 
-        <TextInput
-          label="Correo electrónico"
-          onChangeText={setEmail}
-          value={email}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          activeOutlineColor='#a9bea3'
-          outlineColor='#cee8c7'
-          selectionColor='#cee8c7'
-          cursorColor='#cee8c7'
-          keyboardType="email-address"
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.email}</Text>
+          <TextInput
+            label="Correo electrónico"
+            onChangeText={setEmail}
+            value={email}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            keyboardType="email-address"
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.email}</Text>
 
-        <TextInput
-          label="Fecha de nacimiento"
-          value={dateOfBirth}
-          onChangeText={setDateOfBirth}
-          placeholder='DD/MM/YYYY'
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          activeOutlineColor='#a9bea3'
-          outlineColor='#cee8c7'
-          selectionColor='#cee8c7'
-          cursorColor='#cee8c7'
-          style={styles.textInput}
-        />
-        <Text style={styles.validationMessage}>{validationMessages.dateOfBirth}</Text>
+          <TextInput
+            label="Fecha de nacimiento"
+            value={dateOfBirth}
+            onChangeText={setDateOfBirth}
+            placeholder='DD/MM/YYYY'
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            style={styles.textInput}
+          />
+          <Text style={styles.validationMessage}>{validationMessages.dateOfBirth}</Text>
 
-        <Picker
-          style={styles.textInput}
-          selectedValue={selectedCountry}
-          onValueChange={(itemValue) => setSelectedCountry(itemValue)}
-        >
-          <Picker.Item label="Selecciona un país" value="" />
-          <Picker.Item label="Colombia" value="colombia" />
-        </Picker>
-        <Text style={styles.validationMessage}>{validationMessages.country}</Text>
+          <View style={styles.pickerContainer}>
+            <Picker
+              style={styles.picker}
+              selectedValue={selectedCountry}
+              onValueChange={(itemValue) => setSelectedCountry(itemValue)}
+            >
+              <Picker.Item label="Selecciona un país" value="" />
+              <Picker.Item label="Colombia" value="colombia" />
+            </Picker>
+            <Text style={styles.validationMessage}>{validationMessages.country}</Text>
+          </View>
 
-        <Picker
-          style={styles.textInput}
-          selectedValue={selectedDepartment}
-          onValueChange={(itemValue) => setSelectedDepartment(itemValue)}
-        >
-          <Picker.Item label="Seleccionar departamento" value="" />
-          <Picker.Item label="Antioquia" value="antioquia" />
-          <Picker.Item label="Bogotá" value="bogota" />
-          <Picker.Item label="Cundinamarca" value="cundinamarca" />
-        </Picker>
-        <Text style={styles.validationMessage}>{validationMessages.department}</Text>
+          <View style={styles.pickerContainer}>
+            <Picker
+              style={styles.picker}
+              selectedValue={selectedDepartment}
+              onValueChange={(itemValue) => setSelectedDepartment(itemValue)}
+            >
+              <Picker.Item label="Seleccionar departamento" value="" />
+              <Picker.Item label="Antioquia" value="antioquia" />
+              <Picker.Item label="Bogotá" value="bogota" />
+              <Picker.Item label="Cundinamarca" value="cundinamarca" />
+            </Picker>
+            <Text style={styles.validationMessage}>{validationMessages.department}</Text>
+          </View>
 
-        <Picker
-          style={styles.textInput}
-          selectedValue={selectedCity}
-          onValueChange={(itemValue) => setSelectedCity(itemValue)}
-          enabled={selectedDepartment !== ''}
-        >
-          <Picker.Item label="Selecciona una ciudad" value="" />
-          {selectedDepartment === 'antioquia' && (
-            <Picker.Item label="Medellín" value="medellin" />
-          )}
-          {selectedDepartment === 'antioquia' && (
-            <Picker.Item label="Bello" value="bello" />
-          )}
-          {selectedDepartment === 'antioquia' && (
-            <Picker.Item label="Envigado" value="envigado" />
-          )}
-          {selectedDepartment === 'antioquia' && (
-            <Picker.Item label="Itagui" value="itagui" />
-          )}
-          {selectedDepartment === 'antioquia' && (
-            <Picker.Item label="Sabaneta" value="sabaneta" />
-          )}
+          <View style={styles.pickerContainer}>
+            <Picker
+              style={styles.picker}
+              selectedValue={selectedCity}
+              onValueChange={(itemValue) => setSelectedCity(itemValue)}
+              enabled={selectedDepartment !== ''}
+            >
+              <Picker.Item label="Selecciona una ciudad" value="" />
+              {selectedDepartment === 'antioquia' && <Picker.Item label="Medellín" value="medellin" />}
+              {selectedDepartment === 'antioquia' && <Picker.Item label="Bello" value="bello" />}
+              {selectedDepartment === 'antioquia' && <Picker.Item label="Envigado" value="envigado" />}
+              {selectedDepartment === 'antioquia' && <Picker.Item label="Itagui" value="itagui" />}
+              {selectedDepartment === 'antioquia' && <Picker.Item label="Sabaneta" value="sabaneta" />}
 
-          {selectedDepartment === 'cundinamarca' && (
-            <Picker.Item label="Soacha" value="soacha" />
-          )}
-          {selectedDepartment === 'cundinamarca' && (
-            <Picker.Item label="Funza" value="funza" />
-          )}
-          {selectedDepartment === 'cundinamarca' && (
-            <Picker.Item label="Girardot" value="giradot" />
-          )}
-          {selectedDepartment === 'cundinamarca' && (
-            <Picker.Item label="Mosquera" value="mosquera" />
-          )}
-          {selectedDepartment === 'cundinamarca' && (
-            <Picker.Item label="Pacho" value="pacho" />
-          )}
+              {selectedDepartment === 'cundinamarca' && <Picker.Item label="Soacha" value="soacha" />}
+              {selectedDepartment === 'cundinamarca' && <Picker.Item label="Funza" value="funza" />}
+              {selectedDepartment === 'cundinamarca' && <Picker.Item label="Girardot" value="giradot" />}
+              {selectedDepartment === 'cundinamarca' && <Picker.Item label="Mosquera" value="mosquera" />}
+              {selectedDepartment === 'cundinamarca' && <Picker.Item label="Pacho" value="pacho" />}
 
-          {selectedDepartment === 'bogota' && (
-            <Picker.Item label="Cota" value="cota" />
-          )}
-          {selectedDepartment === 'bogota' && (
-            <Picker.Item label="Mosquera" value="mosquera" />
-          )}
-          {selectedDepartment === 'bogota' && (
-            <Picker.Item label="Tenjo" value="tenjo" />
-          )}
-          {selectedDepartment === 'bogota' && (
-            <Picker.Item label="Silvania" value="silvania" />
-          )}
-          {selectedDepartment === 'bogota' && (
-            <Picker.Item label="Sibaté" value="sibate" />
-          )}
-        </Picker>
-        <Text style={styles.validationMessage}>{validationMessages.city}</Text>
+              {selectedDepartment === 'bogota' && <Picker.Item label="Cota" value="cota" />}
+              {selectedDepartment === 'bogota' && <Picker.Item label="Mosquera" value="mosquera" />}
+              {selectedDepartment === 'bogota' && <Picker.Item label="Tenjo" value="tenjo" />}
+              {selectedDepartment === 'bogota' && <Picker.Item label="Silvania" value="silvania" />}
+              {selectedDepartment === 'bogota' && <Picker.Item label="Sibaté" value="sibate" />}
+            </Picker>
+            <Text style={styles.validationMessage}>{validationMessages.city}</Text>
+          </View>
 
 
-        <TextInput
-          label="Dirección"
-          value={address}
-          onChangeText={setAddress}
-          underlineColor='#89c07a'
-          activeUnderlineColor='#89c07a'
-          activeOutlineColor='#a9bea3'
-          outlineColor='#cee8c7'
-          selectionColor='#cee8c7'
-          cursorColor='#cee8c7'
-          style={styles.textInput}
-        />
 
-        <Text style={styles.validationMessage}>{validationMessages.address}</Text>
+          <TextInput
+            label="Dirección"
+            value={address}
+            onChangeText={setAddress}
+            underlineColor='transparent'
+            activeUnderlineColor='transparent'
+            style={styles.textInput}
+          />
 
-        <View>
-          <Button
-            mode="contained"
-            buttonColor='#89c07a'
-            style={styles.buttonLog}
-            onPress={handleSignUp}
-          >
-            Regístrate
-          </Button>
+          <Text style={styles.validationMessage}>{validationMessages.address}</Text>
+
+          <View>
+            <Button
+              mode="contained"
+              buttonColor='#FF7F00'
+              style={styles.buttonLog}
+              onPress={handleSignUp}
+            >
+              Regístrate
+            </Button>
+          </View>
         </View>
-
-        <View>
+        <View style={styles.container4}>
           <Text>
             ¿Ya tienes una cuenta? <Text style={styles.link} onPress={() => navigation.navigate('LogIn')}>Inicia sesión</Text>
           </Text>

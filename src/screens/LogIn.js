@@ -95,56 +95,62 @@ const LogIn = () => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Image
-            source={{ uri: 'https://previews.123rf.com/images/neonicflower/neonicflower1511/neonicflower151100006/47737821-%C3%A1rbol-icono-de-%C3%A1rbol-%C3%A1rbol-de-eco-%C3%A1rbol-de-la-ecolog%C3%ADa-icono-%C3%A1rbol-aislado-en-el-fondo-%C3%A1rbol.jpg' }}
-            style={styles.imagenLog}
-            alt='Logo GreenMarket'
-          />
-          <Text style={styles.titleLog}>Bienvenid@</Text>
-          <Text style={styles.titleLog}>GreenMarket</Text>
-          <Text style={styles.subtitleLog}>Compra ecológica que siempre resalta y abarca</Text>
-          <TextInput
-            label="Correo Electrónico"
-            placeholder='Ingrese aquí su correo electrónico'
-            onChangeText={validateEmail}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-          <TextInput
-            label="Contraseña"
-            placeholder='Ingrese aquí su contraseña'
-            secureTextEntry
-            onChangeText={validatePassword}
-            underlineColor='#89c07a'
-            activeUnderlineColor='#89c07a'
-            activeOutlineColor='#a9bea3'
-            outlineColor='#cee8c7'
-            selectionColor='#cee8c7'
-            cursorColor='#cee8c7'
-            style={styles.textInput}
-          />
-          <Button
-            mode="contained"
-            buttonColor='#89c07a'
-            style={styles.buttonLog}
-            onPress={handleLogin}
-          >
-            Ingresar
-          </Button>
-          {error ? <Text style={styles.errorText}>{error}</Text> : null}
-          <View>
-            <Text>
-              ¿No tienes cuenta? <Text style={styles.link} onPress={() => navigation.navigate('Registro')}>Regístrate</Text>
-            </Text>
+          <View style={styles.container2}>
+            <Image
+              source={require('../img/logoCrystalShop.jpg')}
+              style={styles.imagenLog}
+              alt="Logo CrystalShop"
+            />
+            <View style={styles.titleContainer}>
+              <Text style={styles.titleLog}>Crystal</Text>
+              <Text style={styles.titleLog2}>Shop</Text>
+            </View>
+            <Text style={styles.subtitleLog}>Todo en un mismo lugar</Text>
           </View>
+          <View style={styles.container3}>
+            <TextInput
+              label="Correo Electrónico"
+              placeholder='Ingrese aquí su correo electrónico'
+              onChangeText={validateEmail}
+              underlineColor='transparent'
+              activeUnderlineColor='transparent'
+              activeOutlineColor='#1E1F21'
+              outlineColor='#1E1F21'
+              selectionColor='#1E1F21'
+              cursorColor='#1E1F21'
+              style={styles.textInput}
+            />
+            <TextInput
+              label="Contraseña"
+              placeholder='Ingrese aquí su contraseña'
+              secureTextEntry
+              onChangeText={validatePassword}
+              underlineColor='transparent'
+              activeUnderlineColor='transparent'
+              activeOutlineColor='#1E1F21'
+              outlineColor='#1E1F21'
+              selectionColor='#1E1F21'
+              cursorColor='#1E1F21'
+              style={styles.textInput}
+            />
+            <Button
+              mode="contained"
+              buttonColor='#FF7F00'
+              style={styles.buttonLog}
+              onPress={handleLogin}
+            >
+              Ingresar
+            </Button>
+            {error ? <Text style={styles.errorText}>{error}</Text> : null}
+            <View>
+            </View>
+          </View>
+          <Text style={styles.subtitleLog}>
+            ¿No tienes cuenta? <Text style={styles.link} onPress={() => navigation.navigate('Registro')}>Regístrate</Text>
+          </Text>
         </View>
       </View>
     </SafeAreaView>
