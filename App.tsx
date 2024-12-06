@@ -26,6 +26,7 @@ import FavoriteDetailsCard from './src/components/FavoriteDetailsCard';
 import PaymentsCard from './src/components/PaymentsCard';
 import CustomDrawerContent from './src/components/CustomDrawerContent';
 import EditProfile from './src/components/EditProfile';
+import Suggestions from './src/screens/Suggestions';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -141,7 +142,18 @@ const AppDrawer = () => (
           />
         ),
       }} />
+      <Drawer.Screen name='Mis sugerencias' component={Suggestions}
+      options={{
+        drawerIcon: ({ size }) => (
+          <Icon
+            name={'shopping-cart'}
+            size={size}
+            color={"#1f3b28"}
+          />
+        ),
+      }} />
   </Drawer.Navigator>
+  
 );
 
 const App = () => (

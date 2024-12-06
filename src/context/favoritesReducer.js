@@ -24,7 +24,11 @@ const favoritesReducer = (state, action) => {
                 ...state,
                 favoritesItems: state.favoritesItems.filter(item => item.id !== action.payload.id),
             };
-            
+            case 'SYNC_FAVORITES':
+            return {
+                ...state,
+                favoritesItems: action.payload,  // Aquí estamos actualizando 'favoritesItems'
+            };
         default:
             return state;
     }
