@@ -11,11 +11,6 @@ import HelpSupport from './src/screens/HelpSupport';
 import Oferts from './src/screens/Oferts';
 import MyBoughts from './src/screens/MyBoughts';
 import ArticlesCategory from './src/screens/Categories';
-import Bedroom from './src/screens/Categories/Bedroom';
-import Food from './src/screens/Categories/Food';
-import Gardening from './src/screens/Categories/Gargening';
-import Makeup from './src/screens/Categories/Makeup';
-import Pets from './src/screens/Categories/Pets';
 import ShoppingCart from './src/screens/ShoppingCart';
 import Profile from './src/screens/Profile';
 import Favorite from './src/screens/Favorite';
@@ -27,6 +22,10 @@ import PaymentsCard from './src/components/PaymentsCard';
 import CustomDrawerContent from './src/components/CustomDrawerContent';
 import EditProfile from './src/components/EditProfile';
 import Suggestions from './src/screens/Suggestions';
+import Oversize from './src/screens/Categories/Oversize';
+import Formal from './src/screens/Categories/Formal';
+import Casual from './src/screens/Categories/Casual';
+import Deportiva from './src/screens/Categories/Deportiva';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -207,29 +206,24 @@ const App = () => (
             options={{ title: 'Portal pagos' }}
           />
           <Stack.Screen
-            name="Bedroom"
-            component={Bedroom}
+            name="Oversize"
+            component={Oversize}
             options={{ title: 'Categoría: Dormitorio' }}
           />
           <Stack.Screen
-            name="Gardening"
-            component={Gardening}
+            name="Formal"
+            component={Formal}
             options={{ title: 'Categoría: Jardinería' }}
           />
           <Stack.Screen
-            name="Food"
-            component={Food}
+            name="Casual"
+            component={Casual}
             options={{ title: 'Categoría: Comida' }}
           />
           <Stack.Screen
-            name="Makeup"
-            component={Makeup}
+            name="Deportiva"
+            component={Deportiva}
             options={{ title: 'Categoría: Maquillaje' }}
-          />
-          <Stack.Screen
-            name="Pets"
-            component={Pets}
-            options={{ title: 'Categoría: Mascotas' }}
           />
         </Stack.Navigator>
       </NavigationContainer>

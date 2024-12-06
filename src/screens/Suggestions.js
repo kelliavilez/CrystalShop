@@ -55,41 +55,20 @@ const Suggestions = () => {
         }
     }, [favoriteArticles, allArticles]);
 
-    // Función para comparar las descripciones basadas en palabras clave
-    const compareDescriptions = (article, favorite) => {
-        if (article.description && favorite.description) {
-            const articleWords = article.description.toLowerCase().split(' ');
-            const favoriteWords = favorite.description.toLowerCase().split(' ');
+    const compareAttributes = (article, favorite) => {
+        const getMatches = (str1, str2) => {
+            const words1 = str1?.toLowerCase().split(' ') || [];
+            const words2 = str2?.toLowerCase().split(' ') || [];
+            return words1.filter(word => words2.includes(word)).length;
+        };
 
-            // Contar las coincidencias de palabras clave entre las descripciones
-            let matchCount = 0;
-            articleWords.forEach(word => {
-                if (favoriteWords.includes(word)) {
-                    matchCount += 1;
-                }
-            });
+        // Contar coincidencias en descripción, características y categoría
+        const descriptionMatches = getMatches(article.description, favorite.description) >= 2;
+        const characteristicsMatches = getMatches(article.characteristics, favorite.characteristics) >= 2;
+        const categoryMatches = article.category?.toLowerCase() === favorite.category?.toLowerCase();
 
-            // Si encontramos al menos 2 coincidencias de palabras clave, consideramos que es una buena coincidencia
-            return matchCount >= 2;
-        }
-        return false;
-    };
-
-    // Función para recomendar artículos basados en las palabras clave de los favoritos
-    const recommendArticles = () => {
-        // Filtrar artículos con palabras clave similares a los favoritos
-        const filteredArticles = allArticles.filter((article) => {
-            // Comprobar si el artículo no está en los favoritos
-            const isFavorite = favoriteArticles.some(favorite => favorite.id === article.id);
-
-            // Si no es un favorito y tiene palabras clave similares a uno de los favoritos
-            return !isFavorite && favoriteArticles.some(favorite => compareDescriptions(article, favorite));
-        });
-
-        // Seleccionar 10 artículos aleatorios de los filtrados
-        const randomArticles = getRandomArticles(filteredArticles, 10);
-
-        setRecommendedArticles(randomArticles);
+        // Retornar verdadero si hay al menos dos coincidencias en descripción o características y coincide la categoría
+        return (descriptionMatches || characteristicsMatches) && categoryMatches;
     };
 
     // Función para seleccionar N artículos aleatorios
@@ -98,12 +77,28 @@ const Suggestions = () => {
         return shuffled.slice(0, count); // Seleccionar los primeros N artículos
     };
 
+    // Función para recomendar artículos basados en las propiedades
+    const recommendArticles = () => {
+        const filteredArticles = allArticles.filter((article) => {
+            const isFavorite = favoriteArticles.some(favorite => favorite.id === article.id);
+            return (
+                !isFavorite &&
+                favoriteArticles.some(favorite => compareAttributes(article, favorite))
+            );
+        });
+
+        const randomArticles = getRandomArticles(filteredArticles, 10); // Usar la función definida previamente
+        setRecommendedArticles(randomArticles);
+    };
+
+
+
     return (
         <View style={styles.viewStyle}>
             {recommendedArticles.length > 0 ? (
                 <FlatList
                     data={recommendedArticles}
-                    renderItem={({ item }) => <ArticlesCard article={item} />}  
+                    renderItem={({ item }) => <ArticlesCard article={item} />}
                     keyExtractor={(item) => item.id.toString()}
                     numColumns={numColumns}  // Esto asegura que los artículos se muestren en 2 columnas
                     columnWrapperStyle={{ justifyContent: 'space-between' }} // Espaciado entre columnas

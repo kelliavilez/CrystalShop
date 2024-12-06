@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../../styles/globalStyles';
-import BedroomCard from '../../components/BedroomCard';
 import SearchBar from '../../components/SearchBar';
+import ArticlesCard from '../../components/ArticlesCard';
 import firestore from '@react-native-firebase/firestore';
 
-const Pets = () => {
+const Oversize = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [articles, setArticles] = useState([]);
 
@@ -28,16 +28,17 @@ const Pets = () => {
   }, []);
 
   const filteredArticles = articles.filter((article) => {
-    const articleId = parseInt(article.id, 10); 
-    const isInRange = articleId >= 12 && articleId <= 17;
-
+    const isInCategory = article.category.toLowerCase() === 'oversize';
     const query = searchQuery.toLowerCase();
-    const matchesDescription = article.description.toLowerCase().includes(query);
-    const matchesCategory = article.category.toLowerCase().includes(query);
-    const matchesPrice = article.price.toString().includes(query); 
-
-    return isInRange && (matchesDescription || matchesCategory || matchesPrice);
+  
+    const matchesQuery =
+      article.description.toLowerCase().includes(query) ||
+      article.category.toLowerCase().includes(query) ||
+      article.price.toString().includes(query);
+  
+    return isInCategory && matchesQuery;
   });
+  
 
   const numColumns = 2;
   return (
@@ -45,7 +46,7 @@ const Pets = () => {
       <SearchBar onSearch={setSearchQuery} />
       <FlatList
         data={filteredArticles}
-        renderItem={({ item }) => <BedroomCard article={item} />}
+        renderItem={({ item }) => <ArticlesCard article={item} />}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         key={numColumns}
@@ -54,4 +55,5 @@ const Pets = () => {
   );
 };
 
-export default Pets;
+export default Oversize;
+

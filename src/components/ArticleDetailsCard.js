@@ -37,8 +37,9 @@ const ArticleDetailsCard = ({ route }) => {
         productName: article.name,
         price: article.price,
         image: article.photo,
-        category: article.statusCategory,
-        description: article.description
+        category: article.category,
+        description: article.description,
+        characteritics: article.characteritics
       },
     });
   };

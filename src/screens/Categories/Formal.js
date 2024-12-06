@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import styles from '../../styles/globalStyles';
-import BedroomCard from '../../components/BedroomCard';
 import SearchBar from '../../components/SearchBar';
+import ArticlesCard from '../../components/ArticlesCard';
 import firestore from '@react-native-firebase/firestore';
 
-const Makeup = () => {
+const Formal = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-
+ 
     const fetchArticles = async () => {
       try {
         const articlesList = [];
@@ -28,24 +28,24 @@ const Makeup = () => {
   }, []);
 
   const filteredArticles = articles.filter((article) => {
-    const articleId = parseInt(article.id, 10); 
-    const isInRange = articleId >= 24 && articleId <= 29;
-
+    const isInCategory = article.category.toLowerCase() === 'formal';
     const query = searchQuery.toLowerCase();
-    const matchesDescription = article.description.toLowerCase().includes(query);
-    const matchesCategory = article.category.toLowerCase().includes(query);
-    const matchesPrice = article.price.toString().includes(query); 
-
-    return isInRange && (matchesDescription || matchesCategory || matchesPrice);
+  
+    const matchesQuery =
+      article.description.toLowerCase().includes(query) ||
+      article.category.toLowerCase().includes(query) ||
+      article.price.toString().includes(query);
+  
+    return isInCategory && matchesQuery;
   });
-
+  
   const numColumns = 2;
   return (
     <View style={styles.viewStyle}>
       <SearchBar onSearch={setSearchQuery} />
       <FlatList
         data={filteredArticles}
-        renderItem={({ item }) => <BedroomCard article={item} />}
+        renderItem={({ item }) => <ArticlesCard article={item} />}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         key={numColumns}
@@ -54,5 +54,4 @@ const Makeup = () => {
   );
 };
 
-export default Makeup;
-
+export default Formal;
